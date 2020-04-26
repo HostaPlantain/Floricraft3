@@ -1,0 +1,29 @@
+
+modLoader="javafml"
+loaderVersion="[31,)"
+
+issueTrackerURL="https://github.com/HostaPlantain/Floricraft3" #optional
+
+
+[[mods]]
+
+modId="floricraft3"
+version="0.0.1"
+displayName="Floricraft3"
+
+displayURL="https://github.com/HostaPlantain/Floricraft3" #optional
+logoFile="logo.png" #optional
+credits="Hosta_Plantain" #optional
+authors="Hosta_Plantain" #optional
+
+description='''
+Color your world!
+'''
+
+
+[[dependencies.botania]]
+    modId="flora"
+    mandatory=true
+    versionRange="[0.0.12,)"
+    ordering="NONE"
+    side="BOTH"

@@ -1,0 +1,98 @@
+{
+	"itemGroup.floricraft3":					"Floricraft3",
+
+
+	"_comment":	"Flowers",
+
+	"item.floricraft3.cut_dandelion":			"Cut Dandelion",
+	"item.floricraft3.cut_poppy":				"Cut Poppy",
+	"item.floricraft3.cut_blue_orchid":			"Cut Blue Orchid",
+	"item.floricraft3.cut_allium":				"Cut Allium",
+	"item.floricraft3.cut_azure_bluet":			"Cut Azure Bluet",
+	"item.floricraft3.cut_red_tulip":			"Cut Red Tulip",
+	"item.floricraft3.cut_orange_tulip":		"Cut Orange Tulip",
+	"item.floricraft3.cut_white_tulip":			"Cut White Tulip",
+	"item.floricraft3.cut_pink_tulip":			"Cut Pink Tulip",
+	"item.floricraft3.cut_oxeye_daisy":			"Cut Oxeye Daisy",
+	"item.floricraft3.cut_cornflower":			"Cut Cornflower",
+	"item.floricraft3.cut_lily":				"Cut Lily",
+	"item.floricraft3.cut_wither_rose":			"Cut Wither Rose",
+	"item.floricraft3.cut_sunflower":			"Cut Sunflower",
+	"item.floricraft3.cut_lilac":				"Cut Lilac",
+	"item.floricraft3.cut_rose":				"Cut Rose",
+	"item.floricraft3.cut_peony":				"Cut Peony",
+	"item.floricraft3.cut_sakura":				"Cut Sakura",
+
+	"item.floricraft3.stack_flower":			"Flower Stack",
+	"item.floricraft3.stack_dry_flower":		"Dried Flower Stack",
+
+	"item.floricraft3.petal_raw_white":			"White Petal",
+	"item.floricraft3.petal_raw_orange":		"Orange Petal",
+	"item.floricraft3.petal_raw_magenta":		"Magenta Petal",
+	"item.floricraft3.petal_raw_light_blue":	"Light Blue Petal",
+	"item.floricraft3.petal_raw_yellow":		"Yellow Petal",
+	"item.floricraft3.petal_raw_lime":			"Lime Petal",
+	"item.floricraft3.petal_raw_pink":			"Pink Petal",
+	"item.floricraft3.petal_raw_gray":			"Gray Petal",
+	"item.floricraft3.petal_raw_light_gray":	"Light Gray Petal",
+	"item.floricraft3.petal_raw_cyan":			"Cyan Petal",
+	"item.floricraft3.petal_raw_purple":		"Purple Petal",
+	"item.floricraft3.petal_raw_blue":			"Blue Petal",
+	"item.floricraft3.petal_raw_brown":			"Brown Petal",
+	"item.floricraft3.petal_raw_green":			"Green Petal",
+	"item.floricraft3.petal_raw_red":			"Red Petal",
+	"item.floricraft3.petal_raw_black":			"Black Petal",
+
+	"item.floricraft3.petals_slat_white":		"Handful of Salty White Petal",
+	"item.floricraft3.petals_slat_orange":		"Handful of Salty Orange Petal",
+	"item.floricraft3.petals_slat_magenta":		"Handful of Salty Magenta Petal",
+	"item.floricraft3.petals_slat_light_blue":	"Handful of Salty Light Blue Petal",
+	"item.floricraft3.petals_slat_yellow":		"Handful of Salty Yellow Petal",
+	"item.floricraft3.petals_slat_lime":		"Handful of Salty Lime Petal",
+	"item.floricraft3.petals_slat_pink":		"Handful of Salty Pink Petal",
+	"item.floricraft3.petals_slat_gray":		"Handful of Salty Gray Petal",
+	"item.floricraft3.petals_slat_light_gray":	"Handful of Salty Light Gray Petal",
+	"item.floricraft3.petals_slat_cyan":		"Handful of Salty Cyan Petal",
+	"item.floricraft3.petals_slat_purple":		"Handful of Salty Purple Petal",
+	"item.floricraft3.petals_slat_blue":		"Handful of Salty Blue Petal",
+	"item.floricraft3.petals_slat_brown":		"Handful of Salty Brown Petal",
+	"item.floricraft3.petals_slat_green":		"Handful of Salty Green Petal",
+	"item.floricraft3.petals_slat_red":			"Handful of Salty Red Petal",
+	"item.floricraft3.petals_slat_black":		"Handful of Salty Black Petal",
+
+	"item.floricraft3.petal_dry":				"Dried Petal",
+	"item.floricraft3.petals_dry":				"Handful of Dried Petal",
+
+
+	"_comment":	"Crops",
+
+	"block.floricraft3.crop_flax":				"Flax",
+	"item.floricraft3.seed_flax":				"Flax Seed",
+
+	"item.floricraft3.flax_yarn":				"Flax Yarn",
+	"item.floricraft3.flax_twine":				"Flax Twine",
+	"item.floricraft3.flax_spool":				"Flax Twine Spool",
+	"item.floricraft3.flax_cloth":				"Linen",
+
+
+	"_comment":	"Fragrances",
+
+	"item.floricraft3.sachet_sac":				"Sachet Sac",
+	"item.floricraft3.sachet_flower":			"Flower Sachet",
+
+	"effect.floricraft3.floric":				"Floric",
+
+
+	"_comment":	"Materials",
+
+	"item.floricraft3.ingot_twinkle":			"Twinkle Metal Ingot",
+	"item.floricraft3.nugget_twinkle":			"Twinkle Metal Nugget",
+	"block.floricraft3.block_twinkle":			"Twinkle Metal Block",
+
+	"item.floricraft3.dust_salt":				"Salt",
+	"block.floricraft3.ore_salt":				"Salt Ore",
+	"block.floricraft3.block_salt":				"Salt Block",
+
+
+	"_comment":	"end"
+}

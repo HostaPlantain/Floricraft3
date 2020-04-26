@@ -1,0 +1,6 @@
+{
+    "parent": "floricraft3:item/seed",
+    "textures": {
+        "layer0": "floricraft3:item/seed_flax"
+    }
+}
