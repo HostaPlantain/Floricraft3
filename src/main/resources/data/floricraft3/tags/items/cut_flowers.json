@@ -1,0 +1,21 @@
+{
+	"replace": false,
+	"values": [
+		"#floricraft3:cut_flowers/white",
+		"#floricraft3:cut_flowers/orange",
+		"#floricraft3:cut_flowers/magenta",
+		"#floricraft3:cut_flowers/light_blue",
+		"#floricraft3:cut_flowers/yellow",
+		"#floricraft3:cut_flowers/lime",
+		"#floricraft3:cut_flowers/pink",
+		"#floricraft3:cut_flowers/gray",
+		"#floricraft3:cut_flowers/light_gray",
+		"#floricraft3:cut_flowers/cyan",
+		"#floricraft3:cut_flowers/purple",
+		"#floricraft3:cut_flowers/blue",
+		"#floricraft3:cut_flowers/brown",
+		"#floricraft3:cut_flowers/green",
+		"#floricraft3:cut_flowers/red",
+		"#floricraft3:cut_flowers/black"
+	]
+}

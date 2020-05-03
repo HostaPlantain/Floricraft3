@@ -5,7 +5,6 @@ import com.hosta.Flora.block.BlockBaseCrops;
 import com.hosta.Flora.block.BlockBaseFalling;
 import com.hosta.Flora.block.BlockBaseOre;
 import com.hosta.Flora.item.ItemBaseColor;
-import com.hosta.Flora.module.AbstractMod;
 import com.hosta.Flora.module.AbstractModule;
 import com.hosta.Flora.potion.EffectBase;
 import com.hosta.Floricraft3.Reference;
@@ -17,11 +16,6 @@ import net.minecraft.item.DyeColor;
 import net.minecraft.potion.EffectType;
 
 public class ModuleFloricraft extends AbstractModule {
-
-	public ModuleFloricraft(AbstractMod mod)
-	{
-		super(mod);
-	}
 
 	@Override
 	public void registerBlocks()
@@ -51,7 +45,7 @@ public class ModuleFloricraft extends AbstractModule {
 		// Flower Petal
 		for (DyeColor color : DyeColor.values())
 		{
-			register("petal_raw_" + color.getTranslationKey(), new ItemBaseColor(color, this.MOD));
+			register("petal_raw_" + color.getTranslationKey(), new ItemBaseColor(color, this.mod));
 			register("petals_salt_" + color.getTranslationKey());
 		}
 		register("petal_dry");
@@ -65,7 +59,7 @@ public class ModuleFloricraft extends AbstractModule {
 
 		// Sachet
 		register("sachet_sac");
-		register("sachet_flower", new ItemSachet(7200, this.MOD));
+		register("sachet_flower", new ItemSachet(7200, this.mod));
 
 		// Twinkle Metal
 		register("ingot_twinkle");

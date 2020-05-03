@@ -1,0 +1,21 @@
+{
+	"replace": false,
+	"values": [
+		"#floricraft3:petalss/salt/white",
+		"#floricraft3:petalss/salt/orange",
+		"#floricraft3:petalss/salt/magenta",
+		"#floricraft3:petalss/salt/light_blue",
+		"#floricraft3:petalss/salt/yellow",
+		"#floricraft3:petalss/salt/lime",
+		"#floricraft3:petalss/salt/pink",
+		"#floricraft3:petalss/salt/gray",
+		"#floricraft3:petalss/salt/light_gray",
+		"#floricraft3:petalss/salt/cyan",
+		"#floricraft3:petalss/salt/purple",
+		"#floricraft3:petalss/salt/blue",
+		"#floricraft3:petalss/salt/brown",
+		"#floricraft3:petalss/salt/green",
+		"#floricraft3:petalss/salt/red",
+		"#floricraft3:petalss/salt/black"
+	]
+}

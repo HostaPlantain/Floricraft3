@@ -2,8 +2,8 @@ package com.hosta.Floricraft3.item;
 
 import java.util.List;
 
+import com.hosta.Flora.IMod;
 import com.hosta.Flora.item.ItemBaseTool;
-import com.hosta.Flora.module.AbstractMod;
 import com.hosta.Flora.util.Helper;
 
 import net.minecraft.client.util.ITooltipFlag;
@@ -20,7 +20,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class ItemSachet extends ItemBaseTool {
 
-	public ItemSachet(int maxDamageIn, AbstractMod mod)
+	public ItemSachet(int maxDamageIn, IMod mod)
 	{
 		super(maxDamageIn, mod);
 	}

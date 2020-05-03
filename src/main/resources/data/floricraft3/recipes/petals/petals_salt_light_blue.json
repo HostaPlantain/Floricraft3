@@ -1,0 +1,16 @@
+{
+	"type": "crafting_shaped",
+	"group": "petals_salt",
+	"pattern": [
+    	"PPP",
+    	"PSP",
+    	"PPP"
+	],
+	"key": {
+    	"P": { "tag": "floricraft3:petals/raw/light_blue" },
+    	"S": { "tag": "forge:dusts/salt" }
+	},
+	"result": {
+    	"item": "floricraft3:petals_salt_light_blue"
+	}
+}

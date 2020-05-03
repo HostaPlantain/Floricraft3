@@ -1,5 +1,5 @@
 package com.hosta.Floricraft3.proxy;
 
-public class CommonProxy {
+public class ProxyCommon {
 
 }

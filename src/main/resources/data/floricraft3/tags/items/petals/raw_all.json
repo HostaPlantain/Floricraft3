@@ -1,0 +1,21 @@
+{
+	"replace": false,
+	"values": [
+		"#floricraft3:petals/raw/white",
+		"#floricraft3:petals/raw/orange",
+		"#floricraft3:petals/raw/magenta",
+		"#floricraft3:petals/raw/light_blue",
+		"#floricraft3:petals/raw/yellow",
+		"#floricraft3:petals/raw/lime",
+		"#floricraft3:petals/raw/pink",
+		"#floricraft3:petals/raw/gray",
+		"#floricraft3:petals/raw/light_gray",
+		"#floricraft3:petals/raw/cyan",
+		"#floricraft3:petals/raw/purple",
+		"#floricraft3:petals/raw/blue",
+		"#floricraft3:petals/raw/brown",
+		"#floricraft3:petals/raw/green",
+		"#floricraft3:petals/raw/red",
+		"#floricraft3:petals/raw/black"
+	]
+}
