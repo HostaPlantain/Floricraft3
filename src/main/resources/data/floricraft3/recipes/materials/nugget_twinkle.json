@@ -1,0 +1,12 @@
+{
+	"type": "crafting_shapeless",
+	"ingredients":
+	[
+		{ "tag": "forge:ingots/twinkle" }
+	],
+	"result":
+	{
+		"item": "floricraft3:nugget_twinkle",
+		"count": 9
+	}
+}

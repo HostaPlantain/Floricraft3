@@ -1,0 +1,17 @@
+{
+	"type": "crafting_shaped",
+	"pattern":
+	[
+		"###",
+		"###",
+		"###"
+	],
+	"key":
+	{
+		"#": { "tag": "forge:ingots/twinkle" }
+	},
+	"result":
+	{
+		"item": "floricraft3:block_twinkle"
+	}
+}

@@ -1,6 +1,7 @@
 {
 	"replace": false,
-	"values": [
+	"values":
+	[
 		"#forge:storage_blocks/salt",
 		"#forge:storage_blocks/twinkle"
 	]

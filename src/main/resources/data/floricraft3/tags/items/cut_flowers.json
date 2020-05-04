@@ -1,6 +1,7 @@
 {
 	"replace": false,
-	"values": [
+	"values":
+	[
 		"#floricraft3:cut_flowers/white",
 		"#floricraft3:cut_flowers/orange",
 		"#floricraft3:cut_flowers/magenta",

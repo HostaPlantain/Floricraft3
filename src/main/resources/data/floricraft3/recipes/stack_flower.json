@@ -1,0 +1,18 @@
+{
+	"type": "crafting_shaped",
+	"pattern":
+	[
+		"CCC",
+		"CCC",
+		"SCC"
+	],
+	"key":
+	{
+		"C": { "tag": "floricraft3:cut_flowers" },
+		"S": { "tag": "forge:string" }
+	},
+	"result":
+	{
+		"item": "floricraft3:stack_flower"
+	}
+}

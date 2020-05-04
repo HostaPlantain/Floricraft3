@@ -1,0 +1,18 @@
+{
+	"type": "crafting_shaped",
+	"pattern":
+	[
+		"STS",
+		"TTT",
+		"STS"
+	],
+	"key":
+	{
+		"T": { "item": "floricraft3:flax_twine" },
+		"S": { "item": "floricraft3:flax_spool" }
+	},
+	"result":
+	{
+		"item": "floricraft3:flax_cloth"
+	}
+}

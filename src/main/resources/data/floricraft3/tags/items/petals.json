@@ -1,6 +1,7 @@
 {
 	"replace": false,
-	"values": [
+	"values":
+	[
 		"#floricraft3:petals/raw_all",
 		"#floricraft3:petals/dry_all"
 	]

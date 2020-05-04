@@ -1,0 +1,19 @@
+{
+	"type": "crafting_shaped",
+	"pattern":
+	[
+		" T ",
+		"CPC",
+		" C "
+	],
+	"key":
+	{
+		"C": { "item": "floricraft3:flax_cloth" },
+		"T": { "item": "floricraft3:flax_twine" },
+		"P": { "tag": "floricraft3:petalss/dry_all" }
+	},
+	"result":
+	{
+		"item": "floricraft3:sachet_sac"
+	}
+}

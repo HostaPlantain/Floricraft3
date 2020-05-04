@@ -1,0 +1,12 @@
+{
+	"type": "crafting_shapeless",
+	"ingredients":
+	[
+		{ "tag": "forge:storage_blocks/salt" }
+	],
+	"result":
+	{
+		"item": "floricraft3:dust_salt",
+		"count": 4
+	}
+}

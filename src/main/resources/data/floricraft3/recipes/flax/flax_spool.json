@@ -1,0 +1,18 @@
+{
+	"type": "crafting_shaped",
+	"pattern":
+	[
+		"TTS",
+		"TST",
+		"STT"
+	],
+	"key":
+	{
+		"T": { "item": "floricraft3:flax_twine" },
+		"S": { "tag": "forge:rods/wooden" }
+	},
+	"result":
+	{
+		"item": "floricraft3:flax_spool"
+	}
+}

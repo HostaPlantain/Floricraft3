@@ -1,14 +1,17 @@
 {
 	"type": "crafting_shaped",
-	"pattern": [
-    	"PPP",
-    	"PPP",
-    	"PPP"
+	"pattern":
+	[
+		"PPP",
+		"PPP",
+		"PPP"
 	],
-	"key": {
-    	"P": { "tag": "floricraft3:petals/dry_all" }
+	"key":
+	{
+		"P": { "tag": "floricraft3:petals/dry_all" }
 	},
-	"result": {
-    	"item": "floricraft3:petals_dry"
+	"result":
+	{
+		"item": "floricraft3:petals_dry"
 	}
 }

@@ -1,0 +1,12 @@
+{
+	"type": "crafting_shapeless",
+	"ingredients":
+	[
+		{ "item": "floricraft3:stack_dry_flower" }
+	],
+	"result":
+	{
+		"item": "floricraft3:petal_dry",
+		"count": 8
+	}
+}

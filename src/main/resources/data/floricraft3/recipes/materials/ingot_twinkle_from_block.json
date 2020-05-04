@@ -1,0 +1,12 @@
+{
+	"type": "crafting_shapeless",
+	"ingredients":
+	[
+		{ "tag": "forge:storage_blocks/twinkle" }
+	],
+	"result":
+	{
+		"item": "floricraft3:ingot_twinkle",
+		"count": 9
+	}
+}

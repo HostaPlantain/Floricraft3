@@ -1,10 +1,14 @@
+plugins {
+	id "com.wynprice.cursemaven" version "2.1.1"
+}
+
 repositories {
     maven {	// Mantle, TiC, JEI
         name "DVS1 Maven FS"
         url "http://dvs1.progwml6.com/files/maven"
     }
     maven {	// CurseForge
-        url "http://minecraft.curseforge.com/api/maven/"
+        url "https://minecraft.curseforge.com/api/maven/"
     }
 }
 
@@ -25,6 +29,8 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-${config.mc_ver}:${config.jei_ver}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${config.mc_ver}:${config.jei_ver}")
 
+    compile fg.deobf("curse.maven:tetra:2940432")
+    compile fg.deobf("curse.maven:mgui:2928277")
     compile project(':Flora')
 }
 

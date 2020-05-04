@@ -1,0 +1,13 @@
+{
+	"type": "crafting_shapeless",
+	"group": "petal_raw",
+	"ingredients":
+	[
+		{ "tag": "floricraft3:cut_flowers/light_blue" }
+	],
+	"result":
+	{
+		"item": "floricraft3:petal_raw_light_blue",
+		"count": 2
+	}
+}
