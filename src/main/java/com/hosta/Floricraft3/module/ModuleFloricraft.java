@@ -1,17 +1,23 @@
 package com.hosta.Floricraft3.module;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.hosta.Flora.block.BlockBase;
 import com.hosta.Flora.block.BlockBaseCrops;
 import com.hosta.Flora.block.BlockBaseFalling;
 import com.hosta.Flora.block.BlockBaseOre;
 import com.hosta.Flora.item.ItemBaseColor;
 import com.hosta.Flora.module.AbstractModule;
-import com.hosta.Flora.potion.EffectBase;
+import com.hosta.Floricraft3.Floricraft3;
 import com.hosta.Floricraft3.Reference;
 import com.hosta.Floricraft3.item.ItemSachet;
+import com.hosta.Floricraft3.potion.EffectActive;
+import com.hosta.Floricraft3.potion.EffectAntis;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.DyeColor;
 import net.minecraft.potion.EffectType;
 
@@ -72,6 +78,16 @@ public class ModuleFloricraft extends AbstractModule {
 	@Override
 	public void registerEffects()
 	{
-		register("floric", new EffectBase(EffectType.BENEFICIAL, 0xFFDAFF));
+		register("floric", new EffectActive(EffectType.BENEFICIAL, 0xFFDAFF));
+		for (String a : Floricraft3.CONFIG_COMMON.antis.get())
+		{
+			String[] anti = a.split(";");
+			List<EntityType<?>> types = new ArrayList<EntityType<?>>();
+			for (int i = 1; i < anti.length; ++i)
+			{
+				types.add(EntityType.byKey(anti[i]).get());
+			}
+			register("anti_" + anti[0], new EffectAntis(EffectType.BENEFICIAL, 0xFFDAFF, types.toArray(new EntityType[types.size()])));
+		}
 	}
 }
