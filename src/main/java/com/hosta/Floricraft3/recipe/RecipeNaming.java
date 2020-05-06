@@ -1,6 +1,7 @@
 package com.hosta.Floricraft3.recipe;
 
 import com.hosta.Flora.util.ColorHelper;
+import com.hosta.Floricraft3.Reference;
 
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.DyeColor;
@@ -10,8 +11,9 @@ import net.minecraft.item.NameTagItem;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.SpecialRecipe;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.registries.ObjectHolder;
 
 public class RecipeNaming extends SpecialRecipe {
 
@@ -52,7 +54,7 @@ public class RecipeNaming extends SpecialRecipe {
 	@Override
 	public ItemStack getCraftingResult(CraftingInventory inv)
 	{
-		String name = null;
+		ITextComponent name = null;
 		ColorHelper color = ColorHelper.WHITE;
 		ItemStack output = ItemStack.EMPTY;
 
@@ -61,7 +63,7 @@ public class RecipeNaming extends SpecialRecipe {
 			ItemStack itemIn = inv.getStackInSlot(i);
 			if (itemIn.getItem() instanceof NameTagItem && itemIn.hasDisplayName())
 			{
-				name = itemIn.getDisplayName().getFormattedText().replaceAll("˜o", "");
+				name = itemIn.getDisplayName();
 			}
 			else if (itemIn.getItem() instanceof DyeItem)
 			{
@@ -76,9 +78,9 @@ public class RecipeNaming extends SpecialRecipe {
 
 		if (!output.isEmpty() && name != null)
 		{
-			StringTextComponent str = new StringTextComponent(name);
-			str.getStyle().setColor(color.getTextFormatting());
-			output.setDisplayName(str);
+			name.getStyle().setItalic(false);
+			name.getStyle().setColor(color.getTextFormatting());
+			output.setDisplayName(name);
 		}
 		return output;
 	}
@@ -86,13 +88,15 @@ public class RecipeNaming extends SpecialRecipe {
 	@Override
 	public boolean canFit(int width, int height)
 	{
-		return (width * height) > 2;
+		return (width * height) >= 2;
 	}
+
+	@ObjectHolder(Reference.MOD_ID + ":crafting_special_naming")
+	public static IRecipeSerializer<RecipeNaming> recipe;
 
 	@Override
 	public IRecipeSerializer<?> getSerializer()
 	{
-		return null;
+		return recipe;
 	}
-
 }

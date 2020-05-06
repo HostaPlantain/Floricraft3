@@ -10,7 +10,6 @@ import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.Goal.Flag;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
@@ -32,9 +31,11 @@ public class EffectAntis extends EffectBase {
 	@Override
 	public void performEffect(LivingEntity entityLivingBaseIn, int amplifier)
 	{
-		if (entityLivingBaseIn.world.isRemote) return;
-
-		if (entityLivingBaseIn instanceof PlayerEntity)
+		if (entityLivingBaseIn.world.isRemote)
+		{
+			return;
+		}
+		else if (entityLivingBaseIn instanceof PlayerEntity)
 		{
 			PlayerEntity player = (PlayerEntity) entityLivingBaseIn;
 			double rangeHori = 8.0d;
@@ -45,23 +46,32 @@ public class EffectAntis extends EffectBase {
 			for (Entity entity : list)
 			{
 				CreatureEntity mob = (CreatureEntity) entity;
-				if (mob.getActivePotionEffect(this) == null || mob.getActivePotionEffect(this).getDuration() < 5)
-				{
-					mob.targetSelector.disableFlag(Flag.TARGET);
-					mob.setAttackTarget(null);
-					mob.targetSelector.addGoal(20, getDumyGoal(mob));
-				}
+				disableTarget(mob);
 				EffectHelper.mergeEffect(mob, new EffectInstance(this, 10, 0, false, false), 20);
 			}
 		}
-		else if (entityLivingBaseIn instanceof MobEntity)
+		else if (entityLivingBaseIn instanceof CreatureEntity)
 		{
-			if (entityLivingBaseIn.getActivePotionEffect(this).getDuration() == 5)
-			{
-				CreatureEntity mob = (CreatureEntity) entityLivingBaseIn;
-				mob.targetSelector.enableFlag(Flag.TARGET);
-				mob.targetSelector.removeGoal(getDumyGoal(mob));
-			}
+			eableTarget((CreatureEntity) entityLivingBaseIn);
+		}
+	}
+
+	private void disableTarget(CreatureEntity mob)
+	{
+		if (mob.getActivePotionEffect(this) == null || mob.getActivePotionEffect(this).getDuration() < 5)
+		{
+			mob.targetSelector.disableFlag(Flag.TARGET);
+			mob.setAttackTarget(null);
+			mob.targetSelector.addGoal(20, getDumyGoal(mob));
+		}
+	}
+
+	private void eableTarget(CreatureEntity mob)
+	{
+		if (mob.getActivePotionEffect(this).getDuration() == 5)
+		{
+			mob.targetSelector.enableFlag(Flag.TARGET);
+			mob.targetSelector.removeGoal(getDumyGoal(mob));
 		}
 	}
 
