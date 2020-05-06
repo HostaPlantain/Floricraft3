@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.hosta.Flora.IMod;
 import com.hosta.Flora.item.ItemBaseTool;
-import com.hosta.Flora.util.Helper;
+import com.hosta.Flora.util.EffectHelper;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -48,7 +48,7 @@ public class ItemSachet extends ItemBaseTool {
 		int i = 0;
 		for (EffectInstance effect : PotionUtils.getEffectsFromStack(stack))
 		{
-			if (Helper.mergeEffect(player, effect, 10))
+			if (EffectHelper.mergeEffect(player, effect, 10))
 			{
 				i += effect.getAmplifier() + 1;
 			}

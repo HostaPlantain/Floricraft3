@@ -1,7 +1,7 @@
 package com.hosta.Floricraft3.potion;
 
 import com.hosta.Flora.potion.EffectBase;
-import com.hosta.Flora.util.Helper;
+import com.hosta.Flora.util.EffectHelper;
 import com.hosta.Floricraft3.Reference;
 
 import net.minecraft.entity.LivingEntity;
@@ -24,7 +24,7 @@ public class EffectActive extends EffectBase {
 	{
 		if (this == floric)
 		{
-			Helper.healBadEffect(entityLivingBaseIn, 20, true);
+			EffectHelper.healBadEffect(entityLivingBaseIn, 20, true);
 			if (entityLivingBaseIn.getHealth() < entityLivingBaseIn.getMaxHealth())
 			{
 				entityLivingBaseIn.heal(1.0f);

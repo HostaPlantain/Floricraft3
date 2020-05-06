@@ -4,7 +4,7 @@ import java.util.EnumSet;
 import java.util.List;
 
 import com.hosta.Flora.potion.EffectBase;
-import com.hosta.Flora.util.Helper;
+import com.hosta.Flora.util.EffectHelper;
 
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
@@ -51,7 +51,7 @@ public class EffectAntis extends EffectBase {
 					mob.setAttackTarget(null);
 					mob.targetSelector.addGoal(20, getDumyGoal(mob));
 				}
-				Helper.mergeEffect(mob, new EffectInstance(this, 10, 0, false, false), 20);
+				EffectHelper.mergeEffect(mob, new EffectInstance(this, 10, 0, false, false), 20);
 			}
 		}
 		else if (entityLivingBaseIn instanceof MobEntity)
