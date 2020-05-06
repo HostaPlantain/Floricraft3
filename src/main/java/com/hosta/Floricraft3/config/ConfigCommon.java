@@ -16,7 +16,7 @@ public class ConfigCommon extends AbstractConfig {
 		super(Type.COMMON);
 	}
 
-	public ConfigValue<List<? extends String>> antis;
+	public ConfigValue<List<? extends String>> addedAntiPotions;
 	private static final String[]	ANTIS_DEFAULT	= new String[]
 			{
 					"zombie;zombie;zombie_villager;husk;drowned",
@@ -33,7 +33,7 @@ public class ConfigCommon extends AbstractConfig {
 			.comment("Common settings for Floricraft3.")
 			.push("common");
 
-		antis = builder
+		addedAntiPotions = builder
 				.comment("Additional Potion Effect to Avoid Creatures")
 				.translation("flora.configgui.addedAntiPotions")
 				.defineList("addedAntiPotions", Arrays.asList(ANTIS_DEFAULT), (s) -> {return true;});
@@ -42,5 +42,4 @@ public class ConfigCommon extends AbstractConfig {
 
 		return this;
 	}
-
 }

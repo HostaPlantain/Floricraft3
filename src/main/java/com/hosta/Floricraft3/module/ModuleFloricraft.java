@@ -14,13 +14,11 @@ import com.hosta.Floricraft3.Reference;
 import com.hosta.Floricraft3.item.ItemSachet;
 import com.hosta.Floricraft3.potion.EffectActive;
 import com.hosta.Floricraft3.potion.EffectAntis;
-import com.hosta.Floricraft3.recipe.RecipeNaming;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.DyeColor;
-import net.minecraft.item.crafting.SpecialRecipeSerializer;
 import net.minecraft.potion.EffectType;
 
 public class ModuleFloricraft extends AbstractModule {
@@ -81,7 +79,7 @@ public class ModuleFloricraft extends AbstractModule {
 	public void registerEffects()
 	{
 		register("floric", new EffectActive(EffectType.BENEFICIAL, 0xFFDAFF));
-		for (String a : Floricraft3.CONFIG_COMMON.antis.get())
+		for (String a : Floricraft3.CONFIG_COMMON.addedAntiPotions.get())
 		{
 			String[] anti = a.split(";");
 			List<EntityType<?>> types = new ArrayList<EntityType<?>>();
@@ -96,6 +94,6 @@ public class ModuleFloricraft extends AbstractModule {
 	@Override
 	public void registerRecipes()
 	{
-		register("crafting_special_naming", new SpecialRecipeSerializer<>(idIn -> new RecipeNaming(idIn)));
+		
 	}
 }
