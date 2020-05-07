@@ -1,4 +1,4 @@
-![](https://github.com/HostaPlantain/Floricraft3/blob/master/src/main/resources/logo.png)
+![](https://raw.githubusercontent.com/HostaPlantain/Floricraft3/master/src/main/resources/logo.png)
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/HostaPlantain/Floricraft3?label=Commit%20Activity&logo=github&style=flat)](https://github.com/HostaPlantain/Floricraft3)
 [![GitHub last commit](https://img.shields.io/github/last-commit/HostaPlantain/Floricraft3?label=Last%20Commit&logo=github&style=flat)](https://github.com/HostaPlantain/Floricraft3)
