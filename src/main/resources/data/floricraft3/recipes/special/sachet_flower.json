@@ -1,0 +1,12 @@
+{
+	"type": "flora:crafting_effect",
+	"ingredients":
+	[
+		{ "item": "minecraft:potion" },
+		{ "item": "floricraft3:sachet_sac" }
+	],
+	"result":
+	{
+		"item": "floricraft3:sachet_flower"
+	}
+}

@@ -94,6 +94,6 @@ public class ModuleFloricraft extends AbstractModule {
 	@Override
 	public void registerRecipes()
 	{
-		
+
 	}
 }

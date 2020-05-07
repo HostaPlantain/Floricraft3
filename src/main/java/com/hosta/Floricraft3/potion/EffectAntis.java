@@ -86,7 +86,10 @@ public class EffectAntis extends EffectBase {
 	{
 		for (EntityType<?> type : ANTI_ENTITY)
 		{
-			if (entityType == type) {return true;}
+			if (entityType == type)
+			{
+				return true;
+			}
 		}
 		return false;
 	}

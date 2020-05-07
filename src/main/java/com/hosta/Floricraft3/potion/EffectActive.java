@@ -39,8 +39,14 @@ public class EffectActive extends EffectBase {
 		if (this == floric)
 		{
 			int i = 256 >> amplifier;
-			if (i <= 0) {i = 1;}
-			if (duration % i == 0) {ready = true;}
+			if (i <= 0)
+			{
+				i = 1;
+			}
+			if (duration % i == 0)
+			{
+				ready = true;
+			}
 		}
 		return ready;
 	}

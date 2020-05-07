@@ -21,29 +21,29 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ObjectHolder;
 
 @Mod(Reference.MOD_ID)
-public class Floricraft3 implements IMod{
+public class Floricraft3 implements IMod {
 
-	public static final Logger LOGGER = LogManager.getLogger(Reference.MOD_ID);
-	public static final ProxyCommon PROXY = DistExecutor.runForDist(() -> () -> new ProxyCommon(), () -> () -> new ProxyClient());
-	public static final ConfigCommon CONFIG_COMMON = new ConfigCommon();
+	public static final Logger			LOGGER			= LogManager.getLogger(Reference.MOD_ID);
+	public static final ProxyCommon		PROXY			= DistExecutor.runForDist(() -> () -> new ProxyCommon(), () -> () -> new ProxyClient());
+	public static final ConfigCommon	CONFIG_COMMON	= new ConfigCommon();
 
 	public Floricraft3()
 	{
 		AbstractConfig.registerConfigs(CONFIG_COMMON);
 		new RegistryHandler(this, new ModuleFloricraft());
 	}
-	
+
 	@ObjectHolder(Reference.MOD_ID + ":stack_flower")
-	public static Item stackFlower;
-	public static final ItemGroup	TAB		= new ItemGroup(Reference.MOD_ID)
-	{
-		@OnlyIn(Dist.CLIENT)
-		@Override
-		public ItemStack createIcon()
+	public static Item				stackFlower;
+	public static final ItemGroup	TAB	= new ItemGroup(Reference.MOD_ID)
 		{
-			return new ItemStack(stackFlower);
-		}
-	};
+			@OnlyIn(Dist.CLIENT)
+			@Override
+			public ItemStack createIcon()
+			{
+				return new ItemStack(stackFlower);
+			}
+		};
 
 	@Override
 	public ItemGroup getTab()
