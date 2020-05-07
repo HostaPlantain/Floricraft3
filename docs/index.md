@@ -1,4 +1,4 @@
-![](src/main/resources/logo.png)
+![](https://github.com/HostaPlantain/Floricraft3/blob/master/src/main/resources/logo.png)
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/HostaPlantain/Floricraft3?label=Commit%20Activity&logo=github&style=flat)](https://github.com/HostaPlantain/Floricraft3)
 [![GitHub last commit](https://img.shields.io/github/last-commit/HostaPlantain/Floricraft3?label=Last%20Commit&logo=github&style=flat)](https://github.com/HostaPlantain/Floricraft3)
@@ -35,7 +35,7 @@ This mod is released under [the MIT License](/LICENSE).
 
 ## Author
 
-+ Hosta_Plantain
+Hosta_Plantain
 [![Twitter](https://img.shields.io/twitter/follow/Hosta_Plantain?color=1DA1F2&label=Twitter&logo=twitter&style=flat)](https://twitter.com/hosta_plantain)
 [![GitHub](https://img.shields.io/github/followers/HostaPlantain?label=GitHub&logo=github&style=flat)](https://github.com/HostaPlantain)
 [![Discord](https://img.shields.io/discord/704290681392332880?label=Discord&logo=discord)](https://discord.gg/H2NXexh)
