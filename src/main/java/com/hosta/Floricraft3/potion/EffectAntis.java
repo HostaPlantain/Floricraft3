@@ -3,6 +3,8 @@ package com.hosta.Floricraft3.potion;
 import java.util.EnumSet;
 import java.util.List;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.hosta.Flora.potion.EffectBase;
 import com.hosta.Flora.util.EffectHelper;
 
@@ -14,18 +16,27 @@ import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.Goal.Flag;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraftforge.common.crafting.CraftingHelper;
 
 public class EffectAntis extends EffectBase {
 
-	private final EntityType<?>[] ANTI_ENTITY;
+	private final EntityType<?>[]	ANTI_ENTITY;
+	private final Ingredient		RECIPE;
 
-	public EffectAntis(EffectType typeIn, int liquidColorIn, EntityType<?>[] anits)
+	public EffectAntis(EntityType<?>[] anits, JsonElement json)
 	{
-		super(typeIn, liquidColorIn);
+		super(EffectType.BENEFICIAL, 0xFFDAFF);
 		this.ANTI_ENTITY = anits;
+		this.RECIPE = Ingredient.fromStacks(CraftingHelper.getItemStack((JsonObject) json, false));
+	}
+
+	public Ingredient getRecipe()
+	{
+		return this.RECIPE;
 	}
 
 	@Override

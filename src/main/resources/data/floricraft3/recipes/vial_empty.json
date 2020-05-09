@@ -1,0 +1,17 @@
+{
+	"type": "crafting_shaped",
+	"pattern":
+	[
+		"G G",
+		" G "
+	],
+	"key":
+	{
+		"G": { "item": "minecraft:brown_stained_glass" }
+	},
+	"result":
+	{
+		"item": "floricraft3:vial_empty",
+		"count": 3
+	}
+}

@@ -3,6 +3,9 @@ package com.hosta.Floricraft3.module;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.hosta.Flora.block.BlockBase;
 import com.hosta.Flora.block.BlockBaseCrops;
 import com.hosta.Flora.block.BlockBaseFalling;
@@ -116,13 +119,14 @@ public class ModuleFloricraft extends AbstractModule {
 		register("floric", new EffectActive(EffectType.BENEFICIAL, 0xFFDAFF));
 		for (String str : Floricraft3.CONFIG_COMMON.addedAntiPotions.get())
 		{
-			String[] anti = str.split(";");
+			JsonObject json = (JsonObject) new JsonParser().parse(str);
+			String name = json.get("name").getAsString();
 			List<EntityType<?>> types = new ArrayList<EntityType<?>>();
-			for (int i = 1; i < anti.length; ++i)
+			for (JsonElement anti : json.get("types").getAsJsonArray())
 			{
-				types.add(EntityType.byKey(anti[i]).get());
+				types.add(EntityType.byKey(anti.getAsString()).get());
 			}
-			register("anti_" + anti[0], new EffectAntis(EffectType.BENEFICIAL, 0xFFDAFF, types.toArray(new EntityType[types.size()])));
+			register("anti_" + name, new EffectAntis(types.toArray(new EntityType[types.size()]), json.get("recipe")));
 		}
 	}
 
@@ -132,9 +136,14 @@ public class ModuleFloricraft extends AbstractModule {
 		ItemVialFlower.setPotionList(list);
 		for (Potion potion : list)
 		{
+			Effect effect = potion.getEffects().get(0).getPotion();
 			if (potion == potionFloric)
 			{
 				register(new RecipeBrewingVial(Ingredient.fromTag(PETAL_RAW), potionFloric, true));
+			}
+			else if (effect instanceof EffectAntis)
+			{
+				register(new RecipeBrewingVial(((EffectAntis) effect).getRecipe(), potion, false));
 			}
 		}
 	}

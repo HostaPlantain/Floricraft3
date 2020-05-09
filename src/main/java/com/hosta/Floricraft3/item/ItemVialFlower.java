@@ -30,10 +30,8 @@ public class ItemVialFlower extends ItemBasePotionTooltip {
 	{
 		if (this.isInGroup(group))
 		{
-			System.out.println(potions);
 			for (Potion potion : potions)
 			{
-				System.out.println(potion);
 				items.add(PotionUtils.addPotionToItemStack(new ItemStack(this), potion));
 			}
 		}
@@ -41,7 +39,6 @@ public class ItemVialFlower extends ItemBasePotionTooltip {
 
 	public static void setPotionList(List<Potion> list)
 	{
-		System.out.println(potions);
 		potions = list.toArray(new Potion[list.size()]);
 	}
 }

@@ -7,6 +7,7 @@ import com.hosta.Flora.IMod;
 import com.hosta.Flora.config.AbstractConfig;
 import com.hosta.Flora.registry.RegistryHandler;
 import com.hosta.Floricraft3.config.ConfigCommon;
+import com.hosta.Floricraft3.event.EventHandler;
 import com.hosta.Floricraft3.module.ModuleFloricraft;
 import com.hosta.Floricraft3.proxy.ProxyClient;
 import com.hosta.Floricraft3.proxy.ProxyCommon;
@@ -15,6 +16,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 
@@ -28,6 +30,7 @@ public class Floricraft3 implements IMod {
 	public Floricraft3()
 	{
 		AbstractConfig.registerConfigs(CONFIG_COMMON);
+		MinecraftForge.EVENT_BUS.register(new EventHandler());
 		new RegistryHandler(this, new ModuleFloricraft());
 	}
 
