@@ -1,8 +1,19 @@
 {
 	"type": "flora:crafting_effect",
+	"potion":
+	[
+		"no_instant",
+		"beneficial",
+		"neutral",
+		"duration20s",
+		"hide_particles"
+	],
 	"ingredients":
 	[
-		{ "item": "minecraft:potion" },
+		[
+			{ "item": "floricraft3:vial_mix" },
+			{ "item": "floricraft3:vial_flower" }
+		],
 		{ "item": "floricraft3:sachet_sac" }
 	],
 	"result":

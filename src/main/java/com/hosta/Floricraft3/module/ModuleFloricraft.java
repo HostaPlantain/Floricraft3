@@ -8,18 +8,22 @@ import com.hosta.Flora.block.BlockBaseCrops;
 import com.hosta.Flora.block.BlockBaseFalling;
 import com.hosta.Flora.block.BlockBaseOre;
 import com.hosta.Flora.item.ItemBaseColor;
+import com.hosta.Flora.item.ItemBasePotionTooltip;
 import com.hosta.Flora.module.AbstractModule;
 import com.hosta.Floricraft3.Floricraft3;
 import com.hosta.Floricraft3.Reference;
 import com.hosta.Floricraft3.item.ItemSachet;
+import com.hosta.Floricraft3.item.ItemVial;
 import com.hosta.Floricraft3.potion.EffectActive;
 import com.hosta.Floricraft3.potion.EffectAntis;
+import com.hosta.Floricraft3.recipe.RecipeBrewingFloricraft;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.DyeColor;
 import net.minecraft.potion.EffectType;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 
 public class ModuleFloricraft extends AbstractModule {
 
@@ -63,6 +67,13 @@ public class ModuleFloricraft extends AbstractModule {
 		register("flax_spool");
 		register("flax_cloth");
 
+		// Vial
+		register("vial_empty", new ItemVial(this.mod));
+		register("vial_water", this.mod.getDefaultProp().maxStackSize(1));
+		register("vial_moon", this.mod.getDefaultProp().maxStackSize(1));
+		register("vial_flower", new ItemBasePotionTooltip(this.mod.getDefaultProp().maxStackSize(1)));
+		register("vial_mix", new ItemBasePotionTooltip(this.mod.getDefaultProp().maxStackSize(1)));
+
 		// Sachet
 		register("sachet_sac");
 		register("sachet_flower", new ItemSachet(7200, this.mod));
@@ -94,6 +105,6 @@ public class ModuleFloricraft extends AbstractModule {
 	@Override
 	public void registerRecipes()
 	{
-
+		BrewingRecipeRegistry.addRecipe(new RecipeBrewingFloricraft());
 	}
 }

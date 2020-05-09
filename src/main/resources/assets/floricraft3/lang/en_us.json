@@ -77,6 +77,12 @@
 
 	"_comment":	"Fragrances",
 
+	"item.floricraft3.vial_empty":				"Empty Vial",
+	"item.floricraft3.vial_water":				"Water Vial",
+	"item.floricraft3.vial_moon":				"Moon Drip",
+	"item.floricraft3.vial_flower":				"Flower Essential Oil",
+	"item.floricraft3.vial_mix":				"Perfume",
+
 	"item.floricraft3.sachet_sac":				"Sachet Sac",
 	"item.floricraft3.sachet_flower":			"Flower Sachet",
 

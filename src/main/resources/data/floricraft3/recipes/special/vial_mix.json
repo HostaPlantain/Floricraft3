@@ -1,0 +1,23 @@
+{
+	"type": "flora:crafting_effect",
+	"potion":
+	[
+		"all"
+	],
+	"ingredients":
+	[
+		[
+			{ "item": "minecraft:potion" },
+			{ "item": "floricraft3:vial_flower" }
+		],
+		[
+			{ "item": "floricraft3:vial_moon" },
+			{ "item": "floricraft3:vial_mix" },
+			{ "item": "floricraft3:vial_mix" }
+		]
+	],
+	"result":
+	{
+		"item": "floricraft3:vial_mix"
+	}
+}
