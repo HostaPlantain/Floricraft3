@@ -14,18 +14,42 @@ import com.hosta.Floricraft3.Floricraft3;
 import com.hosta.Floricraft3.Reference;
 import com.hosta.Floricraft3.item.ItemSachet;
 import com.hosta.Floricraft3.item.ItemVial;
+import com.hosta.Floricraft3.item.ItemVialFlower;
 import com.hosta.Floricraft3.potion.EffectActive;
 import com.hosta.Floricraft3.potion.EffectAntis;
-import com.hosta.Floricraft3.recipe.RecipeBrewingFloricraft;
+import com.hosta.Floricraft3.recipe.RecipeBrewingVial;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.DyeColor;
+import net.minecraft.item.Item;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
-import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
+import net.minecraft.potion.Potion;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.Tag;
+import net.minecraftforge.registries.ObjectHolder;
 
 public class ModuleFloricraft extends AbstractModule {
+
+	@ObjectHolder(Reference.MOD_ID + ":stack_flower")
+	public static Item	stackFlower;
+	@ObjectHolder(Reference.MOD_ID + ":vial_water")
+	public static Item	vialWater;
+	@ObjectHolder(Reference.MOD_ID + ":vial_moon")
+	public static Item	vialMoon;
+	@ObjectHolder(Reference.MOD_ID + ":vial_flower")
+	public static Item	vialFlower;
+
+	@ObjectHolder(Reference.MOD_ID + ":floric")
+	public static Effect	effectFloric;
+	@ObjectHolder(Reference.MOD_ID + ":floric")
+	public static Potion	potionFloric;
+
+	public static final Tag<Item>	VIALS		= new ItemTags.Wrapper(Reference.getResourceLocation("vials"));
+	public static final Tag<Item>	PETAL_RAW	= new ItemTags.Wrapper(Reference.getResourceLocation("petals/raw_all"));
 
 	@Override
 	public void registerBlocks()
@@ -71,8 +95,8 @@ public class ModuleFloricraft extends AbstractModule {
 		register("vial_empty", new ItemVial(this.mod));
 		register("vial_water", this.mod.getDefaultProp().maxStackSize(1));
 		register("vial_moon", this.mod.getDefaultProp().maxStackSize(1));
-		register("vial_flower", new ItemBasePotionTooltip(this.mod.getDefaultProp().maxStackSize(1)));
-		register("vial_mix", new ItemBasePotionTooltip(this.mod.getDefaultProp().maxStackSize(1)));
+		register("vial_flower", new ItemVialFlower(this.mod));
+		register("vial_mix", new ItemBasePotionTooltip(this.mod));
 
 		// Sachet
 		register("sachet_sac");
@@ -90,9 +114,9 @@ public class ModuleFloricraft extends AbstractModule {
 	public void registerEffects()
 	{
 		register("floric", new EffectActive(EffectType.BENEFICIAL, 0xFFDAFF));
-		for (String a : Floricraft3.CONFIG_COMMON.addedAntiPotions.get())
+		for (String str : Floricraft3.CONFIG_COMMON.addedAntiPotions.get())
 		{
-			String[] anti = a.split(";");
+			String[] anti = str.split(";");
 			List<EntityType<?>> types = new ArrayList<EntityType<?>>();
 			for (int i = 1; i < anti.length; ++i)
 			{
@@ -103,8 +127,15 @@ public class ModuleFloricraft extends AbstractModule {
 	}
 
 	@Override
-	public void registerRecipes()
+	public void registerPotionRecipes(List<Potion> list)
 	{
-		BrewingRecipeRegistry.addRecipe(new RecipeBrewingFloricraft());
+		ItemVialFlower.setPotionList(list);
+		for (Potion potion : list)
+		{
+			if (potion == potionFloric)
+			{
+				register(new RecipeBrewingVial(Ingredient.fromTag(PETAL_RAW), potionFloric, true));
+			}
+		}
 	}
 }

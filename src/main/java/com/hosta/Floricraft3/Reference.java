@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import net.minecraft.util.ResourceLocation;
+
 public class Reference {
 
 	public static final String	MOD_ID			= "floricraft3";
@@ -19,5 +21,10 @@ public class Reference {
 		list.addAll(Arrays.asList(FLOWERS_FC));
 
 		FLOWERS = list.toArray(new String[list.size()]);
+	}
+
+	public static ResourceLocation getResourceLocation(String path)
+	{
+		return new ResourceLocation(MOD_ID, path);
 	}
 }

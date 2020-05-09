@@ -2,17 +2,12 @@ package com.hosta.Floricraft3.potion;
 
 import com.hosta.Flora.potion.EffectBase;
 import com.hosta.Flora.util.EffectHelper;
-import com.hosta.Floricraft3.Reference;
+import com.hosta.Floricraft3.module.ModuleFloricraft;
 
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
-import net.minecraftforge.registries.ObjectHolder;
 
 public class EffectActive extends EffectBase {
-
-	@ObjectHolder(Reference.MOD_ID + ":floric")
-	public static Effect floric;
 
 	public EffectActive(EffectType typeIn, int liquidColorIn)
 	{
@@ -22,7 +17,7 @@ public class EffectActive extends EffectBase {
 	@Override
 	public void performEffect(LivingEntity entityLivingBaseIn, int amplifier)
 	{
-		if (this == floric)
+		if (this == ModuleFloricraft.effectFloric)
 		{
 			EffectHelper.healBadEffect(entityLivingBaseIn, 20, true);
 			if (entityLivingBaseIn.getHealth() < entityLivingBaseIn.getMaxHealth())
@@ -36,7 +31,7 @@ public class EffectActive extends EffectBase {
 	public boolean isReady(int duration, int amplifier)
 	{
 		boolean ready = false;
-		if (this == floric)
+		if (this == ModuleFloricraft.effectFloric)
 		{
 			int i = 256 >> amplifier;
 			if (i <= 0)
