@@ -87,6 +87,11 @@
 	"item.floricraft3.sachet_flower":			"Flower Sachet",
 
 	"effect.floricraft3.floric":				"Floric",
+	"effect.floricraft3.anti_zombie":			"Zombie Friendly",
+	"effect.floricraft3.anti_skeleton":			"Skeleton Friendly",
+	"effect.floricraft3.anti_creeper":			"Creeper Friendly",
+	"effect.floricraft3.anti_spider":			"Spider Friendly",
+	"effect.floricraft3.anti_ender":			"Ender Friendly",
 
 
 	"_comment":	"Materials",

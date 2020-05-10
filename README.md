@@ -19,13 +19,13 @@ This mod is still work in progress. When you find a bug, report [here](https://g
 
 ## Required Dependencies
 
-[![Flora Libs](https://cf.way2muchnoise.eu/title/flora-lib.svg)](https://www.curseforge.com/minecraft/mc-mods/flora-lib)
++ [Flora Libs](https://www.curseforge.com/minecraft/mc-mods/flora-lib)
 
 
 ## Optional Dependencies
 
-[![Botania](https://cf.way2muchnoise.eu/title/botania.svg)](https://www.curseforge.com/minecraft/mc-mods/botania)
-[![Tetra](https://cf.way2muchnoise.eu/title/tetra.svg)](https://www.curseforge.com/minecraft/mc-mods/tetra)
++ [Botania](https://www.curseforge.com/minecraft/mc-mods/botania)
++ [Tetra](https://www.curseforge.com/minecraft/mc-mods/tetra)
 
 
 ## License

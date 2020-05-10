@@ -21,9 +21,9 @@ Color your world!
 '''
 
 
-[[dependencies.botania]]
+[[dependencies.floricraft3]]
     modId="flora"
     mandatory=true
-    versionRange="[0.0.12,)"
+    versionRange="[0.0.1,)"
     ordering="NONE"
     side="BOTH"

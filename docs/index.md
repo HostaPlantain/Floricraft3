@@ -1,5 +1,3 @@
-![](https://raw.githubusercontent.com/HostaPlantain/Floricraft3/master/src/main/resources/logo.png)
-
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/HostaPlantain/Floricraft3?label=Commit%20Activity&logo=github&style=flat)](https://github.com/HostaPlantain/Floricraft3)
 [![GitHub last commit](https://img.shields.io/github/last-commit/HostaPlantain/Floricraft3?label=Last%20Commit&logo=github&style=flat)](https://github.com/HostaPlantain/Floricraft3)
 [![GitHub issues](https://img.shields.io/github/issues/HostaPlantain/Floricraft3?label=Issues&logo=github&style=flat)](https://github.com/HostaPlantain/Floricraft3/issues)
@@ -19,7 +17,7 @@ This mod is still work in progress. When you find a bug, report [here](https://g
 
 ## Required Dependencies
 
-[![Flora Libs](https://cf.way2muchnoise.eu/title/flora-lib.svg)](https://www.curseforge.com/minecraft/mc-mods/flora-lib)
+[![Flora Libs](https://cf.way2muchnoise.eu/title/flora-lib.svg)](https://hostaplantain.github.io/Flora/)
 
 
 ## Optional Dependencies
