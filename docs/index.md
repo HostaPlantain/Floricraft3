@@ -1,3 +1,5 @@
+#WELCOME, Beta Testers
+
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/HostaPlantain/Floricraft3?label=Commit%20Activity&logo=github&style=flat)](https://github.com/HostaPlantain/Floricraft3)
 [![GitHub last commit](https://img.shields.io/github/last-commit/HostaPlantain/Floricraft3?label=Last%20Commit&logo=github&style=flat)](https://github.com/HostaPlantain/Floricraft3)
 [![GitHub issues](https://img.shields.io/github/issues/HostaPlantain/Floricraft3?label=Issues&logo=github&style=flat)](https://github.com/HostaPlantain/Floricraft3/issues)
@@ -7,6 +9,8 @@
 
 
 Floricraft3 is an ornamental horticulture mod for Minecraft. Get new effects from flowers and color your world!
+
+Leatest [beta release](https://github.com/HostaPlantain/Floricraft3/releases/tag/0.0.1.13) is now available.
 
 
 ## Caution
