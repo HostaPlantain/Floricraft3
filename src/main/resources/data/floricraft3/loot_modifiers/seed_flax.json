@@ -1,0 +1,12 @@
+{
+	"conditions":
+	[
+		{
+			"condition": "minecraft:block_state_property",
+			"block": "minecraft:grass"
+		}
+	],
+	"loot": { "item": "floricraft3:seed_flax" },
+	"probability": 0.1,
+	"type": "flora:loot_single"
+}

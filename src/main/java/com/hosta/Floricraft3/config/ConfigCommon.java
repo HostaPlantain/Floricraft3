@@ -16,15 +16,14 @@ public class ConfigCommon extends AbstractConfig {
 		super(Type.COMMON);
 	}
 
+	private static final String		ANTI_ZOMBIE		= "{\"name\": \"zombie\", \"recipe\": {\"item\": \"minecraft:rotten_flesh\"}, \"types\": [\"zombie\", \"zombie_villager\", \"husk\", \"drowned\"]}";
+	private static final String		ANTI_SKELETON	= "{\"name\": \"skeleton\", \"recipe\": {\"item\": \"minecraft:bone\"}, \"types\": [\"skeleton\", \"wither_skeleton\", \"stray\"]}";
+	private static final String		ANTI_CREEPER	= "{\"name\": \"creeper\", \"recipe\": {\"item\": \"minecraft:gunpowder\"}, \"types\": [\"creeper\"]}";
+	private static final String		ANTI_SPIDER		= "{\"name\": \"spider\", \"recipe\": {\"item\": \"minecraft:spider_eye\"}, \"types\": [\"spider\", \"cave_spider\"]}";
+	private static final String		ANTI_ENDER		= "{\"name\": \"ender\", \"recipe\": {\"item\": \"minecraft:ender_pearl\"}, \"types\": [\"enderman\", \"endermite\"]}";
+	private static final String[]	ANTIS_DEFAULT	= new String[] { ANTI_ZOMBIE, ANTI_SKELETON, ANTI_CREEPER, ANTI_SPIDER, ANTI_ENDER };
+
 	public ConfigValue<List<? extends String>> addedAntiPotions;
-
-	private static final String	ANTI_ZOMBIE		= "{\"name\": \"zombie\", \"recipe\": {\"item\": \"minecraft:rotten_flesh\"}, \"types\": [\"zombie\", \"zombie_villager\", \"husk\", \"drowned\"]}";
-	private static final String	ANTI_SKELETON	= "{\"name\": \"skeleton\", \"recipe\": {\"item\": \"minecraft:bone\"}, \"types\": [\"skeleton\", \"wither_skeleton\", \"stray\"]}";
-	private static final String	ANTI_CREEPER	= "{\"name\": \"creeper\", \"recipe\": {\"item\": \"minecraft:gunpowder\"}, \"types\": [\"creeper\"]}";
-	private static final String	ANTI_SPIDER		= "{\"name\": \"spider\", \"recipe\": {\"item\": \"minecraft:spider_eye\"}, \"types\": [\"spider\", \"cave_spider\"]}";
-	private static final String	ANTI_ENDER		= "{\"name\": \"ender\", \"recipe\": {\"item\": \"minecraft:ender_pearl\"}, \"types\": [\"enderman\", \"endermite\"]}";
-
-	private static final String[] ANTIS_DEFAULT = new String[] { ANTI_ZOMBIE, ANTI_SKELETON, ANTI_CREEPER, ANTI_SPIDER, ANTI_ENDER };
 
 	@Override
 	protected AbstractConfig build(Builder builder)

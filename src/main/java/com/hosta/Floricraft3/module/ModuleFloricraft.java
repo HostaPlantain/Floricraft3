@@ -37,6 +37,8 @@ import net.minecraftforge.registries.ObjectHolder;
 
 public class ModuleFloricraft extends AbstractModule {
 
+	@ObjectHolder(Reference.MOD_ID + ":seed_flax")
+	public static Item	seedFlax;
 	@ObjectHolder(Reference.MOD_ID + ":stack_flower")
 	public static Item	stackFlower;
 	@ObjectHolder(Reference.MOD_ID + ":vial_water")
@@ -51,7 +53,6 @@ public class ModuleFloricraft extends AbstractModule {
 	@ObjectHolder(Reference.MOD_ID + ":floric")
 	public static Potion	potionFloric;
 
-	public static final Tag<Item>	VIALS		= new ItemTags.Wrapper(Reference.getResourceLocation("vials"));
 	public static final Tag<Item>	PETAL_RAW	= new ItemTags.Wrapper(Reference.getResourceLocation("petals/raw_all"));
 
 	@Override
@@ -59,10 +60,8 @@ public class ModuleFloricraft extends AbstractModule {
 	{
 		// Crop & Seed
 		register("crop_flax", new BlockBaseCrops("seed_flax", Material.PLANTS));
-
 		// Twinkle Metal
 		register("block_twinkle", new BlockBase(Material.IRON));
-
 		// Salt
 		register("ore_salt", new BlockBaseOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5F, 3.0F)));
 		register("block_salt", new BlockBaseFalling(0xFFFFFF, Block.Properties.create(Material.SAND)));
@@ -78,7 +77,6 @@ public class ModuleFloricraft extends AbstractModule {
 		}
 		register("stack_flower");
 		register("stack_dry_flower");
-
 		// Flower Petal
 		for (DyeColor color : DyeColor.values())
 		{
@@ -87,28 +85,23 @@ public class ModuleFloricraft extends AbstractModule {
 		}
 		register("petal_dry");
 		register("petals_dry");
-
 		// Flax Items
 		register("flax_yarn");
 		register("flax_twine");
 		register("flax_spool");
 		register("flax_cloth");
-
 		// Vial
 		register("vial_empty", new ItemVial(this.mod));
 		register("vial_water", this.mod.getDefaultProp().maxStackSize(1));
 		register("vial_moon", this.mod.getDefaultProp().maxStackSize(1));
 		register("vial_flower", new ItemVialFlower(this.mod));
 		register("vial_mix", new ItemBasePotionTooltip(this.mod));
-
 		// Sachet
 		register("sachet_sac");
 		register("sachet_flower", new ItemSachet(7200, this.mod));
-
 		// Twinkle Metal
 		register("ingot_twinkle");
 		register("nugget_twinkle");
-
 		// Salt
 		register("dust_salt");
 	}

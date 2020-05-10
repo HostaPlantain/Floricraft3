@@ -3,6 +3,7 @@
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/HostaPlantain/Floricraft3?label=Commit%20Activity&logo=github&style=flat)](https://github.com/HostaPlantain/Floricraft3)
 [![GitHub last commit](https://img.shields.io/github/last-commit/HostaPlantain/Floricraft3?label=Last%20Commit&logo=github&style=flat)](https://github.com/HostaPlantain/Floricraft3)
 [![GitHub issues](https://img.shields.io/github/issues/HostaPlantain/Floricraft3?label=Issues&logo=github&style=flat)](https://github.com/HostaPlantain/Floricraft3/issues)
+[![GitHub All Releases](https://img.shields.io/github/downloads/HostaPlantain/Floricraft3/total?label=Beta%20Downloads&logo=github)](https://github.com/HostaPlantain/Floricraft3/releases)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a0d931fdcba7287c13b9/maintainability?style=flat)](https://codeclimate.com/github/HostaPlantain/Floricraft3/maintainability)
 [![GitHub top language](https://img.shields.io/github/languages/top/HostaPlantain/Floricraft3?logo=java&style=flat)](https://github.com/HostaPlantain/Floricraft3)
 [![GitHub](https://img.shields.io/github/license/HostaPlantain/Floricraft3?label=License&style=flat)](https://github.com/HostaPlantain/Floricraft3/blob/master/LICENSE)
