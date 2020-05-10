@@ -13,6 +13,7 @@
 <!-- Please tell me the versions -->
 
 + Floricraft3 version:
++ Flora version:
 + Minecraft version:
 + Forge version:
 + Other mods:

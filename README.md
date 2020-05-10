@@ -9,12 +9,6 @@
 
 
 Floricraft3 is an ornamental horticulture mod for Minecraft. Get new effects from flowers and color your world!
-![Coming Soon](https://img.shields.io/badge/-Coming_Soon-181717?style=flat)
-
-
-## Caution
-
-This mod is still work in progress. When you find a bug, report [here](https://github.com/HostaPlantain/Floricraft3/issues/new) please.
 
 
 ## Required Dependencies
