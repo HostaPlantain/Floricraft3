@@ -1,0 +1,21 @@
+{
+	"type": "crafting_shaped",
+	"pattern":
+	[
+		"PPP",
+		" S "
+	],
+	"key":
+	{
+		"P": { "tag": "floricraft3:petalss/dry_all" },
+		"S": { "item": "floricraft3:sachet_sac" }
+	},
+	"result":
+	{
+		"item": "floricraft3:sachet_flower",
+		"nbt":
+		{
+			"Potion": "floricraft3:floric_passive"
+		}
+	}
+}

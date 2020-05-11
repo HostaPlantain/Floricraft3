@@ -13,6 +13,8 @@ import com.hosta.Flora.block.BlockBaseOre;
 import com.hosta.Flora.item.ItemBaseColor;
 import com.hosta.Flora.item.ItemBasePotionTooltip;
 import com.hosta.Flora.module.AbstractModule;
+import com.hosta.Flora.potion.EffectInstanceBuilder;
+import com.hosta.Flora.potion.PotionBase;
 import com.hosta.Floricraft3.Floricraft3;
 import com.hosta.Floricraft3.Reference;
 import com.hosta.Floricraft3.item.ItemSachet;
@@ -29,6 +31,7 @@ import net.minecraft.item.DyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.EffectType;
 import net.minecraft.potion.Potion;
 import net.minecraft.tags.ItemTags;
@@ -53,7 +56,7 @@ public class ModuleFloricraft extends AbstractModule {
 	@ObjectHolder(Reference.MOD_ID + ":floric")
 	public static Potion	potionFloric;
 
-	public static final Tag<Item>	PETAL_RAW	= new ItemTags.Wrapper(Reference.getResourceLocation("petals/raw_all"));
+	public static final Tag<Item> PETAL_RAW = new ItemTags.Wrapper(Reference.getResourceLocation("petals/raw_all"));
 
 	@Override
 	public void registerBlocks()
@@ -113,31 +116,65 @@ public class ModuleFloricraft extends AbstractModule {
 		for (String str : Floricraft3.CONFIG_COMMON.addedAntiPotions.get())
 		{
 			JsonObject json = (JsonObject) new JsonParser().parse(str);
-			String name = json.get("name").getAsString();
+			String name = "anti_" + json.get("name").getAsString();
 			List<EntityType<?>> types = new ArrayList<EntityType<?>>();
 			for (JsonElement anti : json.get("types").getAsJsonArray())
 			{
 				types.add(EntityType.byKey(anti.getAsString()).get());
 			}
-			register("anti_" + name, new EffectAntis(types.toArray(new EntityType[types.size()]), json.get("recipe")));
+			register(name, new EffectAntis(types.toArray(new EntityType[types.size()]), json.get("recipe")));
 		}
+	}
+
+	@Override
+	public void registerPotions(List<Effect> list)
+	{
+		EffectInstance floric = EffectInstanceBuilder.passiveOf(effectFloric);
+		List<Potion> sachetFlower = new ArrayList<Potion>();
+		for (Effect effect : list)
+		{
+			if (effect == effectFloric)
+			{
+				Potion potion = register(effectFloric.getRegistryName().getPath() + "_passive", new PotionBase(floric));
+				sachetFlower.add(potion);
+			}
+			else if (effect instanceof EffectAntis)
+			{
+				EffectInstance anti = EffectInstanceBuilder.passiveOf(effect);
+				Potion potion = register(effectFloric.getRegistryName().getPath() + "_" + effect.getRegistryName().getPath() + "_passive", new PotionBase(floric, anti));
+				sachetFlower.add(potion);
+			}
+		}
+		ItemSachet.setPotionList(sachetFlower);
+		super.registerPotions(list);
 	}
 
 	@Override
 	public void registerPotionRecipes(List<Potion> list)
 	{
-		ItemVialFlower.setPotionList(list);
+		List<Potion> vialFlower = new ArrayList<Potion>();
 		for (Potion potion : list)
 		{
-			Effect effect = potion.getEffects().get(0).getPotion();
-			if (potion == potionFloric)
+			for (EffectInstance effctIn : potion.getEffects())
 			{
-				register(new RecipeBrewingVial(Ingredient.fromTag(PETAL_RAW), potionFloric, true));
-			}
-			else if (effect instanceof EffectAntis)
-			{
-				register(new RecipeBrewingVial(((EffectAntis) effect).getRecipe(), potion, false));
+				Effect effect = effctIn.getPotion();
+				if (potion.getEffects().size() == 1)
+				{
+					if (potion == potionFloric)
+					{
+						register(new RecipeBrewingVial(Ingredient.fromTag(PETAL_RAW), potionFloric, true));
+						vialFlower.add(potion);
+						break;
+					}
+					else if (effect instanceof EffectAntis)
+					{
+						register(new RecipeBrewingVial(((EffectAntis) effect).getRecipe(), potion, false));
+						vialFlower.add(potion);
+						break;
+					}
+				}
 			}
 		}
+		ItemVialFlower.setPotionList(vialFlower);
 	}
 }

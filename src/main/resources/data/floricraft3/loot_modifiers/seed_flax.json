@@ -4,9 +4,15 @@
 		{
 			"condition": "minecraft:block_state_property",
 			"block": "minecraft:grass"
+		},
+		{
+			"condition": "minecraft:random_chance",
+			"chance": 0.1
 		}
 	],
-	"loot": { "item": "floricraft3:seed_flax" },
-	"probability": 0.1,
+	"loot":
+	{
+		"item": "floricraft3:seed_flax"
+	},
 	"type": "flora:loot_single"
 }

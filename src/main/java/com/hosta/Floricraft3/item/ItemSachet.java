@@ -3,32 +3,39 @@ package com.hosta.Floricraft3.item;
 import java.util.List;
 
 import com.hosta.Flora.IMod;
-import com.hosta.Flora.item.ItemBaseTool;
+import com.hosta.Flora.item.IhasPotionList;
+import com.hosta.Flora.item.ItemBasePotionTooltip;
 import com.hosta.Flora.util.EffectHelper;
 
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.Hand;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class ItemSachet extends ItemBaseTool {
+public class ItemSachet extends ItemBasePotionTooltip implements IhasPotionList {
+
+	private static Potion[]		potions;
+	private static final int	TICK	= 10;
 
 	public ItemSachet(int maxDamageIn, IMod mod)
 	{
-		super(maxDamageIn, mod);
+		this(maxDamageIn, mod.getDefaultProp());
+	}
+
+	public ItemSachet(int maxDamageIn, Item.Properties property)
+	{
+		super(property.maxStackSize(1).defaultMaxDamage(maxDamageIn));
 	}
 
 	@Override
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected)
 	{
-		if (entityIn instanceof PlayerEntity)
+		if (entityIn.ticksExisted % TICK == 0 && entityIn instanceof PlayerEntity)
 		{
 			PlayerEntity player = (PlayerEntity) entityIn;
 			int addedEffects = ItemSachet.appendEffects(player, stack);
@@ -48,7 +55,7 @@ public class ItemSachet extends ItemBaseTool {
 		int i = 0;
 		for (EffectInstance effect : PotionUtils.getEffectsFromStack(stack))
 		{
-			if (EffectHelper.mergeEffect(player, effect, 10))
+			if (EffectHelper.mergeEffect(player, effect, TICK))
 			{
 				i += effect.getAmplifier() + 1;
 			}
@@ -56,11 +63,14 @@ public class ItemSachet extends ItemBaseTool {
 		return i;
 	}
 
-	@OnlyIn(Dist.CLIENT)
-	@Override
-	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
+	public static void setPotionList(List<Potion> list)
 	{
-		PotionUtils.addPotionTooltip(stack, tooltip, 1.0F);
-		super.addInformation(stack, worldIn, tooltip, flagIn);
+		potions = IhasPotionList.getPotionList(list);
+	}
+
+	@Override
+	public Potion[] getPotionList()
+	{
+		return potions;
 	}
 }

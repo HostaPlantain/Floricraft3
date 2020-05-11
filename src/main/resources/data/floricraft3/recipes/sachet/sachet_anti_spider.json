@@ -1,0 +1,23 @@
+{
+	"type": "crafting_shaped",
+	"pattern":
+	[
+		"RRR",
+		"PPP",
+		" S "
+	],
+	"key":
+	{
+		"R": { "item": "minecraft:spider_eye" },
+		"P": { "tag": "floricraft3:petalss/dry_all" },
+		"S": { "item": "floricraft3:sachet_sac" }
+	},
+	"result":
+	{
+		"item": "floricraft3:sachet_flower",
+		"nbt":
+		{
+			"Potion": "floricraft3:floric_anti_spider_passive"
+		}
+	}
+}
