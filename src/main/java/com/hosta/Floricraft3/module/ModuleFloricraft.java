@@ -10,6 +10,7 @@ import com.hosta.Flora.block.BlockBase;
 import com.hosta.Flora.block.BlockBaseCrops;
 import com.hosta.Flora.block.BlockBaseFalling;
 import com.hosta.Flora.block.BlockBaseOre;
+import com.hosta.Flora.block.ITileEntitySupplier;
 import com.hosta.Flora.item.ItemBaseColor;
 import com.hosta.Flora.item.ItemBasePotionTooltip;
 import com.hosta.Flora.module.AbstractModule;
@@ -17,12 +18,14 @@ import com.hosta.Flora.potion.EffectInstanceBuilder;
 import com.hosta.Flora.potion.PotionBase;
 import com.hosta.Floricraft3.Floricraft3;
 import com.hosta.Floricraft3.Reference;
+import com.hosta.Floricraft3.block.BlockRope;
 import com.hosta.Floricraft3.item.ItemSachet;
 import com.hosta.Floricraft3.item.ItemVial;
 import com.hosta.Floricraft3.item.ItemVialFlower;
 import com.hosta.Floricraft3.potion.EffectActive;
 import com.hosta.Floricraft3.potion.EffectAntis;
 import com.hosta.Floricraft3.recipe.RecipeBrewingVial;
+import com.hosta.Floricraft3.tileentity.TileEntityRope;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -36,9 +39,15 @@ import net.minecraft.potion.EffectType;
 import net.minecraft.potion.Potion;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.registries.ObjectHolder;
 
 public class ModuleFloricraft extends AbstractModule {
+
+	@ObjectHolder(Reference.MOD_ID + ":rope")
+	public static Block rope;
+	@ObjectHolder(Reference.MOD_ID + ":rope")
+	public static TileEntityType<TileEntityRope> typeRope;
 
 	@ObjectHolder(Reference.MOD_ID + ":seed_flax")
 	public static Item	seedFlax;
@@ -61,6 +70,8 @@ public class ModuleFloricraft extends AbstractModule {
 	@Override
 	public void registerBlocks()
 	{
+		// TileEntity
+		register("rope", new BlockRope(Material.PLANTS, TileEntityRope::new));
 		// Crop & Seed
 		register("crop_flax", new BlockBaseCrops("seed_flax", Material.PLANTS));
 		// Twinkle Metal
@@ -68,6 +79,12 @@ public class ModuleFloricraft extends AbstractModule {
 		// Salt
 		register("ore_salt", new BlockBaseOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5F, 3.0F)));
 		register("block_salt", new BlockBaseFalling(0xFFFFFF, Block.Properties.create(Material.SAND)));
+	}
+
+	@Override
+	public void registerTileEntities()
+	{
+		register("rope", ITileEntitySupplier.getType(rope));
 	}
 
 	@Override
@@ -88,7 +105,7 @@ public class ModuleFloricraft extends AbstractModule {
 		}
 		register("petal_dry");
 		register("petals_dry");
-		// Flax Items
+		// Flax Item
 		register("flax_yarn");
 		register("flax_twine");
 		register("flax_spool");

@@ -20,7 +20,7 @@ This mod is still work in progress. When you find a bug, report [here](https://g
 
 ## Required Dependencies
 
-[![Flora Libs](https://cf.way2muchnoise.eu/title/flora-lib.svg)](https://hostaplantain.github.io/Flora/)
+[![Flora Lib](https://cf.way2muchnoise.eu/title/flora-lib.svg)](https://hostaplantain.github.io/Flora/)
 
 
 ## Optional Dependencies

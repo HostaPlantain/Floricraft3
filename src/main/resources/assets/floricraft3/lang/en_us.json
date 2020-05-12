@@ -64,6 +64,11 @@
 	"item.floricraft3.petals_dry":				"Handful of Dried Petal",
 
 
+	"_comment":	"Tile Entities",
+
+	"block.floricraft3.rope":					"Hanging Rope",
+
+
 	"_comment":	"Crops",
 
 	"block.floricraft3.crop_flax":				"Flax",
