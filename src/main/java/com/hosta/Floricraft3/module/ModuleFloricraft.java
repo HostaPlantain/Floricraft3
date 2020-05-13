@@ -74,9 +74,8 @@ public class ModuleFloricraft extends AbstractModule {
 		register("rope", new BlockRope(Material.PLANTS, TileEntityRope::new));
 		// Crop & Seed
 		register("crop_flax", new BlockBaseCrops("seed_flax", Material.PLANTS));
-		// Twinkle Metal
+		// Material
 		register("block_twinkle", new BlockBase(Material.IRON));
-		// Salt
 		register("ore_salt", new BlockBaseOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5F, 3.0F)));
 		register("block_salt", new BlockBaseFalling(0xFFFFFF, Block.Properties.create(Material.SAND)));
 	}
@@ -93,23 +92,18 @@ public class ModuleFloricraft extends AbstractModule {
 		// Cut Flower
 		for (String flower : Reference.FLOWERS)
 		{
-			register("cut_" + flower);
+			registerItems("cut_" + flower);
 		}
-		register("stack_flower");
-		register("stack_dry_flower");
+		registerItems("stack_flower", "stack_dry_flower");
 		// Flower Petal
 		for (DyeColor color : DyeColor.values())
 		{
 			register("petal_raw_" + color.getTranslationKey(), new ItemBaseColor(color, this.mod));
-			register("petals_salt_" + color.getTranslationKey());
+			registerItems("petals_salt_" + color.getTranslationKey());
 		}
-		register("petal_dry");
-		register("petals_dry");
+		registerItems("petal_dry", "petals_dry");
 		// Flax Item
-		register("flax_yarn");
-		register("flax_twine");
-		register("flax_spool");
-		register("flax_cloth");
+		registerItems("flax_yarn", "flax_twine", "flax_spool", "flax_cloth");
 		// Vial
 		register("vial_empty", new ItemVial(this.mod));
 		register("vial_water", this.mod.getDefaultProp().maxStackSize(1));
@@ -117,13 +111,10 @@ public class ModuleFloricraft extends AbstractModule {
 		register("vial_flower", new ItemVialFlower(this.mod));
 		register("vial_mix", new ItemBasePotionTooltip(this.mod));
 		// Sachet
-		register("sachet_sac");
+		registerItems("sachet_sac");
 		register("sachet_flower", new ItemSachet(7200, this.mod));
-		// Twinkle Metal
-		register("ingot_twinkle");
-		register("nugget_twinkle");
-		// Salt
-		register("dust_salt");
+		// Material
+		registerItems("ingot_twinkle", "nugget_twinkle", "dust_salt");
 	}
 
 	@Override

@@ -1,9 +1,9 @@
 package com.hosta.Floricraft3.tileentity;
 
-import com.hosta.Flora.tileentity.TileEntityInventory;
+import com.hosta.Flora.tileentity.TileEntityInventoryWithRender;
 import com.hosta.Floricraft3.module.ModuleFloricraft;
 
-public class TileEntityRope extends TileEntityInventory {
+public class TileEntityRope extends TileEntityInventoryWithRender {
 
 	public TileEntityRope()
 	{
