@@ -16,15 +16,18 @@ import com.hosta.Flora.item.ItemBasePotionTooltip;
 import com.hosta.Flora.module.AbstractModule;
 import com.hosta.Flora.potion.EffectInstanceBuilder;
 import com.hosta.Flora.potion.PotionBase;
+import com.hosta.Flora.recipe.SingleItemRecipeBase;
 import com.hosta.Floricraft3.Floricraft3;
 import com.hosta.Floricraft3.Reference;
 import com.hosta.Floricraft3.block.BlockRope;
+import com.hosta.Floricraft3.event.EventHandler;
 import com.hosta.Floricraft3.item.ItemSachet;
 import com.hosta.Floricraft3.item.ItemVial;
 import com.hosta.Floricraft3.item.ItemVialFlower;
 import com.hosta.Floricraft3.potion.EffectActive;
 import com.hosta.Floricraft3.potion.EffectAntis;
 import com.hosta.Floricraft3.recipe.RecipeBrewingVial;
+import com.hosta.Floricraft3.recipe.RecipeDrying;
 import com.hosta.Floricraft3.tileentity.TileEntityRope;
 
 import net.minecraft.block.Block;
@@ -32,6 +35,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.DyeColor;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
@@ -45,14 +49,16 @@ import net.minecraftforge.registries.ObjectHolder;
 public class ModuleFloricraft extends AbstractModule {
 
 	@ObjectHolder(Reference.MOD_ID + ":rope")
-	public static Block rope;
+	public static Block								rope;
 	@ObjectHolder(Reference.MOD_ID + ":rope")
-	public static TileEntityType<TileEntityRope> typeRope;
+	public static TileEntityType<TileEntityRope>	typeRope;
 
 	@ObjectHolder(Reference.MOD_ID + ":seed_flax")
 	public static Item	seedFlax;
 	@ObjectHolder(Reference.MOD_ID + ":stack_flower")
 	public static Item	stackFlower;
+	@ObjectHolder(Reference.MOD_ID + ":stack_dry_flower")
+	public static Item	stackDryFlower;
 	@ObjectHolder(Reference.MOD_ID + ":vial_water")
 	public static Item	vialWater;
 	@ObjectHolder(Reference.MOD_ID + ":vial_moon")
@@ -65,7 +71,16 @@ public class ModuleFloricraft extends AbstractModule {
 	@ObjectHolder(Reference.MOD_ID + ":floric")
 	public static Potion	potionFloric;
 
+	@ObjectHolder(Reference.MOD_ID + ":drying")
+	public static IRecipeSerializer<?> recipeDrying;
+
 	public static final Tag<Item> PETAL_RAW = new ItemTags.Wrapper(Reference.getResourceLocation("petals/raw_all"));
+
+	@Override
+	public void preInit()
+	{
+		registerEventHandler(new EventHandler());
+	}
 
 	@Override
 	public void registerBlocks()
@@ -158,28 +173,31 @@ public class ModuleFloricraft extends AbstractModule {
 	}
 
 	@Override
+	public void registerRecipes()
+	{
+		register("drying", new SingleItemRecipeBase.Serializer<>(RecipeDrying::new));
+	}
+
+	@Override
 	public void registerPotionRecipes(List<Potion> list)
 	{
 		List<Potion> vialFlower = new ArrayList<Potion>();
 		for (Potion potion : list)
 		{
-			for (EffectInstance effctIn : potion.getEffects())
+			if (potion.getEffects().size() == 1)
 			{
-				Effect effect = effctIn.getPotion();
-				if (potion.getEffects().size() == 1)
+				Effect effect = potion.getEffects().get(0).getPotion();
+				if (potion == potionFloric)
 				{
-					if (potion == potionFloric)
-					{
-						register(new RecipeBrewingVial(Ingredient.fromTag(PETAL_RAW), potionFloric, true));
-						vialFlower.add(potion);
-						break;
-					}
-					else if (effect instanceof EffectAntis)
-					{
-						register(new RecipeBrewingVial(((EffectAntis) effect).getRecipe(), potion, false));
-						vialFlower.add(potion);
-						break;
-					}
+					register(new RecipeBrewingVial(Ingredient.fromTag(PETAL_RAW), potionFloric, true));
+					vialFlower.add(potion);
+					break;
+				}
+				else if (effect instanceof EffectAntis)
+				{
+					register(new RecipeBrewingVial(((EffectAntis) effect).getRecipe(), potion, false));
+					vialFlower.add(potion);
+					break;
 				}
 			}
 		}

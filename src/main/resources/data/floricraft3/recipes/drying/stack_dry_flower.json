@@ -1,0 +1,9 @@
+{
+	"type": "floricraft3:drying",
+	"ingredient":
+	{
+		"item": "floricraft3:stack_flower"
+	},
+	"result": "floricraft3:stack_dry_flower",
+	"count": 1
+}
