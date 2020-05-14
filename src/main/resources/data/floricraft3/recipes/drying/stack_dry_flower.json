@@ -4,6 +4,8 @@
 	{
 		"item": "floricraft3:stack_flower"
 	},
-	"result": "floricraft3:stack_dry_flower",
-	"count": 1
+	"result":
+	{
+		"item": "floricraft3:stack_dry_flower"
+	}
 }

@@ -12,7 +12,6 @@ import com.hosta.Floricraft3.tileentity.TileEntityRope;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.entity.player.PlayerEntity;
@@ -32,11 +31,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class BlockRope extends BlockEntityHorizontal implements IRenderType, IRenderTileEntity {
 
 	private static final VoxelShape[] SHAPE_ONLY_SIDE = new VoxelShape[] { Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 1.0D), Block.makeCuboidShape(15.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D), Block.makeCuboidShape(0.0D, 0.0D, 15.0D, 16.0D, 16.0D, 16.0D), Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 1.0D, 16.0D, 16.0D) };
-
-	public BlockRope(Material materialIn, Supplier<TileEntity> supplier)
-	{
-		this(Block.Properties.create(materialIn), supplier);
-	}
 
 	public BlockRope(Block.Properties property, Supplier<TileEntity> supplier)
 	{

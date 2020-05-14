@@ -4,6 +4,8 @@
 	{
 		"item": "minecraft:wet_sponge"
 	},
-	"result": "minecraft:sponge",
-	"count": 1
+	"result":
+	{
+		"item": "minecraft:sponge"
+	}
 }

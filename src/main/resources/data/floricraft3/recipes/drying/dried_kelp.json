@@ -1,0 +1,11 @@
+{
+	"type": "floricraft3:drying",
+	"ingredient":
+	{
+		"item": "minecraft:kelp"
+	},
+	"result":
+	{
+		"item": "minecraft:dried_kelp"
+	}
+}

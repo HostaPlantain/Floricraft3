@@ -31,6 +31,7 @@ import com.hosta.Floricraft3.recipe.RecipeDrying;
 import com.hosta.Floricraft3.tileentity.TileEntityRope;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.DyeColor;
@@ -44,6 +45,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.registries.ObjectHolder;
 
 public class ModuleFloricraft extends AbstractModule {
@@ -86,13 +88,13 @@ public class ModuleFloricraft extends AbstractModule {
 	public void registerBlocks()
 	{
 		// TileEntity
-		register("rope", new BlockRope(Material.PLANTS, TileEntityRope::new));
+		register("rope", new BlockRope(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.1F).sound(SoundType.CLOTH), TileEntityRope::new));
 		// Crop & Seed
 		register("crop_flax", new BlockBaseCrops("seed_flax", Material.PLANTS));
 		// Material
-		register("block_twinkle", new BlockBase(Material.IRON));
-		register("ore_salt", new BlockBaseOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5F, 3.0F)));
-		register("block_salt", new BlockBaseFalling(0xFFFFFF, Block.Properties.create(Material.SAND)));
+		register("block_twinkle", new BlockBase(Block.Properties.create(Material.IRON).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).harvestTool(ToolType.PICKAXE).harvestLevel(1)));
+		register("ore_salt", new BlockBaseOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5F, 3.0F).harvestTool(ToolType.PICKAXE).harvestLevel(0)));
+		register("block_salt", new BlockBaseFalling(0xFFFFFF, Block.Properties.create(Material.SAND).hardnessAndResistance(0.5F).sound(SoundType.SAND)));
 	}
 
 	@Override
