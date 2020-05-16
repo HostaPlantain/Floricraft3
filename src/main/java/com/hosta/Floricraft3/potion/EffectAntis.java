@@ -50,20 +50,25 @@ public class EffectAntis extends EffectBase {
 		{
 			PlayerEntity player = (PlayerEntity) entityLivingBaseIn;
 			double rangeHori = 8.0d;
-			double rangeVert = 2.0d;
+			double rangeVert = 4.0d;
 			AxisAlignedBB antiArea = player.getBoundingBox().expand(rangeHori, rangeVert, rangeHori).expand(-rangeHori, -rangeVert, -rangeHori);
 			List<Entity> list = player.world.getEntitiesInAABBexcluding(player, antiArea, e -> matchType(e.getType()));
 
-			for (Entity entity : list)
-			{
-				CreatureEntity mob = (CreatureEntity) entity;
-				disableTarget(mob);
-				EffectHelper.mergeEffect(mob, new EffectInstance(this, 10, 0, false, false), 20);
-			}
+			affect(list);
 		}
 		else if (entityLivingBaseIn instanceof CreatureEntity)
 		{
 			eableTarget((CreatureEntity) entityLivingBaseIn);
+		}
+	}
+
+	public void affect(List<Entity> list)
+	{
+		for (Entity entity : list)
+		{
+			CreatureEntity mob = (CreatureEntity) entity;
+			disableTarget(mob);
+			EffectHelper.mergeEffect(mob, new EffectInstance(this, 10, 0, false, false), 20);
 		}
 	}
 
@@ -86,7 +91,7 @@ public class EffectAntis extends EffectBase {
 		}
 	}
 
-	private Goal getDumyGoal(CreatureEntity mob)
+	private static Goal getDumyGoal(CreatureEntity mob)
 	{
 		Goal goal = new HurtByTargetGoal(mob);
 		goal.setMutexFlags(EnumSet.of(Flag.JUMP));

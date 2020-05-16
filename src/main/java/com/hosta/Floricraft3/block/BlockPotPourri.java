@@ -5,10 +5,9 @@ import java.util.function.Supplier;
 
 import com.hosta.Flora.block.BlockEntityHorizontal;
 import com.hosta.Flora.block.IRenderTileEntity;
-import com.hosta.Flora.tileentity.TileEntityBaseInventory;
-import com.hosta.Floricraft3.client.render.tileentity.TileEntityRopeRenderer;
+import com.hosta.Floricraft3.client.render.tileentity.TileEntityPotPourriRenderer;
 import com.hosta.Floricraft3.module.ModuleFloricraft;
-import com.hosta.Floricraft3.tileentity.TileEntityRope;
+import com.hosta.Floricraft3.tileentity.TileEntityPotPourri;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -28,11 +27,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class BlockRope extends BlockEntityHorizontal implements IRenderTileEntity {
+public class BlockPotPourri extends BlockEntityHorizontal implements IRenderTileEntity {
 
-	private static final VoxelShape[] SHAPE_ONLY_SIDE = new VoxelShape[] { Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 1.0D), Block.makeCuboidShape(15.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D), Block.makeCuboidShape(0.0D, 0.0D, 15.0D, 16.0D, 16.0D, 16.0D), Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 1.0D, 16.0D, 16.0D) };
+	private static final VoxelShape SHAPE = Block.makeCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 13.0D, 12.0D);
 
-	public BlockRope(Block.Properties property, Supplier<TileEntity> supplier)
+	public BlockPotPourri(Properties property, Supplier<TileEntity> supplier)
 	{
 		super(property, supplier);
 	}
@@ -43,9 +42,10 @@ public class BlockRope extends BlockEntityHorizontal implements IRenderTileEntit
 		if (!worldIn.isRemote)
 		{
 			TileEntity tileentity = worldIn.getTileEntity(pos);
-			if (tileentity instanceof TileEntityRope)
+			if (tileentity instanceof TileEntityPotPourri)
 			{
-				((TileEntityBaseInventory) tileentity).putHoldItemIn(player, handIn, 0);
+				TileEntityPotPourri pot = (TileEntityPotPourri) tileentity;
+				pot.onActivated(player, handIn);
 			}
 		}
 		return ActionResultType.SUCCESS;
@@ -54,29 +54,28 @@ public class BlockRope extends BlockEntityHorizontal implements IRenderTileEntit
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
 	{
-		return SHAPE_ONLY_SIDE[state.get(FACING).getHorizontalIndex()];
+		return SHAPE;
 	}
 
 	@Override
-	@OnlyIn(Dist.CLIENT)
 	public RenderType getRenderType()
 	{
-		return RenderType.getCutout();
+		return RenderType.getTranslucent();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public TileEntityType<TileEntityRope> getTileEntityType()
+	public TileEntityType<TileEntityPotPourri> getTileEntityType()
 	{
-		return ModuleFloricraft.typeRope;
+		return ModuleFloricraft.typePotPourri;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public Function<TileEntityRendererDispatcher, TileEntityRopeRenderer> getRenderer()
+	public Function<TileEntityRendererDispatcher, TileEntityPotPourriRenderer> getRenderer()
 	{
-		return TileEntityRopeRenderer::new;
+		return TileEntityPotPourriRenderer::new;
 	}
 }

@@ -1,0 +1,19 @@
+{
+	"type": "crafting_shaped",
+	"pattern":
+	[
+		"PPP",
+		"GSG",
+		"GGG"
+	],
+	"key":
+	{
+		"S": { "tag": "forge:storage_blocks/salt" },
+		"P": { "tag": "forge:glass_panes/colorless" },
+		"G": { "tag": "forge:glass/colorless" }
+	},
+	"result":
+	{
+		"item": "floricraft3:potpourri"
+	}
+}

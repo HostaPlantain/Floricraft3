@@ -18,6 +18,7 @@ import com.hosta.Flora.potion.PotionBase;
 import com.hosta.Flora.recipe.RecipeBaseSingleItem;
 import com.hosta.Floricraft3.Floricraft3;
 import com.hosta.Floricraft3.Reference;
+import com.hosta.Floricraft3.block.BlockPotPourri;
 import com.hosta.Floricraft3.block.BlockRope;
 import com.hosta.Floricraft3.event.EventHandlerFloricraft3;
 import com.hosta.Floricraft3.item.ItemSachet;
@@ -27,6 +28,7 @@ import com.hosta.Floricraft3.potion.EffectActive;
 import com.hosta.Floricraft3.potion.EffectAntis;
 import com.hosta.Floricraft3.recipe.RecipeBrewingVial;
 import com.hosta.Floricraft3.recipe.RecipeDrying;
+import com.hosta.Floricraft3.tileentity.TileEntityPotPourri;
 import com.hosta.Floricraft3.tileentity.TileEntityRope;
 
 import net.minecraft.block.Block;
@@ -55,6 +57,11 @@ public class ModuleFloricraft extends Module {
 	@ObjectHolder(Reference.MOD_ID + ":rope")
 	public static TileEntityType<TileEntityRope>	typeRope;
 
+	@ObjectHolder(Reference.MOD_ID + ":potpourri")
+	public static Block									potPourri;
+	@ObjectHolder(Reference.MOD_ID + ":potpourri")
+	public static TileEntityType<TileEntityPotPourri>	typePotPourri;
+
 	@ObjectHolder(Reference.MOD_ID + ":seed_flax")
 	public static Item	seedFlax;
 	@ObjectHolder(Reference.MOD_ID + ":stack_flower")
@@ -76,7 +83,8 @@ public class ModuleFloricraft extends Module {
 	@ObjectHolder(Reference.MOD_ID + ":drying")
 	public static IRecipeSerializer<?> recipeDrying;
 
-	public static final Tag<Item> PETALS_RAW = new ItemTags.Wrapper(Reference.getResourceLocation("petalss/raw_all"));
+	public static final Tag<Item>	PETALS_RAW	= new ItemTags.Wrapper(Reference.getResourceLocation("petalss/raw_all"));
+	public static final Tag<Item>	PETALS_SALT	= new ItemTags.Wrapper(Reference.getResourceLocation("petalss/salt_all"));
 
 	@Override
 	public void preInit(FMLCommonSetupEvent event)
@@ -89,6 +97,7 @@ public class ModuleFloricraft extends Module {
 	{
 		// TileEntity
 		register("rope", new BlockRope(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.1F).sound(SoundType.CLOTH), TileEntityRope::new));
+		register("potpourri", new BlockPotPourri(Block.Properties.create(Material.GLASS).hardnessAndResistance(0.1F).sound(SoundType.GLASS), TileEntityPotPourri::new));
 		// Crop & Seed
 		register("crop_flax", new BlockBaseCrops("seed_flax", Material.PLANTS));
 		// Material
@@ -100,6 +109,7 @@ public class ModuleFloricraft extends Module {
 	public void registerTileEntities()
 	{
 		register("rope", ITileEntitySupplier.getType(rope));
+		register("potpourri", ITileEntitySupplier.getType(potPourri));
 	}
 
 	@Override
@@ -116,7 +126,7 @@ public class ModuleFloricraft extends Module {
 		{
 			register("petal_raw_" + color.getTranslationKey(), new ItemBaseColor(color, this.mod));
 			register("petals_raw_" + color.getTranslationKey(), new ItemBaseColor(color, this.mod));
-			registerItems("petals_salt_" + color.getTranslationKey());
+			register("petals_salt_" + color.getTranslationKey(), new ItemBaseColor(color, this.mod));
 		}
 		registerItems("petal_dry", "petals_dry");
 		// Flax Item
