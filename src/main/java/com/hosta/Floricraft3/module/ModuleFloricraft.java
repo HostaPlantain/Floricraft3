@@ -46,7 +46,14 @@ import net.minecraft.potion.Potion;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.placement.CountRangeConfig;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.common.ToolType;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -61,6 +68,9 @@ public class ModuleFloricraft extends Module {
 	public static Block									potPourri;
 	@ObjectHolder(Reference.MOD_ID + ":potpourri")
 	public static TileEntityType<TileEntityPotPourri>	typePotPourri;
+
+	@ObjectHolder(Reference.MOD_ID + ":ore_salt")
+	public static Block oreSalt;
 
 	@ObjectHolder(Reference.MOD_ID + ":seed_flax")
 	public static Item	seedFlax;
@@ -85,12 +95,6 @@ public class ModuleFloricraft extends Module {
 
 	public static final Tag<Item>	PETALS_RAW	= new ItemTags.Wrapper(Reference.getResourceLocation("petalss/raw_all"));
 	public static final Tag<Item>	PETALS_SALT	= new ItemTags.Wrapper(Reference.getResourceLocation("petalss/salt_all"));
-
-	@Override
-	public void preInit(FMLCommonSetupEvent event)
-	{
-		registerEventHandler(new EventHandlerFloricraft3());
-	}
 
 	@Override
 	public void registerBlocks()
@@ -210,5 +214,15 @@ public class ModuleFloricraft extends Module {
 			}
 		}
 		ItemVialFlower.setPotionList(vialFlower);
+	}
+
+	@Override
+	public void setup(FMLCommonSetupEvent event)
+	{
+		registerEventHandler(new EventHandlerFloricraft3());
+		for (Biome biome : GameRegistry.findRegistry(Biome.class).getValues())
+		{
+			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, oreSalt.getDefaultState(), 20)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 0, 0, 256))));
+		}
 	}
 }
