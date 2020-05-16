@@ -43,6 +43,23 @@
 	"item.floricraft3.petal_raw_red":			"Red Petal",
 	"item.floricraft3.petal_raw_black":			"Black Petal",
 
+	"item.floricraft3.petals_raw_white":		"Handful of White Petal",
+	"item.floricraft3.petals_raw_orange":		"Handful of Orange Petal",
+	"item.floricraft3.petals_raw_magenta":		"Handful of Magenta Petal",
+	"item.floricraft3.petals_raw_light_blue":	"Handful of Light Blue Petal",
+	"item.floricraft3.petals_raw_yellow":		"Handful of Yellow Petal",
+	"item.floricraft3.petals_raw_lime":			"Handful of Lime Petal",
+	"item.floricraft3.petals_raw_pink":			"Handful of Pink Petal",
+	"item.floricraft3.petals_raw_gray":			"Handful of Gray Petal",
+	"item.floricraft3.petals_raw_light_gray":	"Handful of Light Gray Petal",
+	"item.floricraft3.petals_raw_cyan":			"Handful of Cyan Petal",
+	"item.floricraft3.petals_raw_purple":		"Handful of Purple Petal",
+	"item.floricraft3.petals_raw_blue":			"Handful of Blue Petal",
+	"item.floricraft3.petals_raw_brown":		"Handful of Brown Petal",
+	"item.floricraft3.petals_raw_green":		"Handful of Green Petal",
+	"item.floricraft3.petals_raw_red":			"Handful of Red Petal",
+	"item.floricraft3.petals_raw_black":		"Handful of Black Petal",
+
 	"item.floricraft3.petals_salt_white":		"Handful of Salty White Petal",
 	"item.floricraft3.petals_salt_orange":		"Handful of Salty Orange Petal",
 	"item.floricraft3.petals_salt_magenta":		"Handful of Salty Magenta Petal",
@@ -79,6 +96,8 @@
 	"item.floricraft3.flax_spool":				"Flax Twine Spool",
 	"item.floricraft3.flax_cloth":				"Linen",
 
+	"item.floricraft3.sachet_sac":				"Sachet Sac",
+
 
 	"_comment":	"Fragrances",
 
@@ -88,7 +107,6 @@
 	"item.floricraft3.vial_flower":				"Flower Essential Oil",
 	"item.floricraft3.vial_mix":				"Perfume",
 
-	"item.floricraft3.sachet_sac":				"Sachet Sac",
 	"item.floricraft3.sachet_flower":			"Flower Sachet",
 
 	"effect.floricraft3.floric":				"Floric",
@@ -101,13 +119,16 @@
 
 	"_comment":	"Materials",
 
-	"item.floricraft3.ingot_twinkle":			"Twinkle Metal Ingot",
-	"item.floricraft3.nugget_twinkle":			"Twinkle Metal Nugget",
-	"block.floricraft3.block_twinkle":			"Twinkle Metal Block",
-
 	"item.floricraft3.dust_salt":				"Salt",
 	"block.floricraft3.ore_salt":				"Salt Ore",
 	"block.floricraft3.block_salt":				"Salt Block",
+
+
+	"_comment":	"Botania",
+
+	"item.floricraft3.ingot_twinkle":			"Twinkle Metal Ingot",
+	"item.floricraft3.nugget_twinkle":			"Twinkle Metal Nugget",
+	"block.floricraft3.block_twinkle":			"Twinkle Metal Block",
 
 
 	"_comment":	"end"

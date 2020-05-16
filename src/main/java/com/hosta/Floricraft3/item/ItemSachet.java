@@ -3,7 +3,7 @@ package com.hosta.Floricraft3.item;
 import java.util.List;
 
 import com.hosta.Flora.IMod;
-import com.hosta.Flora.item.IhasPotionList;
+import com.hosta.Flora.item.IPotionList;
 import com.hosta.Flora.item.ItemBasePotionTooltip;
 import com.hosta.Flora.util.EffectHelper;
 
@@ -17,7 +17,7 @@ import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class ItemSachet extends ItemBasePotionTooltip implements IhasPotionList {
+public class ItemSachet extends ItemBasePotionTooltip implements IPotionList {
 
 	private static Potion[]		potions;
 	private static final int	TICK	= 10;
@@ -65,7 +65,7 @@ public class ItemSachet extends ItemBasePotionTooltip implements IhasPotionList 
 
 	public static void setPotionList(List<Potion> list)
 	{
-		potions = IhasPotionList.getPotionList(list);
+		potions = IPotionList.getPotionList(list);
 	}
 
 	@Override

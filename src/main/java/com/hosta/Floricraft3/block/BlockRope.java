@@ -5,7 +5,6 @@ import java.util.function.Supplier;
 
 import com.hosta.Flora.block.BlockEntityHorizontal;
 import com.hosta.Flora.block.IRenderTileEntity;
-import com.hosta.Flora.block.IRenderType;
 import com.hosta.Floricraft3.client.render.tileentity.TileEntityRopeRenderer;
 import com.hosta.Floricraft3.module.ModuleFloricraft;
 import com.hosta.Floricraft3.tileentity.TileEntityRope;
@@ -28,7 +27,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class BlockRope extends BlockEntityHorizontal implements IRenderType, IRenderTileEntity {
+public class BlockRope extends BlockEntityHorizontal implements IRenderTileEntity {
 
 	private static final VoxelShape[] SHAPE_ONLY_SIDE = new VoxelShape[] { Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 1.0D), Block.makeCuboidShape(15.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D), Block.makeCuboidShape(0.0D, 0.0D, 15.0D, 16.0D, 16.0D, 16.0D), Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 1.0D, 16.0D, 16.0D) };
 

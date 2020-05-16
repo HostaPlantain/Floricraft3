@@ -1,0 +1,18 @@
+{
+	"type": "crafting_shaped",
+	"group": "petals_raw",
+	"pattern":
+	[
+		"PPP",
+		"PPP",
+		"PPP"
+	],
+	"key":
+	{
+		"P": { "tag": "floricraft3:petals/raw/cyan" }
+	},
+	"result":
+	{
+		"item": "floricraft3:petals_raw_cyan"
+	}
+}

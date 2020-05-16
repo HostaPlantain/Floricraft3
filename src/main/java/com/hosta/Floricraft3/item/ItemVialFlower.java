@@ -3,7 +3,7 @@ package com.hosta.Floricraft3.item;
 import java.util.List;
 
 import com.hosta.Flora.IMod;
-import com.hosta.Flora.item.IhasPotionList;
+import com.hosta.Flora.item.IPotionList;
 import com.hosta.Flora.item.ItemBasePotionTooltip;
 
 import net.minecraft.item.Item;
@@ -25,7 +25,7 @@ public class ItemVialFlower extends ItemBasePotionTooltip {
 
 	public static void setPotionList(List<Potion> list)
 	{
-		potions = IhasPotionList.getPotionList(list);
+		potions = IPotionList.getPotionList(list);
 	}
 
 	@Override

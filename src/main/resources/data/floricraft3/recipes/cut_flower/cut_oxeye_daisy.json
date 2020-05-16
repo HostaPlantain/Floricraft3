@@ -1,0 +1,16 @@
+{
+	"type": "flora:crafting_durability",
+	"use":
+	{
+		"item": "minecraft:shears"
+	},
+	"ingredients":
+	[
+		{ "item": "minecraft:oxeye_daisy" },
+		{ "item": "minecraft:shears" }
+	],
+	"result":
+	{
+		"item": "floricraft3:cut_oxeye_daisy"
+	}
+}

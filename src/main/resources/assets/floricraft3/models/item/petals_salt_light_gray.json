@@ -1,6 +1,6 @@
 {
     "parent": "floricraft3:item/petals_salt",
     "textures": {
-        "layer0": "floricraft3:item/petals_salt_light_gray"
+        "layer0": "floricraft3:item/petals_light_gray"
     }
 }

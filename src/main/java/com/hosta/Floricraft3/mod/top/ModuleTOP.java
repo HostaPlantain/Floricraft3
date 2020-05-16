@@ -1,7 +1,7 @@
 package com.hosta.Floricraft3.mod.top;
 
-import com.hosta.Flora.module.AbstractModule;
+import com.hosta.Floricraft3.mod.AbstractModuleModded;
 
-public class ModuleTOP extends AbstractModule {
+public class ModuleTOP extends AbstractModuleModded {
 
 }

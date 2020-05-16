@@ -1,6 +1,6 @@
 package com.hosta.Floricraft3.recipe;
 
-import com.hosta.Flora.recipe.SingleItemRecipeBase;
+import com.hosta.Flora.recipe.RecipeBaseSingleItem;
 import com.hosta.Floricraft3.Reference;
 import com.hosta.Floricraft3.module.ModuleFloricraft;
 
@@ -11,7 +11,7 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class RecipeDrying extends SingleItemRecipeBase {
+public class RecipeDrying extends RecipeBaseSingleItem {
 
 	public static final IRecipeType<RecipeDrying> TYPE = register(Reference.getResourceLocation("drying"));
 

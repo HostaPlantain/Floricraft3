@@ -2,7 +2,7 @@ package com.hosta.Floricraft3.tileentity;
 
 import java.util.List;
 
-import com.hosta.Flora.tileentity.TileEntityInventoryWithRender;
+import com.hosta.Flora.tileentity.TileEntityBaseInventoryWithRender;
 import com.hosta.Floricraft3.module.ModuleFloricraft;
 import com.hosta.Floricraft3.recipe.RecipeDrying;
 
@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 
-public class TileEntityRope extends TileEntityInventoryWithRender implements ITickableTileEntity {
+public class TileEntityRope extends TileEntityBaseInventoryWithRender implements ITickableTileEntity {
 
 	private static final String	KEY_TICKABLE	= "tikable";
 	private List<RecipeDrying>	recipes			= null;

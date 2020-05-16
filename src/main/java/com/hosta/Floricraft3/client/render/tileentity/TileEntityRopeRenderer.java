@@ -24,10 +24,15 @@ public class TileEntityRopeRenderer extends TileEntityBaseRenderer<TileEntityRop
 		{
 			float front = (float) tileEntityIn.getBlockState().get(BlockBaseHorizontal.FACING).getHorizontalIndex() / 2;
 			double radians = Math.PI - front * Math.PI;
-			double z = Math.cos(radians) * 0.7D / 1.6D;
-			double x = Math.sin(radians) * 0.7D / 1.6D;
-			float degree = 180.0F - front * 180.0F;
-			renderItem(matrixStackIn, x, 0, z, degree, 135.0F, 0.7F, itemstack, combinedLightIn, bufferIn);
+			double[] pos = new double[3];
+			pos[0] = Math.sin(radians) * 0.7D / 1.6D;
+			pos[1] = 0.0D;
+			pos[2] = Math.cos(radians) * 0.7D / 1.6D;
+			float[] rotate = new float[3];
+			rotate[0] = 0.0F;
+			rotate[1] = 180.0F - front * 180.0F;
+			rotate[2] = 135.0F;
+			renderItem(matrixStackIn, pos, rotate, 0.7F, itemstack, combinedLightIn, bufferIn);
 		}
 	}
 }

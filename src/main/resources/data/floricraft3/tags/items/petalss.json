@@ -2,6 +2,7 @@
 	"replace": false,
 	"values":
 	[
+		"#floricraft3:petalss/raw_all",
 		"#floricraft3:petalss/salt_all",
 		"#floricraft3:petalss/dry_all"
 	]

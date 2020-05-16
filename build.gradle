@@ -12,6 +12,9 @@ repositories {
 	// Curios
 	maven { url 'https://maven.theillusivec4.top/' }
 
+	// Patchouli, Botania
+	maven { url 'https://maven.blamejared.com' }
+
 	// CurseForge
 	maven { url 'https://minecraft.curseforge.com/api/maven/' }
 }
@@ -38,6 +41,12 @@ dependencies {
 
 	compileOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-${config.mc_ver}-${config.curios_ver}:api")
 	runtimeOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-${config.mc_ver}-${config.curios_ver}")
+
+	compileOnly fg.deobf("vazkii.patchouli:Patchouli:${config.mc_ver}-${config.patchouli_ver}:api")
+	runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${config.mc_ver}-${config.patchouli_ver}")
+
+	compileOnly fg.deobf("vazkii.botania:Botania:r${config.mc_ver_short}-${config.botania_ver}:api")
+	runtimeOnly fg.deobf("vazkii.botania:Botania:r${config.mc_ver_short}-${config.botania_ver}")
 
 	compile fg.deobf("curse.maven:mgui:${config.mgui_ver}")
 	compile fg.deobf("curse.maven:tetra:${config.tetra_ver}")

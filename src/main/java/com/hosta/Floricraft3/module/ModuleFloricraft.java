@@ -6,21 +6,20 @@ import java.util.List;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.hosta.Flora.block.BlockBase;
 import com.hosta.Flora.block.BlockBaseCrops;
 import com.hosta.Flora.block.BlockBaseFalling;
 import com.hosta.Flora.block.BlockBaseOre;
 import com.hosta.Flora.block.ITileEntitySupplier;
 import com.hosta.Flora.item.ItemBaseColor;
 import com.hosta.Flora.item.ItemBasePotionTooltip;
-import com.hosta.Flora.module.AbstractModule;
+import com.hosta.Flora.module.Module;
 import com.hosta.Flora.potion.EffectInstanceBuilder;
 import com.hosta.Flora.potion.PotionBase;
-import com.hosta.Flora.recipe.SingleItemRecipeBase;
+import com.hosta.Flora.recipe.RecipeBaseSingleItem;
 import com.hosta.Floricraft3.Floricraft3;
 import com.hosta.Floricraft3.Reference;
 import com.hosta.Floricraft3.block.BlockRope;
-import com.hosta.Floricraft3.event.EventHandler;
+import com.hosta.Floricraft3.event.EventHandlerFloricraft3;
 import com.hosta.Floricraft3.item.ItemSachet;
 import com.hosta.Floricraft3.item.ItemVial;
 import com.hosta.Floricraft3.item.ItemVialFlower;
@@ -46,9 +45,10 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.common.ToolType;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.ObjectHolder;
 
-public class ModuleFloricraft extends AbstractModule {
+public class ModuleFloricraft extends Module {
 
 	@ObjectHolder(Reference.MOD_ID + ":rope")
 	public static Block								rope;
@@ -76,12 +76,12 @@ public class ModuleFloricraft extends AbstractModule {
 	@ObjectHolder(Reference.MOD_ID + ":drying")
 	public static IRecipeSerializer<?> recipeDrying;
 
-	public static final Tag<Item> PETAL_RAW = new ItemTags.Wrapper(Reference.getResourceLocation("petals/raw_all"));
+	public static final Tag<Item> PETALS_RAW = new ItemTags.Wrapper(Reference.getResourceLocation("petalss/raw_all"));
 
 	@Override
-	public void preInit()
+	public void preInit(FMLCommonSetupEvent event)
 	{
-		registerEventHandler(new EventHandler());
+		registerEventHandler(new EventHandlerFloricraft3());
 	}
 
 	@Override
@@ -92,7 +92,6 @@ public class ModuleFloricraft extends AbstractModule {
 		// Crop & Seed
 		register("crop_flax", new BlockBaseCrops("seed_flax", Material.PLANTS));
 		// Material
-		register("block_twinkle", new BlockBase(Block.Properties.create(Material.IRON).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL).harvestTool(ToolType.PICKAXE).harvestLevel(1)));
 		register("ore_salt", new BlockBaseOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5F, 3.0F).harvestTool(ToolType.PICKAXE).harvestLevel(0)));
 		register("block_salt", new BlockBaseFalling(0xFFFFFF, Block.Properties.create(Material.SAND).hardnessAndResistance(0.5F).sound(SoundType.SAND)));
 	}
@@ -116,11 +115,12 @@ public class ModuleFloricraft extends AbstractModule {
 		for (DyeColor color : DyeColor.values())
 		{
 			register("petal_raw_" + color.getTranslationKey(), new ItemBaseColor(color, this.mod));
+			register("petals_raw_" + color.getTranslationKey(), new ItemBaseColor(color, this.mod));
 			registerItems("petals_salt_" + color.getTranslationKey());
 		}
 		registerItems("petal_dry", "petals_dry");
 		// Flax Item
-		registerItems("flax_yarn", "flax_twine", "flax_spool", "flax_cloth");
+		registerItems("flax_yarn", "flax_twine", "flax_spool", "flax_cloth", "sachet_sac");
 		// Vial
 		register("vial_empty", new ItemVial(this.mod));
 		register("vial_water", this.mod.getDefaultProp().maxStackSize(1));
@@ -128,10 +128,9 @@ public class ModuleFloricraft extends AbstractModule {
 		register("vial_flower", new ItemVialFlower(this.mod));
 		register("vial_mix", new ItemBasePotionTooltip(this.mod));
 		// Sachet
-		registerItems("sachet_sac");
 		register("sachet_flower", new ItemSachet(7200, this.mod));
 		// Material
-		registerItems("ingot_twinkle", "nugget_twinkle", "dust_salt");
+		registerItems("dust_salt");
 	}
 
 	@Override
@@ -171,13 +170,12 @@ public class ModuleFloricraft extends AbstractModule {
 			}
 		}
 		ItemSachet.setPotionList(sachetFlower);
-		super.registerPotions(list);
 	}
 
 	@Override
 	public void registerRecipes()
 	{
-		register("drying", new SingleItemRecipeBase.Serializer<>(RecipeDrying::new));
+		register("drying", new RecipeBaseSingleItem.Serializer<>(RecipeDrying::new));
 	}
 
 	@Override
@@ -191,15 +189,13 @@ public class ModuleFloricraft extends AbstractModule {
 				Effect effect = potion.getEffects().get(0).getPotion();
 				if (potion == potionFloric)
 				{
-					register(new RecipeBrewingVial(Ingredient.fromTag(PETAL_RAW), potionFloric, true));
+					register(new RecipeBrewingVial(Ingredient.fromTag(PETALS_RAW), potionFloric, true));
 					vialFlower.add(potion);
-					break;
 				}
 				else if (effect instanceof EffectAntis)
 				{
 					register(new RecipeBrewingVial(((EffectAntis) effect).getRecipe(), potion, false));
 					vialFlower.add(potion);
-					break;
 				}
 			}
 		}
