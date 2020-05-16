@@ -179,7 +179,7 @@ public class ModuleFloricraft extends Module {
 			else if (effect instanceof EffectAntis)
 			{
 				EffectInstance anti = EffectInstanceBuilder.passiveOf(effect);
-				Potion potion = register(effectFloric.getRegistryName().getPath() + "_" + effect.getRegistryName().getPath() + "_passive", new PotionBase(floric, anti));
+				Potion potion = register(effect.getRegistryName().getPath() + "_passive", new PotionBase(floric, anti));
 				sachetFlower.add(potion);
 			}
 		}
