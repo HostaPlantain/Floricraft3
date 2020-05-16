@@ -17,7 +17,7 @@ Floricraft3 is an ornamental horticulture mod for Minecraft. Get new effects fro
 + [Flora Lib](https://www.curseforge.com/minecraft/mc-mods/flora-lib)
 
 
-## Optional Dependencies
+## Optional Dependencies (not yet)
 
 + [Botania](https://www.curseforge.com/minecraft/mc-mods/botania)
 + [Tetra](https://www.curseforge.com/minecraft/mc-mods/tetra)
