@@ -10,7 +10,11 @@
 	"key":
 	{
 		"P": { "tag": "floricraft3:petals/raw/cyan" },
-		"S": { "tag": "forge:dusts/salt" }
+		"S":
+		[
+			{ "tag": "forge:dusts/salt" },
+			{ "tag": "forge:salt" }
+		]
 	},
 	"result":
 	{
