@@ -20,7 +20,6 @@ import com.hosta.Floricraft3.Floricraft3;
 import com.hosta.Floricraft3.Reference;
 import com.hosta.Floricraft3.block.BlockPotPourri;
 import com.hosta.Floricraft3.block.BlockRope;
-import com.hosta.Floricraft3.event.EventHandlerFloricraft3;
 import com.hosta.Floricraft3.item.ItemSachet;
 import com.hosta.Floricraft3.item.ItemVial;
 import com.hosta.Floricraft3.item.ItemVialFlower;
@@ -219,7 +218,6 @@ public class ModuleFloricraft extends Module {
 	@Override
 	public void setup(FMLCommonSetupEvent event)
 	{
-		registerEventHandler(new EventHandlerFloricraft3());
 		for (Biome biome : GameRegistry.findRegistry(Biome.class).getValues())
 		{
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, oreSalt.getDefaultState(), 20)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 0, 0, 256))));

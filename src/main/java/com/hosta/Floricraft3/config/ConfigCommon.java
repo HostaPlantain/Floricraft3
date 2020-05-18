@@ -43,6 +43,9 @@ public class ConfigCommon extends AbstractConfig {
 		});
 		builder.pop();
 
+		isEnable(builder, Reference.MODULE_ORNAMENTAL);
+		builder.pop();
+
 		isEnable(builder, Reference.MOD_ID_BOTANIA);
 		builder.pop();
 
@@ -63,10 +66,10 @@ public class ConfigCommon extends AbstractConfig {
 
 	private void isEnable(Builder builder, String name)
 	{
-		builder.comment(String.format("Common settings for %s addon.", name)).push(name);
+		builder.comment(String.format("Common settings for %s module.", name)).push(name);
 
 		String isEnable = "enable_" + name;
-		builder.comment(String.format("Enable %s addon.", name)).translation(getTransKey(isEnable));
+		builder.comment(String.format("Enable %s module.", name)).translation(getTransKey(isEnable));
 		BooleanValue value = builder.define(isEnable, true);
 
 		IS_ENABLE_MODDED_MODULE.put(name, value);
