@@ -1,5 +1,7 @@
 package com.hosta.Floricraft3.world.gen.path;
 
+import com.hosta.Flora.world.gen.path.AbstractWorldGenRoad;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -50,17 +52,17 @@ public class WorldGenRoadWaterPath extends AbstractWorldGenRoad {
 			{
 				state = CONFIG.getBrick();
 			}
-			world.setBlockState(pos.down(i), state, 3);
+			setBlockstate(world, pos.down(i), state, false);
 		}
 	}
 
 	@Override
 	protected void genSide0(IWorld world, BlockPos pos)
 	{
-		world.setBlockState(pos.up(), CONFIG.getSlab(), 3);
+		setBlockstate(world, pos.up(), CONFIG.getSlab(), false);
 		for (int i = 0; i < 6; ++i)
 		{
-			world.setBlockState(pos.down(i), CONFIG.getBrick(), 3);
+			setBlockstate(world, pos.down(i), CONFIG.getBrick(), false);
 		}
 	}
 

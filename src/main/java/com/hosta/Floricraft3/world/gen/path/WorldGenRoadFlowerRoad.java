@@ -1,10 +1,10 @@
 package com.hosta.Floricraft3.world.gen.path;
 
+import com.hosta.Flora.world.gen.path.AbstractWorldGenRoad;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.DoublePlantBlock;
-import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -45,18 +45,13 @@ public class WorldGenRoadFlowerRoad extends AbstractWorldGenRoad {
 	@Override
 	protected void genPath(IWorld world, BlockPos pos)
 	{
-		world.setBlockState(pos, isAirNearBy(world, pos) ? CONFIG.getPathSlab() : CONFIG.getPath(), 3);
+		setBlockstate(world, pos.up(), isAirNearBy(world, pos) ? CONFIG.getPathSlab() : CONFIG.getPath(), false);
 	}
 
 	@Override
 	protected void genSide0(IWorld world, BlockPos pos)
 	{
-		pos = pos.up();
-		world.setBlockState(pos, CONFIG.getGrass(), 3);
-		if (CONFIG.GRASS instanceof DoublePlantBlock)
-		{
-			world.setBlockState(pos.up(), CONFIG.getGrass().with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER), 3);
-		}
+		setBlockstate(world, pos.up(), CONFIG.getGrass(), false);
 	}
 
 	@Override
@@ -64,16 +59,16 @@ public class WorldGenRoadFlowerRoad extends AbstractWorldGenRoad {
 	{
 		if (isAirNearBy(world, pos))
 		{
-			world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
+			setBlockstate(world, pos, Blocks.AIR.getDefaultState(), false);
 			pos = pos.down();
 		}
-		world.setBlockState(pos, CONFIG.getWater(), 3);
+		setBlockstate(world, pos, CONFIG.getWater(), false);
 	}
 
 	@Override
 	protected void genSide2(IWorld world, BlockPos pos)
 	{
-		world.setBlockState(pos.up(), CONFIG.getFence(), 3);
+		setBlockstate(world, pos.up(), CONFIG.getFence(), true);
 	}
 
 	private boolean isAirNearBy(IWorld world, BlockPos pos)

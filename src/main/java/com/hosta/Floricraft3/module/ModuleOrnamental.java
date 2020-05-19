@@ -25,8 +25,8 @@ public class ModuleOrnamental extends Module {
 		Biome.Builder builder = new Biome.Builder();
 		builder.surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
 		builder.precipitation(Biome.RainType.RAIN).category(Biome.Category.PLAINS);
-		builder.depth(0.8F).scale(0.0F).temperature(0.8F).downfall(0.4F).waterColor(4159204).waterFogColor(329011).parent((String) null);
+		builder.depth(0.3F).scale(0.0F).temperature(0.8F).downfall(0.4F).waterColor(4159204).waterFogColor(329011).parent((String) null);
 		Biome flowerLand = register("flower_land", new BiomeFlowerLand(builder));
-		BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(flowerLand, 10));
+		BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(flowerLand, 5));
 	}
 }
