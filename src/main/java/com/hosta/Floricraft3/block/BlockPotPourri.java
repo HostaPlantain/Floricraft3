@@ -3,7 +3,7 @@ package com.hosta.Floricraft3.block;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import com.hosta.Flora.block.BlockEntityHorizontal;
+import com.hosta.Flora.block.BlockEntityBaseHorizontal;
 import com.hosta.Flora.block.IRenderTileEntity;
 import com.hosta.Floricraft3.client.render.tileentity.TileEntityPotPourriRenderer;
 import com.hosta.Floricraft3.module.ModuleFloricraft;
@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class BlockPotPourri extends BlockEntityHorizontal implements IRenderTileEntity {
+public class BlockPotPourri extends BlockEntityBaseHorizontal implements IRenderTileEntity {
 
 	private static final VoxelShape SHAPE = Block.makeCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 13.0D, 12.0D);
 
@@ -58,6 +58,7 @@ public class BlockPotPourri extends BlockEntityHorizontal implements IRenderTile
 	}
 
 	@Override
+	@OnlyIn(Dist.CLIENT)
 	public RenderType getRenderType()
 	{
 		return RenderType.getTranslucent();

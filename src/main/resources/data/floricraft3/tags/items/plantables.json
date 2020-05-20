@@ -1,0 +1,12 @@
+{
+	"replace": false,
+	"values":
+	[
+		"#minecraft:small_flowers",
+		"#minecraft:tall_flowers",
+		"#minecraft:flowers",
+		"#minecraft:saplings",
+		"#minecraft:leaves",
+		"#forge:mushrooms"
+	]
+}
