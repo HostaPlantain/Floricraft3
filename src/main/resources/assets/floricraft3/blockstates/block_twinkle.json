@@ -1,5 +1,6 @@
 {
-    "variants": {
-        "": { "model": "floricraft3:block/block_twinkle" }
-    }
+	"variants":
+	{
+		"": { "model": "floricraft3:block/block_twinkle" }
+	}
 }

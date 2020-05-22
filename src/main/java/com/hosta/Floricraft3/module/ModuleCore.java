@@ -3,9 +3,6 @@ package com.hosta.Floricraft3.module;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.hosta.Flora.block.BlockBaseCrops;
 import com.hosta.Flora.block.BlockBaseFalling;
 import com.hosta.Flora.block.BlockBaseOre;
@@ -13,8 +10,6 @@ import com.hosta.Flora.block.ITileEntitySupplier;
 import com.hosta.Flora.item.ItemBaseColor;
 import com.hosta.Flora.item.ItemBasePotionTooltip;
 import com.hosta.Flora.module.Module;
-import com.hosta.Flora.potion.EffectInstanceBuilder;
-import com.hosta.Flora.potion.PotionBase;
 import com.hosta.Flora.recipe.RecipeBaseSingleItem;
 import com.hosta.Floricraft3.Floricraft3;
 import com.hosta.Floricraft3.Reference;
@@ -39,24 +34,26 @@ import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.Effect;
-import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.EffectType;
 import net.minecraft.potion.Potion;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.ObjectHolder;
 
-public class ModuleFloricraft extends Module {
+public class ModuleCore extends Module {
 
 	@ObjectHolder(Reference.MOD_ID + ":rope")
 	public static Block								rope;
@@ -150,39 +147,19 @@ public class ModuleFloricraft extends Module {
 	public void registerEffects()
 	{
 		register("floric", new EffectActive(EffectType.BENEFICIAL, 0xFFDAFF));
-		for (String str : Floricraft3.CONFIG_COMMON.addedAntiPotions.get())
+		for (List<String> potions : Floricraft3.CONFIG_COMMON.addedAntiPotions.get())
 		{
-			JsonObject json = (JsonObject) new JsonParser().parse(str);
-			String name = "anti_" + json.get("name").getAsString();
-			List<EntityType<?>> types = new ArrayList<EntityType<?>>();
-			for (JsonElement anti : json.get("types").getAsJsonArray())
-			{
-				types.add(EntityType.byKey(anti.getAsString()).get());
-			}
-			register(name, new EffectAntis(types.toArray(new EntityType[types.size()]), json.get("recipe")));
+			String name = potions.get(0);
+			Tag<EntityType<?>> tag = new EntityTypeTags.Wrapper(Reference.getResourceLocation(name));
+			ResourceLocation recipe = new ResourceLocation(potions.get(1));
+			register(name, new EffectAntis(tag, recipe));
 		}
 	}
 
 	@Override
 	public void registerPotions(List<Effect> list)
 	{
-		EffectInstance floric = EffectInstanceBuilder.passiveOf(effectFloric);
-		List<Potion> sachetFlower = new ArrayList<Potion>();
-		for (Effect effect : list)
-		{
-			if (effect == effectFloric)
-			{
-				Potion potion = register(effectFloric.getRegistryName().getPath() + "_passive", new PotionBase(floric));
-				sachetFlower.add(potion);
-			}
-			else if (effect instanceof EffectAntis)
-			{
-				EffectInstance anti = EffectInstanceBuilder.passiveOf(effect);
-				Potion potion = register(effect.getRegistryName().getPath() + "_passive", new PotionBase(floric, anti));
-				sachetFlower.add(potion);
-			}
-		}
-		ItemSachet.setPotionList(sachetFlower);
+		ItemSachet.setPotionList(list);
 	}
 
 	@Override
@@ -220,7 +197,10 @@ public class ModuleFloricraft extends Module {
 	{
 		for (Biome biome : GameRegistry.findRegistry(Biome.class).getValues())
 		{
-			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, oreSalt.getDefaultState(), 20)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 0, 0, 256))));
+			if (biome.getSurfaceBuilderConfig() == SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
+			{
+				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, oreSalt.getDefaultState(), 20)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 0, 0, 256))));
+			}
 		}
 	}
 }

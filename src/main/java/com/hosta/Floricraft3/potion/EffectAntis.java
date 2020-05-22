@@ -3,10 +3,9 @@ package com.hosta.Floricraft3.potion;
 import java.util.EnumSet;
 import java.util.List;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.hosta.Flora.potion.EffectBase;
 import com.hosta.Flora.util.EffectHelper;
+import com.hosta.Flora.util.UtilHelper;
 
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
@@ -19,19 +18,20 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.EffectType;
+import net.minecraft.tags.Tag;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraftforge.common.crafting.CraftingHelper;
 
 public class EffectAntis extends EffectBase {
 
-	private final EntityType<?>[]	ANTI_ENTITY;
-	private final Ingredient		RECIPE;
+	private final Tag<EntityType<?>>	ANTI_ENTITY;
+	private final Ingredient			RECIPE;
 
-	public EffectAntis(EntityType<?>[] anits, JsonElement json)
+	public EffectAntis(Tag<EntityType<?>> anits, ResourceLocation recipe)
 	{
 		super(EffectType.BENEFICIAL, 0xFFDAFF);
 		this.ANTI_ENTITY = anits;
-		this.RECIPE = Ingredient.fromStacks(CraftingHelper.getItemStack((JsonObject) json, false));
+		this.RECIPE = UtilHelper.getIngredient(recipe);
 	}
 
 	public Ingredient getRecipe()
@@ -100,14 +100,7 @@ public class EffectAntis extends EffectBase {
 
 	protected boolean matchType(EntityType<?> entityType)
 	{
-		for (EntityType<?> type : ANTI_ENTITY)
-		{
-			if (entityType == type)
-			{
-				return true;
-			}
-		}
-		return false;
+		return ANTI_ENTITY.contains(entityType);
 	}
 
 	@Override

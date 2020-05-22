@@ -1,5 +1,6 @@
 package com.hosta.Floricraft3.world.biome;
 
+import com.hosta.Flora.world.biome.BiomeBase;
 import com.hosta.Flora.world.biome.BiomeBaseNullNoise;
 import com.hosta.Flora.world.gen.path.IWorldGenRoad;
 import com.hosta.Floricraft3.world.gen.path.WorldGenRoadFlowerRoad;
@@ -7,9 +8,6 @@ import com.hosta.Floricraft3.world.gen.path.WorldGenRoadWaterPath;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.DoublePlantBlock;
-import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
@@ -27,11 +25,12 @@ public class BiomeFlowerLand extends BiomeBaseNullNoise {
 
 	protected final IWorldGenRoad[] ROADS = { new WorldGenRoadFlowerRoad(4, 2.0f, 5.0f, 5.0f, 300), new WorldGenRoadFlowerRoad(2, -0.5f, 50.0f, 50.0f, 200), new WorldGenRoadWaterPath(5, -1.0f, 80.0f, 100.0f, 1000) };
 
-	protected Block flower = Blocks.ROSE_BUSH;
+	protected final Block[] FLOWER;
 
-	public BiomeFlowerLand(Builder biomeBuilder)
+	public BiomeFlowerLand(Builder biomeBuilder, Block... flowers)
 	{
 		super(biomeBuilder);
+		this.FLOWER = flowers;
 		this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
 		DefaultBiomeFeatures.addStoneVariants(this);
 		DefaultBiomeFeatures.addOres(this);
@@ -74,12 +73,14 @@ public class BiomeFlowerLand extends BiomeBaseNullNoise {
 		}
 		else if (topPos.getZ() % 4 != 0 && topPos.getX() % 16 != 0)
 		{
-			worldIn.setBlockState(topPos, getFlower(), 0);
-			if (flower instanceof DoublePlantBlock)
-			{
-				worldIn.setBlockState(topPos.up(), getFlower().with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER), 0);
-			}
+			BiomeBase.setBlockState(worldIn, topPos, getFlowerState(topPos.getZ()));
 		}
+	}
+
+	protected BlockState getFlowerState(int pos)
+	{
+		int i = pos >> 3 & (FLOWER.length - 1);
+		return FLOWER[i].getDefaultState();
 	}
 
 	protected boolean isOnRoad(BlockPos topPos)
@@ -95,22 +96,16 @@ public class BiomeFlowerLand extends BiomeBaseNullNoise {
 
 	protected boolean genRoad(WorldGenRegion worldIn, BlockPos topPos)
 	{
-		boolean flag = false;
 		for (IWorldGenRoad.Stage stage : IWorldGenRoad.Stage.values())
 		{
-			if (!flag)
+			for (IWorldGenRoad road : ROADS)
 			{
-				for (IWorldGenRoad road : ROADS)
+				if (road.gen(stage, worldIn, topPos))
 				{
-					flag = flag || road.gen(stage, worldIn, topPos);
+					return true;
 				}
 			}
 		}
-		return flag;
-	}
-
-	protected BlockState getFlower()
-	{
-		return this.flower.getDefaultState();
+		return false;
 	}
 }

@@ -1,0 +1,17 @@
+{
+	"type": "crafting_shaped",
+	"pattern":
+	[
+		"D",
+		"P"
+	],
+	"key":
+	{
+		"D": { "item": "minecraft:dirt" },
+		"P": { "item": "minecraft:flower_pot" }
+	},
+	"result":
+	{
+		"item": "floricraft3:flower_pot"
+	}
+}

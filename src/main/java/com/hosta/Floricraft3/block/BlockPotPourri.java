@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 import com.hosta.Flora.block.BlockEntityBaseHorizontal;
 import com.hosta.Flora.block.IRenderTileEntity;
 import com.hosta.Floricraft3.client.render.tileentity.TileEntityPotPourriRenderer;
-import com.hosta.Floricraft3.module.ModuleFloricraft;
+import com.hosta.Floricraft3.module.ModuleCore;
 import com.hosta.Floricraft3.tileentity.TileEntityPotPourri;
 
 import net.minecraft.block.Block;
@@ -44,8 +44,7 @@ public class BlockPotPourri extends BlockEntityBaseHorizontal implements IRender
 			TileEntity tileentity = worldIn.getTileEntity(pos);
 			if (tileentity instanceof TileEntityPotPourri)
 			{
-				TileEntityPotPourri pot = (TileEntityPotPourri) tileentity;
-				pot.onActivated(player, handIn);
+				((TileEntityPotPourri) tileentity).onActivated(player, handIn);
 			}
 		}
 		return ActionResultType.SUCCESS;
@@ -69,7 +68,7 @@ public class BlockPotPourri extends BlockEntityBaseHorizontal implements IRender
 	@OnlyIn(Dist.CLIENT)
 	public TileEntityType<TileEntityPotPourri> getTileEntityType()
 	{
-		return ModuleFloricraft.typePotPourri;
+		return ModuleCore.typePotPourri;
 	}
 
 	@SuppressWarnings("unchecked")

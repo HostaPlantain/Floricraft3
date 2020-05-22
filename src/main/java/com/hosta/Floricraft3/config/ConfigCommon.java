@@ -1,5 +1,6 @@
 package com.hosta.Floricraft3.config;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -16,15 +17,15 @@ import net.minecraftforge.fml.config.ModConfig.Type;
 
 public class ConfigCommon extends AbstractConfig {
 
-	private static final String		ANTI_ZOMBIE		= "{\"name\": \"zombie\", \"recipe\": {\"item\": \"minecraft:rotten_flesh\"}, \"types\": [\"zombie\", \"zombie_villager\", \"husk\", \"drowned\"]}";
-	private static final String		ANTI_SKELETON	= "{\"name\": \"skeleton\", \"recipe\": {\"item\": \"minecraft:bone\"}, \"types\": [\"skeleton\", \"wither_skeleton\", \"stray\"]}";
-	private static final String		ANTI_CREEPER	= "{\"name\": \"creeper\", \"recipe\": {\"item\": \"minecraft:gunpowder\"}, \"types\": [\"creeper\"]}";
-	private static final String		ANTI_SPIDER		= "{\"name\": \"spider\", \"recipe\": {\"item\": \"minecraft:spider_eye\"}, \"types\": [\"spider\", \"cave_spider\"]}";
-	private static final String		ANTI_ENDER		= "{\"name\": \"ender\", \"recipe\": {\"item\": \"minecraft:ender_pearl\"}, \"types\": [\"enderman\", \"endermite\"]}";
-	private static final String[]	ANTIS_DEFAULT	= new String[] { ANTI_ZOMBIE, ANTI_SKELETON, ANTI_CREEPER, ANTI_SPIDER, ANTI_ENDER };
+	private static final String[]	ANTI_ZOMBIE_POTION		= { "anti_zombie", "minecraft:rotten_flesh" };
+	private static final String[]	ANTI_SKELETON_POTION	= { "anti_skeleton", "minecraft:bone" };
+	private static final String[]	ANTI_CREEPER_POTION		= { "anti_creeper", "minecraft:gunpowder" };
+	private static final String[]	ANTI_SPIDER_POTION		= { "anti_spider", "minecraft:spider_eye" };
+	private static final String[]	ANTI_ENDER_POTION		= { "anti_ender", "minecraft:ender_pearl" };
+	private static final String[][]	ANTI_POTION_DEFAULT		= new String[][] { ANTI_ZOMBIE_POTION, ANTI_SKELETON_POTION, ANTI_CREEPER_POTION, ANTI_SPIDER_POTION, ANTI_ENDER_POTION };
 
-	public ConfigValue<List<? extends String>>	addedAntiPotions;
-	public final Map<String, BooleanValue>		IS_ENABLE_MODDED_MODULE	= new HashMap<String, ForgeConfigSpec.BooleanValue>();
+	public ConfigValue<List<? extends List<String>>>	addedAntiPotions;
+	public final Map<String, BooleanValue>				IS_ENABLE_MODDED_MODULE	= new HashMap<String, ForgeConfigSpec.BooleanValue>();
 
 	public ConfigCommon()
 	{
@@ -36,11 +37,19 @@ public class ConfigCommon extends AbstractConfig {
 	{
 		builder.comment("Common settings for Floricraft3.").push("common");
 
+		builder.comment("Settings for effects and potions.").push("effects");
+		List<List<String>> list = new ArrayList<List<String>>();
+		for (String[] potion : ANTI_POTION_DEFAULT)
+		{
+			list.add(Arrays.asList(potion));
+		}
 		String antiPotions = "anti_potions";
 		builder.comment("Additional Potion Effect to Avoid Creatures").translation(getTransKey(antiPotions));
-		addedAntiPotions = builder.defineList(antiPotions, Arrays.asList(ANTIS_DEFAULT), (s) -> {
-			return true;
+		addedAntiPotions = builder.defineList(antiPotions, list, (listString) -> {
+			return listString instanceof List && ((List<?>) listString).size() == 2;
 		});
+		builder.pop();
+
 		builder.pop();
 
 		isEnable(builder, Reference.MODULE_ORNAMENTAL);
@@ -66,7 +75,7 @@ public class ConfigCommon extends AbstractConfig {
 
 	private void isEnable(Builder builder, String name)
 	{
-		builder.comment(String.format("Common settings for %s module.", name)).push(name);
+		builder.comment(String.format("Settings for %s module.", name)).push(name);
 
 		String isEnable = "enable_" + name;
 		builder.comment(String.format("Enable %s module.", name)).translation(getTransKey(isEnable));

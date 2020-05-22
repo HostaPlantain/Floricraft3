@@ -2,11 +2,9 @@
 	"replace": false,
 	"values":
 	[
-		"#minecraft:small_flowers",
-		"#minecraft:tall_flowers",
-		"#minecraft:flowers",
-		"#minecraft:saplings",
 		"#minecraft:leaves",
-		"#forge:mushrooms"
+		"#forge:plants",
+		"#forge:mushrooms",
+		"#forge:dead_plants"
 	]
 }

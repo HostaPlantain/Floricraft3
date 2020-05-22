@@ -22,8 +22,8 @@ Color your world!
 
 
 [[dependencies.floricraft3]]
-    modId="flora"
-    mandatory=true
-    versionRange="[0.2.0,)"
-    ordering="NONE"
-    side="BOTH"
+	modId="flora"
+	mandatory=true
+	versionRange="[0.2.0,)"
+	ordering="NONE"
+	side="BOTH"

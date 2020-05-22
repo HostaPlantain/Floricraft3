@@ -1,6 +1,7 @@
 {
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "floricraft3:item/sachet_sac"
-    }
+	"parent": "item/generated",
+	"textures":
+	{
+		"layer0": "floricraft3:item/sachet_sac"
+	}
 }

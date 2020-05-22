@@ -76,11 +76,7 @@ public class WorldGenRoadFlowerRoad extends AbstractWorldGenRoad {
 		boolean flag = false;
 		for (Direction d : Direction.values())
 		{
-			flag = d.getHorizontalIndex() != -1 && isAirNotOnWater(world, pos.offset(d));
-			if (flag)
-			{
-				break;
-			}
+			flag = flag || d.getHorizontalIndex() != -1 && isAirNotOnWater(world, pos.offset(d));
 		}
 		return flag;
 	}

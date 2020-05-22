@@ -2,7 +2,7 @@ package com.hosta.Floricraft3.recipe;
 
 import com.hosta.Flora.recipe.RecipeBaseSingleItem;
 import com.hosta.Floricraft3.Reference;
-import com.hosta.Floricraft3.module.ModuleFloricraft;
+import com.hosta.Floricraft3.module.ModuleCore;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -17,7 +17,7 @@ public class RecipeDrying extends RecipeBaseSingleItem {
 
 	public RecipeDrying(ResourceLocation id, String group, Ingredient ingredient, ItemStack result)
 	{
-		super(TYPE, ModuleFloricraft.recipeDrying, id, group, ingredient, result);
+		super(TYPE, ModuleCore.recipeDrying, id, group, ingredient, result);
 	}
 
 	@Override

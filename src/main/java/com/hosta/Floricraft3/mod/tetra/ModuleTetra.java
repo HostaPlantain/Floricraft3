@@ -4,4 +4,8 @@ import com.hosta.Floricraft3.mod.AbstractModuleModded;
 
 public class ModuleTetra extends AbstractModuleModded {
 
+	public ModuleTetra(String name)
+	{
+		super(name);
+	}
 }

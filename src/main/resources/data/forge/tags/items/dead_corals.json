@@ -1,0 +1,8 @@
+{
+	"replace": false,
+	"values":
+	[
+		"#forge:dead_corals/dead_corals",
+		"#forge:dead_corals/dead_fans"
+	]
+}

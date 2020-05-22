@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values":
+	[
+		"#forge:corals",
+		"minecraft:kelp",
+		"minecraft:seagrass",
+		"minecraft:sea_pickle"
+	]
+}

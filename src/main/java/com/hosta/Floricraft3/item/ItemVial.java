@@ -3,7 +3,7 @@ package com.hosta.Floricraft3.item;
 import com.hosta.Flora.IMod;
 import com.hosta.Flora.item.ItemBaseBottle;
 import com.hosta.Flora.util.EntityHelper;
-import com.hosta.Floricraft3.module.ModuleFloricraft;
+import com.hosta.Floricraft3.module.ModuleCore;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.ItemEntity;
@@ -35,10 +35,10 @@ public class ItemVial extends ItemBaseBottle {
 				if (entityItem.getItem().getItem() == Items.GHAST_TEAR)
 				{
 					EntityHelper.splitItem(entityItem, 1);
-					return new ItemStack(ModuleFloricraft.vialMoon);
+					return new ItemStack(ModuleCore.vialMoon);
 				}
 			}
-			return new ItemStack(ModuleFloricraft.vialWater);
+			return new ItemStack(ModuleCore.vialWater);
 		}
 		return ItemStack.EMPTY;
 	}

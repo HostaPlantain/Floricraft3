@@ -7,7 +7,7 @@ import com.hosta.Flora.block.BlockEntityBaseHorizontal;
 import com.hosta.Flora.block.IRenderTileEntity;
 import com.hosta.Flora.tileentity.TileEntityBaseInventory;
 import com.hosta.Floricraft3.client.render.tileentity.TileEntityRopeRenderer;
-import com.hosta.Floricraft3.module.ModuleFloricraft;
+import com.hosta.Floricraft3.module.ModuleCore;
 import com.hosta.Floricraft3.tileentity.TileEntityRope;
 
 import net.minecraft.block.Block;
@@ -69,7 +69,7 @@ public class BlockRope extends BlockEntityBaseHorizontal implements IRenderTileE
 	@OnlyIn(Dist.CLIENT)
 	public TileEntityType<TileEntityRope> getTileEntityType()
 	{
-		return ModuleFloricraft.typeRope;
+		return ModuleCore.typeRope;
 	}
 
 	@SuppressWarnings("unchecked")

@@ -1,26 +1,33 @@
 package com.hosta.Floricraft3.item;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.hosta.Flora.IMod;
-import com.hosta.Flora.item.IPotionList;
+import com.hosta.Flora.item.IEffectsList;
 import com.hosta.Flora.item.ItemBasePotionTooltip;
+import com.hosta.Flora.potion.EffectInstanceBuilder;
 import com.hosta.Flora.util.EffectHelper;
+import com.hosta.Floricraft3.module.ModuleCore;
+import com.hosta.Floricraft3.potion.EffectAntis;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class ItemSachet extends ItemBasePotionTooltip implements IPotionList {
+public class ItemSachet extends ItemBasePotionTooltip implements IEffectsList {
 
-	private static Potion[]		potions;
-	private static final int	TICK	= 10;
+	private static Collection<EffectInstance>[]	effects;
+	private static final int					TICK	= 10;
 
 	public ItemSachet(int maxDamageIn, IMod mod)
 	{
@@ -63,14 +70,38 @@ public class ItemSachet extends ItemBasePotionTooltip implements IPotionList {
 		return i;
 	}
 
-	public static void setPotionList(List<Potion> list)
+	public static void setPotionList(List<Effect> list)
 	{
-		potions = IPotionList.getPotionList(list);
+		EffectInstance floric = EffectInstanceBuilder.passiveOf(ModuleCore.effectFloric);
+		List<Collection<EffectInstance>> sachetFlower = new ArrayList<Collection<EffectInstance>>();
+		for (Effect effect : list)
+		{
+			if (effect == ModuleCore.effectFloric)
+			{
+				sachetFlower.add(getAsList(floric));
+			}
+			else if (effect instanceof EffectAntis)
+			{
+				EffectInstance anti = EffectInstanceBuilder.passiveOf(effect);
+				sachetFlower.add(getAsList(floric, anti));
+			}
+		}
+		effects = IEffectsList.getEffectsList(sachetFlower);
+	}
+
+	private static Collection<EffectInstance> getAsList(EffectInstance... effects)
+	{
+		Set<EffectInstance> set = new HashSet<EffectInstance>();
+		for (EffectInstance effect : effects)
+		{
+			set.add(effect);
+		}
+		return set;
 	}
 
 	@Override
-	public Potion[] getPotionList()
+	public Collection<EffectInstance>[] getEffectsList()
 	{
-		return potions;
+		return effects;
 	}
 }

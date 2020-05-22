@@ -4,4 +4,8 @@ import com.hosta.Floricraft3.mod.AbstractModuleModded;
 
 public class ModuleJEI extends AbstractModuleModded {
 
+	public ModuleJEI(String name)
+	{
+		super(name);
+	}
 }

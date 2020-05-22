@@ -1,6 +1,7 @@
 {
-    "parent": "floricraft3:item/stack",
-    "textures": {
-        "layer0": "floricraft3:item/stack_flower"
-    }
+	"parent": "floricraft3:item/stack",
+	"textures":
+	{
+		"layer0": "floricraft3:item/stack_flower"
+	}
 }

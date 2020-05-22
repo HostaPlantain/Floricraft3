@@ -1,6 +1,7 @@
 {
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "floricraft3:block/rope"
-    }
+	"parent": "item/generated",
+	"textures":
+	{
+		"layer0": "floricraft3:block/rope"
+	}
 }

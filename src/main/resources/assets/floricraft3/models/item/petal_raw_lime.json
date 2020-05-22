@@ -1,6 +1,7 @@
 {
-    "parent": "floricraft3:item/petal_raw",
-    "textures": {
-        "layer0": "floricraft3:item/petal_raw_lime"
-    }
+	"parent": "floricraft3:item/petal_raw",
+	"textures":
+	{
+		"layer0": "floricraft3:item/petal_raw_lime"
+	}
 }

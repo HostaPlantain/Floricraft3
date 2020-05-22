@@ -1,8 +1,9 @@
 {
-    "variants": {
-        "facing=west":  { "model": "floricraft3:block/rope" },
-        "facing=north": { "model": "floricraft3:block/rope", "y": 90 },
-        "facing=east":  { "model": "floricraft3:block/rope", "y": 180 },
-        "facing=south": { "model": "floricraft3:block/rope", "y": 270 }
-    }
+	"variants":
+	{
+		"facing=west":  { "model": "floricraft3:block/rope" },
+		"facing=north": { "model": "floricraft3:block/rope", "y": 90 },
+		"facing=east":  { "model": "floricraft3:block/rope", "y": 180 },
+		"facing=south": { "model": "floricraft3:block/rope", "y": 270 }
+	}
 }

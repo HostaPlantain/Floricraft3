@@ -8,6 +8,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.tileentity.TileEntityType;
 
 public class TileEntityFlowerPot extends TileEntityBaseInventoryWithRender {
 
@@ -17,7 +18,12 @@ public class TileEntityFlowerPot extends TileEntityBaseInventoryWithRender {
 
 	public TileEntityFlowerPot()
 	{
-		super(ModuleOrnamental.typeFlowerPot, 1, INGREDIENT);
+		this(ModuleOrnamental.typeFlowerPot, INGREDIENT);
+	}
+
+	public TileEntityFlowerPot(TileEntityType<?> tileEntityTypeIn, Ingredient ingredient)
+	{
+		super(tileEntityTypeIn, 1, ingredient);
 		setInventoryStackLimit(1);
 	}
 

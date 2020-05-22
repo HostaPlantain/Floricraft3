@@ -5,6 +5,7 @@ import java.util.function.Supplier;
 
 import com.hosta.Flora.block.BlockEntityBase;
 import com.hosta.Flora.block.IRenderTileEntity;
+import com.hosta.Flora.client.render.tileentity.TileEntityBaseRenderer;
 import com.hosta.Flora.tileentity.TileEntityBaseInventory;
 import com.hosta.Floricraft3.client.render.tileentity.TileEntityFlowerPotRenderer;
 import com.hosta.Floricraft3.module.ModuleOrnamental;
@@ -67,17 +68,15 @@ public class BlockEntityFlowerPot extends BlockEntityBase implements IRenderTile
 	@SuppressWarnings("unchecked")
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public TileEntityType<TileEntityFlowerPot> getTileEntityType()
+	public <T extends TileEntity> TileEntityType<T> getTileEntityType()
 	{
-		return ModuleOrnamental.typeFlowerPot;
+		return (TileEntityType<T>) ModuleOrnamental.typeFlowerPot;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public Function<TileEntityRendererDispatcher, TileEntityFlowerPotRenderer> getRenderer()
+	public <T extends TileEntity> Function<TileEntityRendererDispatcher, ? extends TileEntityBaseRenderer<T>> getRenderer()
 	{
 		return TileEntityFlowerPotRenderer::new;
 	}
-
 }

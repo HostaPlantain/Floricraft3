@@ -1,6 +1,7 @@
 {
-    "parent": "floricraft3:item/cut",
-    "textures": {
-        "layer0": "floricraft3:item/cut_lily"
-    }
+	"parent": "floricraft3:item/cut",
+	"textures":
+	{
+		"layer0": "floricraft3:item/cut_lily"
+	}
 }

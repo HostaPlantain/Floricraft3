@@ -1,5 +1,6 @@
 {
-	"variants": {
+	"variants":
+	{
 		"": { "model": "floricraft3:block/potpourri" }
 	}
 }

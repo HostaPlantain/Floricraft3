@@ -1,6 +1,7 @@
 {
-    "parent": "floricraft3:item/petals_raw",
-    "textures": {
-        "layer0": "floricraft3:item/petals_gray"
-    }
+	"parent": "floricraft3:item/petals_raw",
+	"textures":
+	{
+		"layer0": "floricraft3:item/petals_gray"
+	}
 }

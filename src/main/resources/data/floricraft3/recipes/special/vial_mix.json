@@ -8,11 +8,11 @@
 	[
 		[
 			{ "item": "minecraft:potion" },
-			{ "item": "floricraft3:vial_flower" },
-			{ "item": "floricraft3:vial_mix" }
+			{ "item": "floricraft3:vial_flower" }
 		],
 		[
 			{ "item": "floricraft3:vial_moon" },
+			{ "item": "floricraft3:vial_mix" },
 			{ "item": "floricraft3:vial_mix" }
 		]
 	],

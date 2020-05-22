@@ -10,6 +10,11 @@ import net.minecraftforge.common.ToolType;
 
 public class ModuleBotania extends AbstractModuleModded {
 
+	public ModuleBotania(String name)
+	{
+		super(name);
+	}
+
 	@Override
 	public void registerBlocks()
 	{

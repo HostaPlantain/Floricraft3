@@ -16,7 +16,7 @@ import com.hosta.Floricraft3.mod.curios.ModuleCurios;
 import com.hosta.Floricraft3.mod.jei.ModuleJEI;
 import com.hosta.Floricraft3.mod.tetra.ModuleTetra;
 import com.hosta.Floricraft3.mod.top.ModuleTOP;
-import com.hosta.Floricraft3.module.ModuleFloricraft;
+import com.hosta.Floricraft3.module.ModuleCore;
 import com.hosta.Floricraft3.module.ModuleOrnamental;
 import com.hosta.Floricraft3.proxy.ProxyClient;
 import com.hosta.Floricraft3.proxy.ProxyCommon;
@@ -48,13 +48,13 @@ public class Floricraft3 implements IMod {
 	@Override
 	public void registerModules()
 	{
-		registerModule(null, ModuleFloricraft::new);
-		registerModule(null, ModuleOrnamental::new);
-		registerModule(Reference.MOD_ID_BOTANIA, ModuleBotania::new);
-		registerModule(Reference.MOD_ID_CURIOS, ModuleCurios::new);
-		registerModule(Reference.MOD_ID_JEI, ModuleJEI::new);
-		registerModule(Reference.MOD_ID_TETRA, ModuleTetra::new);
-		registerModule(Reference.MOD_ID_TOP, ModuleTOP::new);
+		registerModule(null, ModuleCore::new);
+		registerModule(null, () -> new ModuleOrnamental(Reference.MODULE_ORNAMENTAL));
+		registerModule(Reference.MOD_ID_BOTANIA, () -> new ModuleBotania(Reference.MOD_ID_BOTANIA));
+		registerModule(Reference.MOD_ID_CURIOS, () -> new ModuleCurios(Reference.MOD_ID_CURIOS));
+		registerModule(Reference.MOD_ID_JEI, () -> new ModuleJEI(Reference.MOD_ID_JEI));
+		registerModule(Reference.MOD_ID_TETRA, () -> new ModuleTetra(Reference.MOD_ID_TETRA));
+		registerModule(Reference.MOD_ID_TOP, () -> new ModuleTOP(Reference.MOD_ID_TOP));
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public class Floricraft3 implements IMod {
 		@Override
 		public ItemStack createIcon()
 		{
-			return new ItemStack(ModuleFloricraft.stackFlower);
+			return new ItemStack(ModuleCore.stackFlower);
 		}
 	};
 

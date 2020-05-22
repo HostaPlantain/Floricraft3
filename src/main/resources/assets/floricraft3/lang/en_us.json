@@ -128,60 +128,30 @@
 	"item.minecraft.splash_potion.effect.floric":					"Splash Floric Potion",
 	"item.minecraft.lingering_potion.effect.floric":				"Lingering Floric Potion",
 
-	"item.minecraft.tipped_arrow.effect.floric_passive":			"Floric Tipped Arrow",
-	"item.minecraft.potion.effect.floric_passive":					"Floric Potion",
-	"item.minecraft.splash_potion.effect.floric_passive":			"Splash Floric Potion",
-	"item.minecraft.lingering_potion.effect.floric_passive":		"Lingering Floric Potion",
-
 	"item.minecraft.tipped_arrow.effect.anti_zombie":				"Zombie Friendly Tipped Arrow",
 	"item.minecraft.potion.effect.anti_zombie":						"Zombie Friendly Potion",
 	"item.minecraft.splash_potion.effect.anti_zombie":				"Splash Zombie Friendly Potion",
 	"item.minecraft.lingering_potion.effect.anti_zombie":			"Lingering Zombie Friendly Potion",
-
-	"item.minecraft.tipped_arrow.effect.anti_zombie_passive":		"Zombie Friendly Tipped Arrow",
-	"item.minecraft.potion.effect.anti_zombie_passive":				"Zombie Friendly Potion",
-	"item.minecraft.splash_potion.effect.anti_zombie_passive":		"Splash Zombie Friendly Potion",
-	"item.minecraft.lingering_potion.effect.anti_zombie_passive":	"Lingering Zombie Friendly Potion",
 
 	"item.minecraft.tipped_arrow.effect.anti_skeleton":				"Skeleton Friendly Tipped Arrow",
 	"item.minecraft.potion.effect.anti_skeleton":					"Skeleton Friendly Potion",
 	"item.minecraft.splash_potion.effect.anti_skeleton":			"Splash Skeleton Friendly Potion",
 	"item.minecraft.lingering_potion.effect.anti_skeleton":			"Lingering Skeleton Friendly Potion",
 
-	"item.minecraft.tipped_arrow.effect.anti_skeleton_passive":		"Skeleton Friendly Tipped Arrow",
-	"item.minecraft.potion.effect.anti_skeleton_passive":			"Skeleton Friendly Potion",
-	"item.minecraft.splash_potion.effect.anti_skeleton_passive":	"Splash Skeleton Friendly Potion",
-	"item.minecraft.lingering_potion.effect.anti_skeleton_passive":	"Lingering Skeleton Friendly Potion",
-
 	"item.minecraft.tipped_arrow.effect.anti_creeper":				"Creeper Friendly Tipped Arrow",
 	"item.minecraft.potion.effect.anti_creeper":					"Creeper Friendly Potion",
 	"item.minecraft.splash_potion.effect.anti_creeper":				"Splash Creeper Friendly Potion",
 	"item.minecraft.lingering_potion.effect.anti_creeper":			"Lingering Creeper Friendly Potion",
-
-	"item.minecraft.tipped_arrow.effect.anti_creeper_passive":		"Creeper Friendly Tipped Arrow",
-	"item.minecraft.potion.effect.anti_creeper_passive":			"Creeper Friendly Potion",
-	"item.minecraft.splash_potion.effect.anti_creeper_passive":		"Splash Creeper Friendly Potion",
-	"item.minecraft.lingering_potion.effect.anti_creeper_passive":	"Lingering Creeper Friendly Potion",
 
 	"item.minecraft.tipped_arrow.effect.anti_spider":				"Spider Friendly Tipped Arrow",
 	"item.minecraft.potion.effect.anti_spider":						"Spider Friendly Potion",
 	"item.minecraft.splash_potion.effect.anti_spider":				"Splash Spider Friendly Potion",
 	"item.minecraft.lingering_potion.effect.anti_spider":			"Lingering Spider Friendly Potion",
 
-	"item.minecraft.tipped_arrow.effect.anti_spider_passive":		"Spider Friendly Tipped Arrow",
-	"item.minecraft.potion.effect.anti_spider_passive":				"Spider Friendly Potion",
-	"item.minecraft.splash_potion.effect.anti_spider_passive":		"Splash Spider Friendly Potion",
-	"item.minecraft.lingering_potion.effect.anti_spider_passive":	"Lingering Spider Friendly Potion",
-
 	"item.minecraft.tipped_arrow.effect.anti_ender":				"Ender Friendly Tipped Arrow",
 	"item.minecraft.potion.effect.anti_ender":						"Ender Friendly Potion",
 	"item.minecraft.splash_potion.effect.anti_ender":				"Splash Ender Friendly Potion",
 	"item.minecraft.lingering_potion.effect.anti_ender":			"Lingering Ender Friendly Potion",
-
-	"item.minecraft.tipped_arrow.effect.anti_ender_passive":		"Ender Friendly Tipped Arrow",
-	"item.minecraft.potion.effect.anti_ender_passive":				"Ender Friendly Potion",
-	"item.minecraft.splash_potion.effect.anti_ender_passive":		"Splash Ender Friendly Potion",
-	"item.minecraft.lingering_potion.effect.anti_ender_passive":	"Lingering Ender Friendly Potion",
 
 
 	"_comment":	"Materials",
@@ -191,7 +161,18 @@
 	"block.floricraft3.block_salt":				"Salt Block",
 
 
-	"_comment":	"Botania",
+	"_comment":	"Module Oranamental",
+
+	"block.floricraft3.flower_pot":				"Better Flower Pot",
+	"block.floricraft3.flower_pot_water":		"Water Plant Pot",
+
+	"block.floricraft3.flower_bed":				"Flower Bed",
+
+	"biome.floricraft3.rose_land":				"Rose Land",
+	"biome.floricraft3.tulip_land":				"Tulip Land",
+
+
+	"_comment":	"Module Botania",
 
 	"item.floricraft3.ingot_twinkle":			"Twinkle Metal Ingot",
 	"item.floricraft3.nugget_twinkle":			"Twinkle Metal Nugget",

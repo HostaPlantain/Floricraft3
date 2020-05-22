@@ -1,18 +1,24 @@
 package com.hosta.Floricraft3.mod;
 
-import com.hosta.Flora.module.ModuleModded;
-import com.hosta.Floricraft3.Floricraft3;
+import com.hosta.Flora.module.IModDependency;
+import com.hosta.Floricraft3.module.AbstractModule;
 
-public abstract class AbstractModuleModded extends ModuleModded {
+public abstract class AbstractModuleModded extends AbstractModule implements IModDependency {
 
-	@Override
-	public boolean isEnable()
+	private String modName;
+
+	public AbstractModuleModded(String name)
 	{
-		return isEnableModule(modName);
+		super(name);
 	}
 
-	private static boolean isEnableModule(String name)
+	public void setMod(String modName)
 	{
-		return Floricraft3.CONFIG_COMMON.IS_ENABLE_MODDED_MODULE.get(name).get();
+		this.modName = modName;
+	}
+
+	public String getModName()
+	{
+		return modName;
 	}
 }

@@ -3,7 +3,7 @@ package com.hosta.Floricraft3.tileentity;
 import java.util.List;
 
 import com.hosta.Flora.tileentity.TileEntityBaseInventoryWithRender;
-import com.hosta.Floricraft3.module.ModuleFloricraft;
+import com.hosta.Floricraft3.module.ModuleCore;
 
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
@@ -20,33 +20,21 @@ public class TileEntityPotPourri extends TileEntityBaseInventoryWithRender imple
 
 	public TileEntityPotPourri()
 	{
-		super(ModuleFloricraft.typePotPourri, 8, Ingredient.fromTag(ModuleFloricraft.PETALS_SALT));
+		super(ModuleCore.typePotPourri, 8, Ingredient.fromTag(ModuleCore.PETALS_SALT));
 		setInventoryStackLimit(1);
 	}
 
 	public void onActivated(PlayerEntity player, Hand handIn)
 	{
 		ItemStack stackIn = player.getHeldItem(handIn);
-		if (isWhiteListed(stackIn))
+		for (int i = 0; i < getSizeInventory(); ++i)
 		{
-			for (int i = 0; i < getSizeInventory(); ++i)
+			int solt = isWhiteListed(stackIn) ? i : getSizeInventory() - i - 1;
+			boolean flag = isWhiteListed(stackIn) == getStackInSlot(solt).isEmpty();
+			if (flag)
 			{
-				if (getStackInSlot(i).isEmpty())
-				{
-					putHoldItemIn(player, handIn, i);
-					break;
-				}
-			}
-		}
-		else
-		{
-			for (int i = getSizeInventory() - 1; i >= 0; --i)
-			{
-				if (!getStackInSlot(i).isEmpty())
-				{
-					putHoldItemIn(player, handIn, i);
-					break;
-				}
+				putHoldItemIn(player, handIn, solt);
+				break;
 			}
 		}
 	}

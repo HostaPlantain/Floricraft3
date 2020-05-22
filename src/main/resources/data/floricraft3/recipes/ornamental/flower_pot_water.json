@@ -1,0 +1,17 @@
+{
+	"type": "crafting_shaped",
+	"pattern":
+	[
+		"D",
+		"P"
+	],
+	"key":
+	{
+		"D": { "item": "minecraft:water_bucket" },
+		"P": { "item": "minecraft:flower_pot" }
+	},
+	"result":
+	{
+		"item": "floricraft3:flower_pot_water"
+	}
+}

@@ -1,12 +1,13 @@
 {
-    "variants": {
-        "age=0": { "model": "floricraft3:block/crop_flax_0" },
-        "age=1": { "model": "floricraft3:block/crop_flax_1" },
-        "age=2": { "model": "floricraft3:block/crop_flax_2" },
-        "age=3": { "model": "floricraft3:block/crop_flax_3" },
-        "age=4": { "model": "floricraft3:block/crop_flax_4" },
-        "age=5": { "model": "floricraft3:block/crop_flax_5" },
-        "age=6": { "model": "floricraft3:block/crop_flax_6" },
-        "age=7": { "model": "floricraft3:block/crop_flax_7" }
-    }
+	"variants":
+	{
+		"age=0": { "model": "floricraft3:block/crop_flax_0" },
+		"age=1": { "model": "floricraft3:block/crop_flax_1" },
+		"age=2": { "model": "floricraft3:block/crop_flax_2" },
+		"age=3": { "model": "floricraft3:block/crop_flax_3" },
+		"age=4": { "model": "floricraft3:block/crop_flax_4" },
+		"age=5": { "model": "floricraft3:block/crop_flax_5" },
+		"age=6": { "model": "floricraft3:block/crop_flax_6" },
+		"age=7": { "model": "floricraft3:block/crop_flax_7" }
+	}
 }

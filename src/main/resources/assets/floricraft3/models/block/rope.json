@@ -1,6 +1,7 @@
 {
-    "parent": "floricraft3:block/side_only",
-    "textures": {
-        "side": "floricraft3:block/rope"
-    }
+	"parent": "floricraft3:block/side_only",
+	"textures":
+	{
+		"side": "floricraft3:block/rope"
+	}
 }

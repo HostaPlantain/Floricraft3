@@ -1,6 +1,7 @@
 {
-    "parent": "floricraft3:block/crop_flax",
-    "textures": {
-        "crop": "floricraft3:block/crop_flax_3"
-    }
+	"parent": "floricraft3:block/crop_flax",
+	"textures":
+	{
+		"crop": "floricraft3:block/crop_flax_3"
+	}
 }

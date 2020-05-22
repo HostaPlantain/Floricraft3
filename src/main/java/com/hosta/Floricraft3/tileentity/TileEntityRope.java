@@ -3,7 +3,7 @@ package com.hosta.Floricraft3.tileentity;
 import java.util.List;
 
 import com.hosta.Flora.tileentity.TileEntityBaseInventoryWithRender;
-import com.hosta.Floricraft3.module.ModuleFloricraft;
+import com.hosta.Floricraft3.module.ModuleCore;
 import com.hosta.Floricraft3.recipe.RecipeDrying;
 
 import net.minecraft.item.ItemStack;
@@ -21,7 +21,7 @@ public class TileEntityRope extends TileEntityBaseInventoryWithRender implements
 
 	public TileEntityRope()
 	{
-		super(ModuleFloricraft.typeRope, 1);
+		super(ModuleCore.typeRope, 1);
 		setInventoryStackLimit(1);
 	}
 

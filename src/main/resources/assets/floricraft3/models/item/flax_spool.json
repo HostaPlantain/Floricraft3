@@ -1,6 +1,7 @@
 {
-    "parent": "floricraft3:item/flax",
-    "textures": {
-        "layer0": "floricraft3:item/flax_spool"
-    }
+	"parent": "floricraft3:item/flax",
+	"textures":
+	{
+		"layer0": "floricraft3:item/flax_spool"
+	}
 }

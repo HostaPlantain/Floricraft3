@@ -1,5 +1,6 @@
 {
-    "variants": {
-        "": { "model": "floricraft3:block/ore_salt" }
-    }
+	"variants":
+	{
+		"": { "model": "floricraft3:block/ore_salt" }
+	}
 }
