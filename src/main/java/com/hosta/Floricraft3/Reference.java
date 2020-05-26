@@ -12,6 +12,7 @@ public class Reference {
 	public static final String	MOD_ID_SHORT	= "fc3";
 
 	public static final String	MODULE_ORNAMENTAL	= "ornamental";
+	public static final String	MODULE_FAILY		= "faily";
 
 	public static final String	MOD_ID_BOTANIA	= "botania";
 	public static final String	MOD_ID_CURIOS	= "curios";

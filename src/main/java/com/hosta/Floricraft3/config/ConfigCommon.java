@@ -55,6 +55,9 @@ public class ConfigCommon extends AbstractConfig {
 		isEnable(builder, Reference.MODULE_ORNAMENTAL);
 		builder.pop();
 
+		isEnable(builder, Reference.MODULE_FAILY);
+		builder.pop();
+
 		isEnable(builder, Reference.MOD_ID_BOTANIA);
 		builder.pop();
 

@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.hosta.Flora.potion.EffectBase;
 import com.hosta.Flora.util.EffectHelper;
-import com.hosta.Flora.util.UtilHelper;
+import com.hosta.Flora.util.ItemHelper;
 
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
@@ -27,11 +27,11 @@ public class EffectAntis extends EffectBase {
 	private final Tag<EntityType<?>>	ANTI_ENTITY;
 	private final Ingredient			RECIPE;
 
-	public EffectAntis(Tag<EntityType<?>> anits, ResourceLocation recipe)
+	public EffectAntis(EffectType typeIn, int liquidColorIn, Tag<EntityType<?>> anits, ResourceLocation recipe)
 	{
-		super(EffectType.BENEFICIAL, 0xFFDAFF);
+		super(typeIn, liquidColorIn);
 		this.ANTI_ENTITY = anits;
-		this.RECIPE = UtilHelper.getIngredient(recipe);
+		this.RECIPE = ItemHelper.getIngredient(recipe);
 	}
 
 	public Ingredient getRecipe()

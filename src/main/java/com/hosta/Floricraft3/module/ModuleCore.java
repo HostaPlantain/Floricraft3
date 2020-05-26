@@ -22,6 +22,7 @@ import com.hosta.Floricraft3.potion.EffectActive;
 import com.hosta.Floricraft3.potion.EffectAntis;
 import com.hosta.Floricraft3.recipe.RecipeBrewingVial;
 import com.hosta.Floricraft3.recipe.RecipeDrying;
+import com.hosta.Floricraft3.recipe.RecipeFlowerSachet;
 import com.hosta.Floricraft3.tileentity.TileEntityPotPourri;
 import com.hosta.Floricraft3.tileentity.TileEntityRope;
 
@@ -86,8 +87,10 @@ public class ModuleCore extends Module {
 	@ObjectHolder(Reference.MOD_ID + ":floric")
 	public static Potion	potionFloric;
 
+	@ObjectHolder(Reference.MOD_ID + ":crafting_sachet")
+	public static IRecipeSerializer<?>	recipeSachet;
 	@ObjectHolder(Reference.MOD_ID + ":drying")
-	public static IRecipeSerializer<?> recipeDrying;
+	public static IRecipeSerializer<?>	recipeDrying;
 
 	public static final Tag<Item>	PETALS_RAW	= new ItemTags.Wrapper(Reference.getResourceLocation("petalss/raw_all"));
 	public static final Tag<Item>	PETALS_SALT	= new ItemTags.Wrapper(Reference.getResourceLocation("petalss/salt_all"));
@@ -152,7 +155,7 @@ public class ModuleCore extends Module {
 			String name = potions.get(0);
 			Tag<EntityType<?>> tag = new EntityTypeTags.Wrapper(Reference.getResourceLocation(name));
 			ResourceLocation recipe = new ResourceLocation(potions.get(1));
-			register(name, new EffectAntis(tag, recipe));
+			register(name, new EffectAntis(EffectType.NEUTRAL, 0xFFDAFF, tag, recipe));
 		}
 	}
 
@@ -165,6 +168,7 @@ public class ModuleCore extends Module {
 	@Override
 	public void registerRecipes()
 	{
+		register("crafting_sachet", new RecipeFlowerSachet.Serializer());
 		register("drying", new RecipeBaseSingleItem.Serializer<>(RecipeDrying::new));
 	}
 

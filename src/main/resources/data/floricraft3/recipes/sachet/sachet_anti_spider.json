@@ -1,5 +1,5 @@
 {
-	"type": "crafting_shaped",
+	"type": "floricraft3:crafting_sachet",
 	"pattern":
 	[
 		"RRR",
@@ -14,10 +14,11 @@
 	},
 	"result":
 	{
-		"item": "floricraft3:sachet_flower",
-		"nbt":
-		{
-			"Potion": "floricraft3:floric_anti_spider_passive"
-		}
-	}
+		"item": "floricraft3:sachet_flower"
+	},
+	"effects":
+	[
+		"floricraft3:floric",
+		"floricraft3:anti_spider"
+	]
 }

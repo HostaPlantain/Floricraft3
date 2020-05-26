@@ -1,5 +1,5 @@
 {
-	"type": "crafting_shaped",
+	"type": "floricraft3:crafting_sachet",
 	"pattern":
 	[
 		"PPP",
@@ -12,10 +12,10 @@
 	},
 	"result":
 	{
-		"item": "floricraft3:sachet_flower",
-		"nbt":
-		{
-			"Potion": "floricraft3:floric_passive"
-		}
-	}
+		"item": "floricraft3:sachet_flower"
+	},
+	"effects":
+	[
+		"floricraft3:floric"
+	]
 }

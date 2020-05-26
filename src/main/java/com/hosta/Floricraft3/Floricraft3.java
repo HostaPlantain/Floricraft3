@@ -17,6 +17,7 @@ import com.hosta.Floricraft3.mod.jei.ModuleJEI;
 import com.hosta.Floricraft3.mod.tetra.ModuleTetra;
 import com.hosta.Floricraft3.mod.top.ModuleTOP;
 import com.hosta.Floricraft3.module.ModuleCore;
+import com.hosta.Floricraft3.module.ModuleFaily;
 import com.hosta.Floricraft3.module.ModuleOrnamental;
 import com.hosta.Floricraft3.proxy.ProxyClient;
 import com.hosta.Floricraft3.proxy.ProxyCommon;
@@ -50,6 +51,7 @@ public class Floricraft3 implements IMod {
 	{
 		registerModule(null, ModuleCore::new);
 		registerModule(null, () -> new ModuleOrnamental(Reference.MODULE_ORNAMENTAL));
+		registerModule(null, () -> new ModuleFaily(Reference.MODULE_FAILY));
 		registerModule(Reference.MOD_ID_BOTANIA, () -> new ModuleBotania(Reference.MOD_ID_BOTANIA));
 		registerModule(Reference.MOD_ID_CURIOS, () -> new ModuleCurios(Reference.MOD_ID_CURIOS));
 		registerModule(Reference.MOD_ID_JEI, () -> new ModuleJEI(Reference.MOD_ID_JEI));

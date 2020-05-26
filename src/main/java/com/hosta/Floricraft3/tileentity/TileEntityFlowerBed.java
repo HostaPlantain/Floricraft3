@@ -1,7 +1,7 @@
 package com.hosta.Floricraft3.tileentity;
 
 import com.hosta.Flora.tileentity.TileEntityBaseInventoryWithRender;
-import com.hosta.Flora.util.UtilHelper;
+import com.hosta.Flora.util.ItemHelper;
 import com.hosta.Floricraft3.module.ModuleOrnamental;
 
 import net.minecraft.block.BlockState;
@@ -78,7 +78,7 @@ public class TileEntityFlowerBed extends TileEntityBaseInventoryWithRender {
 		NonNullList<BlockState> list = initList();
 		for (int i = 0; i < list.size(); ++i)
 		{
-			list.set(i, UtilHelper.getBlockState(getStackInSlot(i)));
+			list.set(i, ItemHelper.getBlockState(getStackInSlot(i)));
 		}
 		return list;
 	}
