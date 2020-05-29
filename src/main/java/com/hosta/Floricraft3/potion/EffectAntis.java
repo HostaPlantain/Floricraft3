@@ -108,4 +108,10 @@ public class EffectAntis extends EffectBase {
 	{
 		return true;
 	}
+
+	@Override
+	public boolean isInstant()
+	{
+		return false;
+	}
 }

@@ -161,6 +161,40 @@
 	"block.floricraft3.block_salt":				"Salt Block",
 
 
+	"_comment":	"Advancements",
+
+	"floricraft3.advancements.story.root.title":					"Floricraft",
+	"floricraft3.advancements.story.root.description":				"Color your World!",
+
+	"floricraft3.advancements.story.cut_flower.title":				"Local Florist",
+	"floricraft3.advancements.story.cut_flower.description":		"",
+
+	"floricraft3.advancements.story.stack_dry_flower.title":		"Dried-up!",
+	"floricraft3.advancements.story.stack_dry_flower.description":	"Dry Flower Stack on Drying Rope",
+
+	"floricraft3.advancements.story.sachet_flower.title":			"What is the Smell Like?",
+	"floricraft3.advancements.story.sachet_flower.description":		"",
+
+	"floricraft3.advancements.story.vial_moon.title":				"Moon on the Water",
+	"floricraft3.advancements.story.vial_moon.description":			"",
+
+	"floricraft3.advancements.story.vial_mix.title":				"Perfumer",
+	"floricraft3.advancements.story.vial_mix.description":			"",
+
+	"floricraft3.advancements.story.dust_salt.title":				"It Tastes Like Salty",
+	"floricraft3.advancements.story.dust_salt.description":			"",
+
+	"floricraft3.advancements.story.potpourri.title":				"Sanctuary",
+	"floricraft3.advancements.story.potpourri.description":			"",
+
+
+	"_comment":	"Fairy Oranamental",
+
+	"item.floricraft3.fairy_wing":				"Fairy Wing",
+	"item.floricraft3.fairy_tale":				"Fairy Tale",
+	"item.floricraft3.fairy_dust":				"Fairy Dust",
+
+
 	"_comment":	"Module Oranamental",
 
 	"block.floricraft3.flower_pot":				"Better Flower Pot",
@@ -170,6 +204,15 @@
 
 	"biome.floricraft3.rose_land":				"Rose Land",
 	"biome.floricraft3.tulip_land":				"Tulip Land",
+
+
+	"_comment":	"Module JEI",
+
+	"floricraft3.drying.title":					"Drying",
+
+	"floricraft3.vial_moon.title":				"Moon Capturing",
+	"floricraft3.vial_moon.info":				"use Empty Vial to capture a Ghast Tear within Water, under the Moon.",
+	"floricraft3.vial_moon.info2":				"Required:",
 
 
 	"_comment":	"Module Botania",

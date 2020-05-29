@@ -1,0 +1,33 @@
+{
+	"parent": "floricraft3:story/vial_moon",
+	"display":
+	{
+		"icon": { "item": "floricraft3:vial_mix" },
+		"title": { "translate": "floricraft3.advancements.story.vial_mix.title" },
+		"description": { "translate": "floricraft3.advancements.story.vial_mix.description" },
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria":
+	{
+		"vial_mix":
+		{
+			"trigger": "minecraft:inventory_changed",
+			"conditions":
+			{
+				"items":
+				[
+					{ "item": "floricraft3:vial_mix" }
+				]
+			}
+		}
+	},
+	"requirements":
+	[
+		[
+			"vial_mix"
+		]
+	]
+}

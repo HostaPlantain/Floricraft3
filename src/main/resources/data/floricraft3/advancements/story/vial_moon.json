@@ -1,0 +1,33 @@
+{
+	"parent": "floricraft3:story/cut_flower",
+	"display":
+	{
+		"icon": { "item": "floricraft3:vial_moon" },
+		"title": { "translate": "floricraft3.advancements.story.vial_moon.title" },
+		"description": { "translate": "floricraft3.advancements.story.vial_moon.description" },
+		"frame": "goal",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria":
+	{
+		"vial_moon":
+		{
+			"trigger": "minecraft:inventory_changed",
+			"conditions":
+			{
+				"items":
+				[
+					{ "item": "floricraft3:vial_moon" }
+				]
+			}
+		}
+	},
+	"requirements":
+	[
+		[
+			"vial_moon"
+		]
+	]
+}

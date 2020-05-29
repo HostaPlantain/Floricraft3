@@ -1,0 +1,33 @@
+{
+	"parent": "floricraft3:story/root",
+	"display":
+	{
+		"icon": { "item": "floricraft3:dust_salt" },
+		"title": { "translate": "floricraft3.advancements.story.dust_salt.title" },
+		"description": { "translate": "floricraft3.advancements.story.dust_salt.description" },
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria":
+	{
+		"dust_salt":
+		{
+			"trigger": "minecraft:inventory_changed",
+			"conditions":
+			{
+				"items":
+				[
+					{ "tag": "forge:salt" }
+				]
+			}
+		}
+	},
+	"requirements":
+	[
+		[
+			"dust_salt"
+		]
+	]
+}

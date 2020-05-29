@@ -15,6 +15,7 @@ import com.hosta.Floricraft3.Floricraft3;
 import com.hosta.Floricraft3.Reference;
 import com.hosta.Floricraft3.block.BlockPotPourri;
 import com.hosta.Floricraft3.block.BlockRope;
+import com.hosta.Floricraft3.event.EventHandlerCore;
 import com.hosta.Floricraft3.item.ItemSachet;
 import com.hosta.Floricraft3.item.ItemVial;
 import com.hosta.Floricraft3.item.ItemVialFlower;
@@ -75,6 +76,8 @@ public class ModuleCore extends Module {
 	public static Item	stackFlower;
 	@ObjectHolder(Reference.MOD_ID + ":stack_dry_flower")
 	public static Item	stackDryFlower;
+	@ObjectHolder(Reference.MOD_ID + ":vial_empty")
+	public static Item	vialEmpty;
 	@ObjectHolder(Reference.MOD_ID + ":vial_water")
 	public static Item	vialWater;
 	@ObjectHolder(Reference.MOD_ID + ":vial_moon")
@@ -206,5 +209,6 @@ public class ModuleCore extends Module {
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, oreSalt.getDefaultState(), 20)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 0, 0, 256))));
 			}
 		}
+		registerEventHandler(new EventHandlerCore());
 	}
 }

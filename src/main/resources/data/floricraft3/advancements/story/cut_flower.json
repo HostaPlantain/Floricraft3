@@ -1,0 +1,33 @@
+{
+	"parent": "floricraft3:story/root",
+	"display":
+	{
+		"icon": { "item": "floricraft3:cut_rose" },
+		"title": { "translate": "floricraft3.advancements.story.cut_flower.title" },
+		"description": { "translate": "floricraft3.advancements.story.cut_flower.description" },
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria":
+	{
+		"cut_flower":
+		{
+			"trigger": "minecraft:inventory_changed",
+			"conditions":
+			{
+				"items":
+				[
+					{ "tag": "floricraft3:cut_flowers" }
+				]
+			}
+		}
+	},
+	"requirements":
+	[
+		[
+			"cut_flower"
+		]
+	]
+}

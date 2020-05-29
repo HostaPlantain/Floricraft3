@@ -1,19 +1,24 @@
 package com.hosta.Floricraft3.tileentity;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import com.hosta.Flora.tileentity.TileEntityBaseInventoryWithRender;
 import com.hosta.Floricraft3.module.ModuleCore;
 import com.hosta.Floricraft3.recipe.RecipeDrying;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.RecipeManager;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 
 public class TileEntityRope extends TileEntityBaseInventoryWithRender implements ITickableTileEntity {
 
-	private static final String	KEY_TICKABLE	= "tikable";
-	private List<RecipeDrying>	recipes			= null;
+	private static final String KEY_TICKABLE = "tikable";
+
+	private static final Collection<RecipeDrying>	RECIPES			= new ArrayList<RecipeDrying>();
+	private static RecipeManager					recipeManager	= null;
 
 	private boolean	tikable			= false;
 	private int		tick			= 0;
@@ -79,13 +84,31 @@ public class TileEntityRope extends TileEntityBaseInventoryWithRender implements
 		}
 	}
 
+	public static Collection<RecipeDrying> getRecipes(RecipeManager manager)
+	{
+		if (RECIPES.isEmpty() || recipeManager != manager)
+		{
+			reload(manager);
+		}
+		return RECIPES;
+	}
+
+	public static void reload(RecipeManager manager)
+	{
+		RECIPES.clear();
+		for (IRecipe<?> recipe : manager.getRecipes())
+		{
+			if (recipe instanceof RecipeDrying)
+			{
+				RECIPES.add((RecipeDrying) recipe);
+			}
+		}
+		recipeManager = manager;
+	}
+
 	private RecipeDrying matches()
 	{
-		if (recipes == null)
-		{
-			recipes = this.world.getRecipeManager().getRecipes(RecipeDrying.TYPE, this, this.world);
-		}
-		for (RecipeDrying recipe : recipes)
+		for (RecipeDrying recipe : getRecipes(this.world.getRecipeManager()))
 		{
 			if (recipe.matches(this, this.world))
 			{

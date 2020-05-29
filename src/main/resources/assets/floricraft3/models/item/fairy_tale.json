@@ -1,0 +1,7 @@
+{
+	"parent": "floricraft3:item/fairy",
+	"textures":
+	{
+		"layer0": "floricraft3:item/fairy_tale"
+	}
+}

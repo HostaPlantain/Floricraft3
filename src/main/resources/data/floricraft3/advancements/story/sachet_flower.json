@@ -1,0 +1,37 @@
+{
+	"parent": "floricraft3:story/stack_dry_flower",
+	"display":
+	{
+		"icon":
+		{
+			"item": "floricraft3:sachet_flower",
+			"nbt": "{Damage:0}"
+		},
+		"title": { "translate": "floricraft3.advancements.story.sachet_flower.title" },
+		"description": { "translate": "floricraft3.advancements.story.sachet_flower.description" },
+		"frame": "goal",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria":
+	{
+		"sachet_flower":
+		{
+			"trigger": "minecraft:inventory_changed",
+			"conditions":
+			{
+				"items":
+				[
+					{ "item": "floricraft3:sachet_flower" }
+				]
+			}
+		}
+	},
+	"requirements":
+	[
+		[
+			"sachet_flower"
+		]
+	]
+}

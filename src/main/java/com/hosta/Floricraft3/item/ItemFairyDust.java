@@ -1,21 +1,23 @@
 package com.hosta.Floricraft3.item;
 
 import com.hosta.Flora.IMod;
-import com.hosta.Flora.item.ItemBase;
+import com.hosta.Flora.item.ItemBaseAttributeAbstract;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttribute;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 
-public class ItemFailyDust extends ItemBase {
+public class ItemFairyDust extends ItemBaseAttributeAbstract {
 
-	public ItemFailyDust(IMod mod)
+	public ItemFairyDust(IMod mod)
 	{
-		super(mod);
+		super(mod, true, 0.01);
 	}
 
-	public static IAttribute getIAttribute(ItemStack output, EquipmentSlotType slot)
+	@Override
+	public IAttribute getIAttribute(ItemStack output, EquipmentSlotType slot)
 	{
 		if (slot == null)
 		{
@@ -26,16 +28,17 @@ public class ItemFailyDust extends ItemBase {
 			case HEAD:
 				return SharedMonsterAttributes.ATTACK_SPEED;
 			case CHEST:
-				return SharedMonsterAttributes.ARMOR_TOUGHNESS;
+				return PlayerEntity.REACH_DISTANCE;
 			case LEGS:
-				return SharedMonsterAttributes.MOVEMENT_SPEED;
-			case FEET:
 				return SharedMonsterAttributes.KNOCKBACK_RESISTANCE;
-			default:
+			case FEET:
+				return SharedMonsterAttributes.MOVEMENT_SPEED;
 			case MAINHAND:
 				return SharedMonsterAttributes.ATTACK_DAMAGE;
 			case OFFHAND:
 				return SharedMonsterAttributes.ATTACK_SPEED;
+			default:
+				return SharedMonsterAttributes.LUCK;
 		}
 	}
 }

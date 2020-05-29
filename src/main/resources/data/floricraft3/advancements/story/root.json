@@ -1,0 +1,33 @@
+{
+	"display":
+	{
+		"icon": { "item": "floricraft3:stack_flower" },
+		"title": { "translate": "floricraft3.advancements.story.root.title" },
+		"description": { "translate": "floricraft3.advancements.story.root.description" },
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false,
+		"background": "floricraft3:textures/gui/advancements/backgrounds/story.png"
+	},
+	"criteria":
+	{
+		"flower":
+		{
+			"trigger": "minecraft:inventory_changed",
+			"conditions":
+			{
+				"items":
+				[
+					{ "tag": "minecraft:flowers" }
+				]
+			}
+		}
+	},
+	"requirements":
+	[
+		[
+			"flower"
+		]
+	]
+}

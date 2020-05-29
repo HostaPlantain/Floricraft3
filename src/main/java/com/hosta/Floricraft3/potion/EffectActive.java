@@ -45,4 +45,10 @@ public class EffectActive extends EffectBase {
 		}
 		return ready;
 	}
+
+	@Override
+	public boolean isInstant()
+	{
+		return false;
+	}
 }

@@ -1,0 +1,33 @@
+{
+	"parent": "floricraft3:story/cut_flower",
+	"display":
+	{
+		"icon": { "item": "floricraft3:stack_dry_flower" },
+		"title": { "translate": "floricraft3.advancements.story.stack_dry_flower.title" },
+		"description": { "translate": "floricraft3.advancements.story.stack_dry_flower.description" },
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria":
+	{
+		"stack_dry_flower":
+		{
+			"trigger": "minecraft:inventory_changed",
+			"conditions":
+			{
+				"items":
+				[
+					{ "item": "floricraft3:stack_dry_flower" }
+				]
+			}
+		}
+	},
+	"requirements":
+	[
+		[
+			"stack_dry_flower"
+		]
+	]
+}

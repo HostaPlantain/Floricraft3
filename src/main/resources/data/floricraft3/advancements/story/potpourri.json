@@ -1,0 +1,33 @@
+{
+	"parent": "floricraft3:story/dust_salt",
+	"display":
+	{
+		"icon": { "item": "floricraft3:potpourri" },
+		"title": { "translate": "floricraft3.advancements.story.potpourri.title" },
+		"description": { "translate": "floricraft3.advancements.story.potpourri.description" },
+		"frame": "goal",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria":
+	{
+		"potpourri":
+		{
+			"trigger": "minecraft:inventory_changed",
+			"conditions":
+			{
+				"items":
+				[
+					{ "item": "floricraft3:potpourri" }
+				]
+			}
+		}
+	},
+	"requirements":
+	[
+		[
+			"potpourri"
+		]
+	]
+}

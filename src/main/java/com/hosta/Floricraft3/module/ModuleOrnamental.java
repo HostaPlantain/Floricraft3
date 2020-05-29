@@ -13,7 +13,6 @@ import com.hosta.Floricraft3.world.biome.BiomeFlowerLand;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.tags.ItemTags;
@@ -56,9 +55,9 @@ public class ModuleOrnamental extends AbstractModule {
 	@Override
 	public void registerBlocks()
 	{
-		register("flower_pot", new BlockEntityFlowerPot(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.1F).sound(SoundType.CLOTH), TileEntityFlowerPot::new));
-		register("flower_pot_water", new BlockEntityFlowerPotWater(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.1F).sound(SoundType.CLOTH), TileEntityFlowerPotWater::new));
-		register("flower_bed", new BlockEntityFlowerBed(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.1F).sound(SoundType.CLOTH), TileEntityFlowerBed::new));
+		register("flower_pot", new BlockEntityFlowerPot(Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F).notSolid(), TileEntityFlowerPot::new));
+		register("flower_pot_water", new BlockEntityFlowerPotWater(Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F).notSolid(), TileEntityFlowerPotWater::new));
+		register("flower_bed", new BlockEntityFlowerBed(Block.Properties.create(Material.EARTH).hardnessAndResistance(0.0F).notSolid(), TileEntityFlowerBed::new));
 	}
 
 	@Override
