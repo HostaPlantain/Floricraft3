@@ -55,7 +55,7 @@ public class TileEntityRope extends TileEntityBaseInventoryWithRender implements
 	@Override
 	public void tick()
 	{
-		if (!this.world.isRemote && this.tikable)
+		if (!this.world.isRemote() && this.tikable)
 		{
 			if (++this.tick > this.craftingTime)
 			{

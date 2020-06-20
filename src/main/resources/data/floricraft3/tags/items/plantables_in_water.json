@@ -2,7 +2,8 @@
 	"replace": false,
 	"values":
 	[
-		"#forge:water_plants",
-		"#forge:dead_corals"
+		"minecraft:kelp",
+		"minecraft:seagrass",
+		"minecraft:sea_pickle"
 	]
 }

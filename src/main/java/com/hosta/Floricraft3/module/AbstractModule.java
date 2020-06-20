@@ -18,6 +18,6 @@ public class AbstractModule extends Module {
 
 	public static boolean isEnableModule(String name)
 	{
-		return Floricraft3.CONFIG_COMMON.IS_ENABLE_MODDED_MODULE.get(name).get();
+		return Floricraft3.CONFIG_COMMON.ENABLE_MODULES.get(name).get();
 	}
 }

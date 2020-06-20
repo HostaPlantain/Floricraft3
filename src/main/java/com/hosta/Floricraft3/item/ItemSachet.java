@@ -70,7 +70,7 @@ public class ItemSachet extends ItemBasePotionTooltip implements IEffectsList {
 		return i;
 	}
 
-	public static void setPotionList(List<Effect> list)
+	public static void setPotionList(Effect[] list)
 	{
 		EffectInstance floric = EffectInstanceBuilder.passiveOf(ModuleCore.effectFloric);
 		List<Collection<EffectInstance>> sachetFlower = new ArrayList<Collection<EffectInstance>>();

@@ -39,7 +39,7 @@ public class BlockPotPourri extends BlockEntityBaseHorizontal implements IRender
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
 	{
-		if (!worldIn.isRemote)
+		if (!worldIn.isRemote())
 		{
 			TileEntity tileentity = worldIn.getTileEntity(pos);
 			if (tileentity instanceof TileEntityPotPourri)

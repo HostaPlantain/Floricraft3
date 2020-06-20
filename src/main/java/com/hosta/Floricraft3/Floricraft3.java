@@ -48,6 +48,7 @@ public class Floricraft3 implements IMod {
 	public void registerModules()
 	{
 		registerModule(null, ModuleCore::new);
+		// registerModule(null, ModuleDebug::new);
 		registerModule(null, () -> new ModuleOrnamental(Reference.MODULE_ORNAMENTAL));
 		// registerModule(null, () -> new ModuleFairy(Reference.MODULE_FAIRY));
 		registerModule(Reference.MOD_ID_BOTANIA, () -> new ModuleBotania(Reference.MOD_ID_BOTANIA));

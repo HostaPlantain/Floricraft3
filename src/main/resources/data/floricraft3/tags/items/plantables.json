@@ -2,9 +2,6 @@
 	"replace": false,
 	"values":
 	[
-		"#minecraft:leaves",
-		"#forge:plants",
-		"#forge:mushrooms",
-		"#forge:dead_plants"
+		"#minecraft:leaves"
 	]
 }

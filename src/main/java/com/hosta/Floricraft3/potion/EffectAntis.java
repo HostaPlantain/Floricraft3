@@ -42,7 +42,7 @@ public class EffectAntis extends EffectBase {
 	@Override
 	public void performEffect(LivingEntity entityLivingBaseIn, int amplifier)
 	{
-		if (entityLivingBaseIn.world.isRemote)
+		if (entityLivingBaseIn.world.isRemote())
 		{
 			return;
 		}

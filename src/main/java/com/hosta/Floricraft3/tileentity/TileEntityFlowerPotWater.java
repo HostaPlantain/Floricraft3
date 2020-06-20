@@ -2,6 +2,9 @@ package com.hosta.Floricraft3.tileentity;
 
 import com.hosta.Floricraft3.module.ModuleOrnamental;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.CoralBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 
@@ -17,6 +20,7 @@ public class TileEntityFlowerPotWater extends TileEntityFlowerPot {
 	@Override
 	protected boolean additionalWhiteList(ItemStack stack)
 	{
-		return false;
+		Block block = Block.getBlockFromItem(stack.getItem());
+		return block != Blocks.AIR && block instanceof CoralBlock;
 	}
 }

@@ -188,7 +188,12 @@
 	"floricraft3.advancements.story.potpourri.description":			"",
 
 
-	"_comment":	"Fairy Oranamental",
+	"_comment":	"Module Debug",
+
+	"item.floricraft3.debug":					"Debugger Tool",
+
+
+	"_comment":	"Module Fairy",
 
 	"item.floricraft3.fairy_wing":				"Fairy Wing",
 	"item.floricraft3.fairy_tale":				"Fairy Tale",

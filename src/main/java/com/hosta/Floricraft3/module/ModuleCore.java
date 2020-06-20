@@ -76,6 +76,8 @@ public class ModuleCore extends Module {
 	public static Item	stackFlower;
 	@ObjectHolder(Reference.MOD_ID + ":stack_dry_flower")
 	public static Item	stackDryFlower;
+	@ObjectHolder(Reference.MOD_ID + ":petal_raw_pink")
+	public static Item	petalPink;
 	@ObjectHolder(Reference.MOD_ID + ":vial_empty")
 	public static Item	vialEmpty;
 	@ObjectHolder(Reference.MOD_ID + ":vial_water")
@@ -163,7 +165,7 @@ public class ModuleCore extends Module {
 	}
 
 	@Override
-	public void registerPotions(List<Effect> list)
+	public void registerPotions(Effect[] list)
 	{
 		ItemSachet.setPotionList(list);
 	}
@@ -176,7 +178,7 @@ public class ModuleCore extends Module {
 	}
 
 	@Override
-	public void registerPotionRecipes(List<Potion> list)
+	public void registerPotionRecipes(Potion[] list)
 	{
 		List<Potion> vialFlower = new ArrayList<Potion>();
 		for (Potion potion : list)
@@ -202,11 +204,14 @@ public class ModuleCore extends Module {
 	@Override
 	public void setup(FMLCommonSetupEvent event)
 	{
-		for (Biome biome : GameRegistry.findRegistry(Biome.class).getValues())
+		if (Floricraft3.CONFIG_COMMON.enableSaltOreGen.get())
 		{
-			if (biome.getSurfaceBuilderConfig() == SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
+			for (Biome biome : GameRegistry.findRegistry(Biome.class).getValues())
 			{
-				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, oreSalt.getDefaultState(), 20)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 0, 0, 256))));
+				if (biome.getSurfaceBuilderConfig() == SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
+				{
+					biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, oreSalt.getDefaultState(), 20)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 0, 0, 256))));
+				}
 			}
 		}
 		registerEventHandler(new EventHandlerCore());

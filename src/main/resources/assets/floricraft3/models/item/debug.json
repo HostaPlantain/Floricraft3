@@ -1,0 +1,7 @@
+{
+	"parent": "floricraft3:item/tool",
+	"textures":
+	{
+		"layer0": "floricraft3:item/debug"
+	}
+}

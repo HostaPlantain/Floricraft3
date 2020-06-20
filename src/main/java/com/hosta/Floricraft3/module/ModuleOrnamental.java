@@ -2,10 +2,13 @@ package com.hosta.Floricraft3.module;
 
 import com.hosta.Flora.block.ITileEntitySupplier;
 import com.hosta.Flora.client.registry.ClientRegistries;
+import com.hosta.Floricraft3.Floricraft3;
 import com.hosta.Floricraft3.Reference;
 import com.hosta.Floricraft3.block.BlockEntityFlowerBed;
 import com.hosta.Floricraft3.block.BlockEntityFlowerPot;
 import com.hosta.Floricraft3.block.BlockEntityFlowerPotWater;
+import com.hosta.Floricraft3.client.particle.ParticlePetal;
+import com.hosta.Floricraft3.particle.ParticleDataPetal;
 import com.hosta.Floricraft3.tileentity.TileEntityFlowerBed;
 import com.hosta.Floricraft3.tileentity.TileEntityFlowerPot;
 import com.hosta.Floricraft3.tileentity.TileEntityFlowerPotWater;
@@ -14,7 +17,10 @@ import com.hosta.Floricraft3.world.biome.BiomeFlowerLand;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.item.Item;
+import net.minecraft.particles.ParticleType;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.tileentity.TileEntityType;
@@ -25,6 +31,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.ObjectHolder;
 
 public class ModuleOrnamental extends AbstractModule {
@@ -43,6 +50,9 @@ public class ModuleOrnamental extends AbstractModule {
 	public static Block									flowerBed;
 	@ObjectHolder(Reference.MOD_ID + ":flower_bed")
 	public static TileEntityType<TileEntityFlowerBed>	typeFlowerBed;
+
+	@ObjectHolder(Reference.MOD_ID + ":petals")
+	public static ParticleType<ParticleDataPetal> particlePetals;
 
 	public static final Tag<Item>	PLANTABLE		= new ItemTags.Wrapper(Reference.getResourceLocation("plantables"));
 	public static final Tag<Item>	PLANTABLE_WATER	= new ItemTags.Wrapper(Reference.getResourceLocation("plantables_in_water"));
@@ -71,14 +81,23 @@ public class ModuleOrnamental extends AbstractModule {
 	@Override
 	public void registerBiomes()
 	{
-		Biome.Builder builder = new Biome.Builder();
-		builder.surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
-		builder.precipitation(Biome.RainType.RAIN).category(Biome.Category.PLAINS);
-		builder.depth(0.3F).scale(0.0F).temperature(0.8F).downfall(0.4F).waterColor(4159204).waterFogColor(329011).parent((String) null);
-		Biome roseLand = register("rose_land", new BiomeFlowerLand(builder, Blocks.ROSE_BUSH));
-		BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(roseLand, 5));
-		Biome tulipLand = register("tulip_land", new BiomeFlowerLand(builder, Blocks.ORANGE_TULIP, Blocks.PINK_TULIP, Blocks.RED_TULIP, Blocks.WHITE_TULIP));
-		BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(tulipLand, 5));
+		if (Floricraft3.CONFIG_COMMON.enableFlowerLand.get())
+		{
+			Biome.Builder builder = new Biome.Builder();
+			builder.surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
+			builder.precipitation(Biome.RainType.RAIN).category(Biome.Category.PLAINS);
+			builder.depth(0.3F).scale(0.0F).temperature(0.8F).downfall(0.4F).waterColor(4159204).waterFogColor(329011).parent((String) null);
+			Biome roseLand = register("rose_land", new BiomeFlowerLand(builder, Blocks.ROSE_BUSH));
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(roseLand, 5));
+			Biome tulipLand = register("tulip_land", new BiomeFlowerLand(builder, Blocks.ORANGE_TULIP, Blocks.PINK_TULIP, Blocks.RED_TULIP, Blocks.WHITE_TULIP));
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(tulipLand, 5));
+		}
+	}
+
+	@Override
+	public void registerParticleTypes()
+	{
+		register("petals", new ParticleType<>(false, ParticleDataPetal.DESERIALIZER));
 	}
 
 	@Override
@@ -88,4 +107,14 @@ public class ModuleOrnamental extends AbstractModule {
 		ClientRegistries.BLOCK_COLORS.register(ClientRegistries.GRASS_COLOR, flowerBed);
 		ClientRegistries.ITEM_COLORS.register(ClientRegistries.COLOR_FROM_BLOCK, flowerBed.asItem());
 	}
+
+	@Override
+	@OnlyIn(Dist.CLIENT)
+	public void setup(FMLClientSetupEvent event)
+	{
+		@SuppressWarnings("resource")
+		ParticleManager manager = Minecraft.getInstance().particles;
+		manager.registerFactory(particlePetals, new ParticlePetal.Factory());
+	}
+
 }
